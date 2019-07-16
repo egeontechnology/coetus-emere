@@ -28,7 +28,7 @@ body{
 	color:white;
 	text-decoration:none;
 	font-size:18px;
-	padding:14px 15px;
+	padding:13px 15px;
 }
 
 #primary_nav_wrap ul li
@@ -73,7 +73,7 @@ body{
 }
 
 #primary_nav_wrap .current-menu-item a{
-	padding: 13px 17px 3px 22px;
+	padding: 12px 17px 0px 22px;
 	background-color: rgb(145, 88, 53);
 }
 
@@ -90,7 +90,7 @@ body{
 .icon img{
 	width: 40px;
 	filter: drop-shadow(2px 2px 3px black);
-	margin: -11px 0px 0px 0px;
+	margin: -7px 0px 0px 0px;
 }
 
 .right li input{
@@ -107,4 +107,37 @@ body{
 }
 .left{
 	float: left;
+}
+
+footer{
+	background-color: rgb(220, 243, 178);
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
+.redes i{
+	font-size: 43px;
+	color: rgb(5, 88, 5);
+	padding: 10px 40px 10px 40px;
+	filter: drop-shadow(1px 1px 1px black);
+}
+
+.redes{
+	text-align: center;
+}
+
+#avisolegal{
+	display: block;
+	position: absolute;
+	right: 28px;
+	bottom: -4px;
+}
+
+#avisolegal a{
+	text-decoration: none;
+	font-size: 16px;
+	padding: 0px 0px 9px 0px;
+	display: block;
+	color: rgb(5, 88, 5);
 }
