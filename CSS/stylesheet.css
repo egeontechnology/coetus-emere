@@ -28,9 +28,7 @@ body{
 	color:white;
 	text-decoration:none;
 	font-size:18px;
-	line-height:32px;
-	padding:0 15px;
-	height: 50px;
+	padding:14px 15px;
 }
 
 #primary_nav_wrap ul li
@@ -46,10 +44,10 @@ body{
 	background:rgb(5, 133, 5);
 }
 
-#primary_nav_wrap ul li:hover
-{
-	background:rgb(92, 150, 92);
+#primary_nav_wrap ul li:hover:not(.icon):not(.buscador){
+	background:rgb(199, 181, 19);
 }
+
 
 #primary_nav_wrap ul ul
 {
@@ -57,20 +55,15 @@ body{
 	position:absolute;
 	top:100%;
 	left:0;
-	background:rgb(5, 133, 5);
+	background:rgb(88, 148, 11);
 	padding:0
 }
 
 #primary_nav_wrap ul ul li
 {
 	float:none;
-	width:200px
-}
-
-#primary_nav_wrap ul ul a
-{
-	line-height:120%;
-	padding:10px 15px
+	width:200px;
+	border-block: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 #primary_nav_wrap ul ul ul
@@ -79,14 +72,34 @@ body{
 	left:100%
 }
 
+#primary_nav_wrap .current-menu-item a{
+	padding: 13px 17px 3px 22px;
+	background-color: rgb(145, 88, 53);
+}
+
 #primary_nav_wrap ul li:hover > ul
 {
-	display:block
+	display:block;
+}
+
+#primary_nav_wrap ul li:hover #primary_nav_wrap ul ul ul a{
+	position: absolute;
+	top: -1px;
 }
 
 .icon img{
 	width: 40px;
-    filter: drop-shadow(2px 2px 3px black);
+	filter: drop-shadow(2px 2px 3px black);
+	margin: -11px 0px 0px 0px;
+}
+
+.right li input{
+	margin: 10px 57px 0px 0px;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border: 0;
+	height: 26px;
+	width: 400px;
 }
 
 .right{
