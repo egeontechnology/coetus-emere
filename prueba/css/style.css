@@ -385,7 +385,7 @@ li > a:only-child:after { content: ''; }
 }
 
 .banner-top1 {
-    background: url(../images/1.jpg) no-repeat center;
+    background: url(../images/basket.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -394,7 +394,7 @@ li > a:only-child:after { content: ''; }
 }
 
 .banner-top2 {
-    background: url(../images/5.jpg) no-repeat center;
+    background: url(../images/farmers.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -424,14 +424,15 @@ li > a:only-child:after { content: ''; }
     text-transform: uppercase;
 }
 .w3layouts-banner-info p {
-    max-width: 650px;
-    color: #fff;
+    max-width: 820px;
+	color: #fff;
+	font-weight: normal;
 }
 .w3layouts-banner-info h4 {
     color: #eee;
     letter-spacing: 5px;
 	line-height: 35px;
-	/* text-transform: capitalize; */
+	font-weight: 600;
 }
 
 .w3layouts-banner-info i {
@@ -455,7 +456,7 @@ li > a:only-child:after { content: ''; }
 
 .button-style {
     padding: 15px 40px;
-    color: #fff;
+    color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
