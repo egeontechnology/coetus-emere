@@ -92,6 +92,28 @@ nav {
 	padding: 0; 
 }
 
+#icono{
+	position: relative;
+	bottom: 7px;
+}
+
+#campobusqueda{
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+#conjuntobuscador{
+	position: relative;
+	bottom: 7px;
+}
+
+#lupa{
+	border-color: #ddd;
+}
+
+#lupa i{
+	color: #ddd;
+}
+
 #logo a {
 	float: left;
     font-size: .8em;
@@ -357,10 +379,14 @@ li > a:only-child:after { content: ''; }
 
 @media all and (max-width : 330px) {
 
-	nav ul li {
-		display:block;
-		width: 94%;
-	}
+nav ul li {
+	display:block;
+	width: 94%;
+}
+
+nav h1{
+	font-size: 
+}
 
 }
 .user span.fa {

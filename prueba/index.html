@@ -26,8 +26,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	<!-- css files -->
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
-    <link href="css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<!-- //css files -->
 	
 	<link href="css/css_slider.css" type="text/css" rel="stylesheet" media="all">
@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- nav -->
 		<nav class="py-4 d-lg-flex">
 			<div id="logo">
-				<h1> <a href="index.html"><img src="images/carrot.png" alt="" width="40px" class="d-inline-block align-top"></span> La huerta en casa</a></h1>
+				<h1> <a href="index.html"><img id="icono" src="images/carrot.png" alt="" width="40px" class="d-inline-block align-top"></span> La huerta en casa</a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
@@ -55,9 +55,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="mr-lg-4 mr-2 nav-item dropdown"><a href="services.html">Blog</a></li>
 				<li class="mr-lg-4 mr-2"><a href="comingsoon.html">FAQ´s</a></li>
 				<li class="mr-lg-4 mr-2"><a href="contact.html">Contacto</a></li>
-				<li class="mr-lg-4 mr-2"><a href="contact.html">Buscador</a></li>
-				<li class="mr-lg-4 mr-2"><a href="contact.html">Cesta</a></li>
-				<li class="mr-lg-4 mr-2"><a href="contact.html">Usuario</a></li>
+				<li class="mr-lg-4 mr-2" id="conjuntobuscador"><div class="input-group mb-3">
+					<input type="text" class="form-control" id="campobusqueda" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="button" id="lupa"><i class="fa fa-search"></i></button>
+					</div>
+				</div>
+				</li>
+				<li class="mr-lg-4 mr-2"><a href="contact.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a></li>
+				<li class="mr-lg-4 mr-2"><a href="contact.html"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a></li>
 			</ul>
 		</nav>
 		<!-- //nav -->
@@ -314,18 +320,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<ul>
 				<li>
 					<p>
-						<span class="fa fa-map-marker mr-2"></span>Agriculture Business, 2nd Block, USA
+						<span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)
 					</p>
 				</li>
 				<li class="mx-4">
 					<p>
-						<span class="fa fa-phone mr-2"></span>+12(345) 6789 111.
+						<span class="fa fa-phone mr-2"></span>+34 666 66 66 66.
 					</p>
 				</li>
 				<li>
 					<p class="text-wh">
 						<span class="fa fa-envelope-open mr-2"></span>
-						<a href="mailto:info@example.com">Example@gmail.com</a>
+						<a href="mailto:info@example.com">lahuertaencasa@gmail.com</a>
 					</p>
 				</li>
 			</ul>
@@ -336,32 +342,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<ul>
 				<li>
 					<a href="#">
-						<span class="fa fa-facebook-square"></span>
+						<span class="fab fa-facebook-square"></span>
 					</a>
 				</li>
 				<li class="mx-2">
 					<a href="#">
-						<span class="fa fa-twitter-square"></span>
+						<span class="fab fa-twitter-square"></span>
 					</a>
 				</li>
 				<li class="">
 					<a href="#">
-						<span class="fa fa-google-plus-square"></span>
+						<span class="fab fa-google-plus-square"></span>
 					</a>
 				</li>
 				<li class="mx-2">
 					<a href="#">
-						<span class="fa fa-linkedin-square"></span>
+						<span class="fab fa-linkedin-square"></span>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-						<span class="fa fa-rss-square"></span>
+						<span class="fas fa-rss-square"></span>
 					</a>
 				</li>
 				<li class="ml-2">
 					<a href="#">
-						<span class="fa fa-pinterest-square"></span>
+						<span class="fab fa-pinterest-square"></span>
 					</a>
 				</li>
 			</ul>
@@ -369,8 +375,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- //social icons -->
 		<!-- copyright -->
 		<div class="w3l-copy text-center">
-			<p class="text-da">© 2019 Agro Harvest. All rights reserved | Design by
-				<a href="http://w3layouts.com/">W3layouts</a>
+			<p class="text-da">© 2019 La huerta en casa
 			</p>
 		</div>
 		<!-- //copyright -->
