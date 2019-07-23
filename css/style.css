@@ -90,6 +90,11 @@ header {
 nav { 
 	margin:0;
 	padding: 0; 
+	height: 84px;
+}
+
+#navegacion.container{
+	background-color: rgba(221, 221, 221, 0.2)
 }
 
 #icono{
@@ -106,6 +111,10 @@ nav {
 	bottom: 7px;
 }
 
+input type:text{
+	color: white; 
+}
+
 #lupa{
 	border-color: #ddd;
 }
@@ -116,7 +125,18 @@ nav {
 
 #logo a {
 	float: left;
-    font-size: .8em;
+    font-size: 24px;
+    display: initial;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: 600;
+    /* padding: 3px 0; */
+    border: none;
+}
+
+#logo p{
+	font-size: 24px;
     display: initial;
     margin: 0;
     letter-spacing: 1px;
@@ -125,6 +145,7 @@ nav {
     padding: 3px 0;
     border: none;
 }
+
 #logo a span.fa {
     color: #e8cd30;
 }
@@ -163,10 +184,17 @@ nav a {
     letter-spacing: 1px;
     padding-left: 0;
     padding-right: 0;
-	padding: 10px 0;
-    font-weight: 700;
+	font-weight: 700;
 }
 
+#logo a{
+	margin-top: -6px;
+}
+
+#logo a img{
+	position: relative;
+	bottom: 0px;
+}
 
 nav ul li ul li:hover { background: #f8f9fa; }
 
@@ -384,8 +412,8 @@ nav ul li {
 	width: 94%;
 }
 
-nav h1{
-	font-size: 
+#logo p{
+	display: none;
 }
 
 }
