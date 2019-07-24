@@ -86,57 +86,35 @@ header {
 	display: none;
 }
 
+/* Título FAQ's */
+article {
+    padding-top: 7%;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+/* Preguntas y respuestas */
+.agrupacionpreguntas{
+    text-align: center;
+}
+
+.pregunta {
+    padding: 3%;
+}
+
+#ultimarespuesta {
+    padding-bottom: 10%;
+
+}
 /* Giving a background-color to the nav container. */
 nav { 
 	margin:0;
 	padding: 0; 
-	height: 84px;
-}
-
-#navegacion.container{
-	background-color: rgba(221, 221, 221, 0.2)
-}
-
-#icono{
-	position: relative;
-	bottom: 7px;
-}
-
-#campobusqueda{
-	background-color: rgba(0, 0, 0, 0.2);
-}
-
-#conjuntobuscador{
-	position: relative;
-	bottom: 7px;
-}
-
-input type:text{
-	color: white; 
-}
-
-#lupa{
-	border-color: #ddd;
-}
-
-#lupa i{
-	color: #ddd;
 }
 
 #logo a {
 	float: left;
-    font-size: 24px;
-    display: initial;
-    margin: 0;
-    letter-spacing: 1px;
-    color: #fff;
-    font-weight: 600;
-    /* padding: 3px 0; */
-    border: none;
-}
-
-#logo p{
-	font-size: 24px;
+    font-size: .8em;
     display: initial;
     margin: 0;
     letter-spacing: 1px;
@@ -145,7 +123,6 @@ input type:text{
     padding: 3px 0;
     border: none;
 }
-
 #logo a span.fa {
     color: #e8cd30;
 }
@@ -184,17 +161,10 @@ nav a {
     letter-spacing: 1px;
     padding-left: 0;
     padding-right: 0;
-	font-weight: 700;
+	padding: 10px 0;
+    font-weight: 700;
 }
 
-#logo a{
-	margin-top: -6px;
-}
-
-#logo a img{
-	position: relative;
-	bottom: 0px;
-}
 
 nav ul li ul li:hover { background: #f8f9fa; }
 
@@ -407,14 +377,10 @@ li > a:only-child:after { content: ''; }
 
 @media all and (max-width : 330px) {
 
-nav ul li {
-	display:block;
-	width: 94%;
-}
-
-#logo p{
-	display: none;
-}
+	nav ul li {
+		display:block;
+		width: 94%;
+	}
 
 }
 .user span.fa {
@@ -439,7 +405,7 @@ nav ul li {
 }
 
 .banner-top1 {
-    background: url(../images/basket.jpg) no-repeat center;
+    background: url(../images/1.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -448,7 +414,7 @@ nav ul li {
 }
 
 .banner-top2 {
-    background: url(../images/farmers.jpg) no-repeat center;
+    background: url(../images/5.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -478,15 +444,14 @@ nav ul li {
     text-transform: uppercase;
 }
 .w3layouts-banner-info p {
-    max-width: 820px;
-	color: #fff;
-	font-weight: normal;
+    max-width: 650px;
+    color: #fff;
 }
 .w3layouts-banner-info h4 {
     color: #eee;
     letter-spacing: 5px;
 	line-height: 35px;
-	font-weight: 600;
+	/* text-transform: capitalize; */
 }
 
 .w3layouts-banner-info i {
@@ -510,7 +475,7 @@ nav ul li {
 
 .button-style {
     padding: 15px 40px;
-    color: rgb(255, 255, 255);
+    color: #fff;
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
@@ -581,6 +546,7 @@ p.about-text {
 .serives-agile h3.heading{
 	color: #fff;
 }
+
 .welcome-grid {
     width: 20%;
     float: left;
