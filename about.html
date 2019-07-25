@@ -41,21 +41,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- header -->
 <header>
-	<div class="container">
+	<div class="container" id="navegacion">
 		<!-- nav -->
 		<nav class="py-4 d-lg-flex">
 			<div id="logo">
-				<h1> <a href="index.html"><span class="fa fa-leaf"></span> Agro Harvest</a></h1>
+				<h1> <a href="index.html"><img id="icono" src="images/carrot.png" alt="" width="40px" class="d-inline-block align-top"></span> <p>La huerta en casa</p></a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
 			<ul class="menu mt-md-2 ml-auto">
-				<li class="mr-lg-4 mr-2"><a href="index.html">Home</a></li>
-				<li class="mr-lg-4 mr-2 active"><a href="about.html">About Us</a></li>
-				<li class="mr-lg-4 mr-2"><a href="services.html">Services</a></li>
-				<li class="mr-lg-4 mr-2"><a href="comingsoon.html">Gallery</a></li>
-				<li class="mr-lg-4 mr-2"><a href="contact.html">Contact</a></li>
-				<li class="mr-lg-4 mr-2"><span><span class="fa fa-phone"></span> +12 345 6789</span></li>
+				<li class="mr-lg-4 mr-2 active"><a href="about.html">Conoce el proyecto</a></li>
+				<li class="mr-lg-4 mr-2"><a href="services.html">Nuestra huerta</a></li>
+				<li class="mr-lg-4 mr-2 nav-item dropdown"><a href="blog.html">Blog</a></li>
+				<li class="mr-lg-4 mr-2 nav-item dropdown"><a href="services.html">Foro</a></li>
+				<li class="mr-lg-4 mr-2"><a href="comingsoon.html">FAQ´s</a></li>
+				<li class="mr-lg-4 mr-2"><a href="contact.html">Contacto</a></li>
+				<li class="mr-lg-4 mr-2" id="conjuntobuscador"><div class="input-group mb-3">
+					<input type="text" class="form-control" id="campobusqueda" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="button" id="lupa"><i class="fa fa-search"></i></button>
+					</div>
+				</div>
+				</li>
+				<li class="mr-lg-4 mr-2"><a href="comingsoon2.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a></li>
+				<li class="mr-lg-4 mr-2"><a href="login.html"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a></li>
 			</ul>
 		</nav>
 		<!-- //nav -->
