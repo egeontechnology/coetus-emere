@@ -86,35 +86,58 @@ header {
 	display: none;
 }
 
-/* Título FAQ's */
-article {
-    padding-top: 7%;
-    background-color: #FFFFFF;
-    text-align: center;
-}
-
-/* Preguntas y respuestas */
-.agrupacionpreguntas{
-    text-align: center;
-}
-
-.pregunta {
-    padding: 3%;
-}
-
-#ultimarespuesta {
-    padding-bottom: 10%;
-
-}
 /* Giving a background-color to the nav container. */
 nav { 
 	margin:0;
 	padding: 0; 
+	height: 84px;
+}
+
+#navegacion.container{
+	background-color: rgba(221, 221, 221, 0.2);
+	max-width: 100%;
+}
+
+#icono{
+	position: relative;
+	bottom: 7px;
+}
+
+#campobusqueda{
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+#conjuntobuscador{
+	position: relative;
+	bottom: 7px;
+}
+
+input type:text{
+	color: white; 
+}
+
+#lupa{
+	border-color: #ddd;
+}
+
+#lupa i{
+	color: #ddd;
 }
 
 #logo a {
 	float: left;
-    font-size: .8em;
+    font-size: 24px;
+    display: initial;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: 600;
+    /* padding: 3px 0; */
+    border: none;
+}
+
+#logo p{
+	font-size: 24px;
     display: initial;
     margin: 0;
     letter-spacing: 1px;
@@ -123,6 +146,7 @@ nav {
     padding: 3px 0;
     border: none;
 }
+
 #logo a span.fa {
     color: #e8cd30;
 }
@@ -161,10 +185,17 @@ nav a {
     letter-spacing: 1px;
     padding-left: 0;
     padding-right: 0;
-	padding: 10px 0;
-    font-weight: 700;
+	font-weight: 700;
 }
 
+#logo a{
+	margin-top: -6px;
+}
+
+#logo a img{
+	position: relative;
+	bottom: 0px;
+}
 
 nav ul li ul li:hover { background: #f8f9fa; }
 
@@ -233,15 +264,16 @@ li > a:only-child:after { content: ''; }
 /* Media Queries
 --------------------------------------------- */
 
-@media all and (max-width : 991px) {
+@media all and (max-width : 1105px) {
 
 	#logo {
-		display: block;
+		display: none;
 		padding: 0;
 		width: 100%;
 		text-align: center;
 		float: none;
 	}
+
 	.menu li.active a {
 		color: #009f4d;
 	}
@@ -269,7 +301,7 @@ li > a:only-child:after { content: ''; }
 		font-size: 20px;
 		text-decoration: none;
 		border: none;
-		float: right;
+		float: left;
 		background-color: #009f4d;
 		color: #fff;
 	}
@@ -283,6 +315,7 @@ li > a:only-child:after { content: ''; }
 		font-size: 15px;
 		letter-spacing: 1px;
 	}
+	
 
 	.toggle:hover {
 		color:#333;
@@ -377,10 +410,10 @@ li > a:only-child:after { content: ''; }
 
 @media all and (max-width : 330px) {
 
-	nav ul li {
-		display:block;
-		width: 94%;
-	}
+nav ul li {
+	display:block;
+	width: 94%;
+}
 
 }
 .user span.fa {
@@ -405,7 +438,7 @@ li > a:only-child:after { content: ''; }
 }
 
 .banner-top1 {
-    background: url(../images/1.jpg) no-repeat center;
+    background: url(../images/basket.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -414,7 +447,7 @@ li > a:only-child:after { content: ''; }
 }
 
 .banner-top2 {
-    background: url(../images/5.jpg) no-repeat center;
+    background: url(../images/farmers.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -444,14 +477,15 @@ li > a:only-child:after { content: ''; }
     text-transform: uppercase;
 }
 .w3layouts-banner-info p {
-    max-width: 650px;
-    color: #fff;
+    max-width: 820px;
+	color: #fff;
+	font-weight: normal;
 }
 .w3layouts-banner-info h4 {
     color: #eee;
     letter-spacing: 5px;
 	line-height: 35px;
-	/* text-transform: capitalize; */
+	font-weight: 600;
 }
 
 .w3layouts-banner-info i {
@@ -475,7 +509,7 @@ li > a:only-child:after { content: ''; }
 
 .button-style {
     padding: 15px 40px;
-    color: #fff;
+    color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
@@ -546,7 +580,6 @@ p.about-text {
 .serives-agile h3.heading{
 	color: #fff;
 }
-
 .welcome-grid {
     width: 20%;
     float: left;
@@ -1077,6 +1110,39 @@ form.newsletter {
 /* //newsletter */
 /*-- //services page --*/
 
+/*FAQ*/
+
+/* Título FAQ's */
+article {
+    padding-top: 7%;
+    background-color:#FFFFFF;
+    text-align: center;   
+
+}
+
+#FAQ{
+    font-size: 40px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* Preguntas y respuestas */
+.agrupacionpreguntas{
+    text-align: center;
+    padding-top: 5%;
+}
+
+.pregunta {
+    padding: 3%;
+}
+
+#ultimarespuesta {
+    padding-bottom: 10%;
+
+}
+
+/*FAQ*/
+
 /*-- contact --*/ 
 .contact-left input[type="text"],.contact-left input[type="email"]{
 	border: 1px solid #ccc;
@@ -1221,6 +1287,10 @@ a.move-top {
 @media(max-width:1366px) {
 	.banner-top, .banner-top1, .banner-top2, .banner-top3,.overlay,.overlay1 {
 		min-height: 750px;
+	}
+
+	#logo p{
+		display: none;
 	}
 }
 @media(max-width:1280px) {

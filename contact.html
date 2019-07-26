@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Agro Harvest Agriculture Category Flat Bootstrap Responsive Web Template | Contact :: w3layouts</title>
+<title>Contacto | La huerta en casa</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
@@ -38,23 +38,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 </head>
 <body>
-<!-- //header -->
+<!-- header -->
 <header>
-	<div class="container">
+	<div class="container" id="navegacion">
 		<!-- nav -->
 		<nav class="py-4 d-lg-flex">
 			<div id="logo">
-				<h1> <a href="index.html"><span class="fa fa-leaf"></span> Agro Harvest</a></h1>
+				<h1> <a href="index.html"><img id="icono" src="images/carrot.png" alt="" width="40px" class="d-inline-block align-top"></span> <p>La huerta en casa</p></a></h1>
 			</div>
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
 			<ul class="menu mt-md-2 ml-auto">
-				<li class="mr-lg-4 mr-2"><a href="index.html">Home</a></li>
-				<li class="mr-lg-4 mr-2"><a href="about.html">About Us</a></li>
-				<li class="mr-lg-4 mr-2"><a href="services.html">Services</a></li>
-				<li class="mr-lg-4 mr-2"><a href="comingsoon.html">Gallery</a></li>
-				<li class="mr-lg-4 mr-2 active"><a href="contact.html">Contact</a></li>
-				<li class="mr-lg-4 mr-2"><span><span class="fa fa-phone"></span> +12 345 6789</span></li>
+				<li class="mr-lg-4 mr-2"><a href="about.html">Conoce el proyecto</a></li>
+				<li class="mr-lg-4 mr-2"><a href="services.html">Nuestra huerta</a></li>
+				<li class="mr-lg-4 mr-2 nav-item dropdown"><a href="blog.html">Blog</a></li>
+				<li class="mr-lg-4 mr-2 nav-item dropdown"><a href="services.html">Foro</a></li>
+				<li class="mr-lg-4 mr-2"><a href="comingsoon.html">FAQ´s</a></li>
+				<li class="mr-lg-4 mr-2 active"><a href="contact.html">Contacto</a></li>
+				<li class="mr-lg-4 mr-2" id="conjuntobuscador"><div class="input-group mb-3">
+					<input type="text" class="form-control" id="campobusqueda" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="button" id="lupa"><i class="fa fa-search"></i></button>
+					</div>
+				</div>
+				</li>
+				<li class="mr-lg-4 mr-2"><a href="comingsoon2.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a></li>
+				<li class="mr-lg-4 mr-2"><a href="login.html"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a></li>
 			</ul>
 		</nav>
 		<!-- //nav -->
@@ -72,44 +81,60 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- contact -->
 <section class="contact py-5">
 	<div class="container py-sm-3">
-		<h3 class="heading mb-sm-5 mb-4 text-center"> Contact Us</h3>
+		<h3 class="heading mb-sm-5 mb-4 text-center"> Hola, ¿en qué podemos ayudarte?</h3>
 		<div class="row map-pos">
-			<div class="col-lg-4 col-md-6 address-row">
+			
+			<div class="col-lg-3 col-md-6 address-row">
 				<div class="row">
 					<div class="col-2 address-left">
 						<div class="contact-icon">
-							<span class="fa fa-home" aria-hidden="true"></span>
+							<img id="icono_lugar" src="images/gps.png" alt="" width="40px">
 						</div>
 					</div>
 					<div class="col-10 address-right">
-						<h5>Visit Us</h5>
-						<p>Agriculture Business, 2nd Block, Farm land, USA.</p>
+						<h5>Visítanos</h5>
+						<p>Calle de Lavapies, 46, 28012 Madrid</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-6 address-row w3-agileits">
+			<div class="col-lg-3 col-md-6 address-row w3-agileits">
 				<div class="row">
 					<div class="col-2 address-left">
 						<div class="contact-icon">
-							<span class="fa fa-envelope" aria-hidden="true"></span>
+							<img id="icono_email" src="images/email.png" alt="" width="30px">
 						</div>
 					</div>
 					<div class="col-10 address-right">
-						<h5>Mail Us</h5>
-						<p><a href="mailto:info@example.com">Example@gmail.com</a></p>
+						<h5>Escríbenos</h5>
+						<p><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-6 address-row">
+			<div class="col-lg-3 col-md-6 address-row">
 				<div class="row">
 					<div class="col-2 address-left">
 						<div class="contact-icon">
-							<span class="fa fa-phone" aria-hidden="true"></span>
+							<img id="icono_call" src="images/phone.png" alt="" width="35px">
 						</div>
 					</div>
 					<div class="col-10 address-right">
-						<h5>Call Us</h5>
-						<p>+12(345) 6789 111</p>
+						<h5>Llámanos</h5>
+						<p>(+34) 642 16 11 43</p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Seccion "Síguenos en RRSS" -->
+			<div class="col-lg-3 col-md-6 address-row">
+				<div class="row">
+					<div class="col-2 address-left">
+						<div class="contact-icon">
+							<img id="icono_rrss" src="images/rrss.png" alt="" width="35px">
+						</div>
+					</div>
+					<div class="col-10 address-right">
+						<h5>Síguenos</h5>
+						<p><a href="https://www.instagram.com/?hl=es" target="_blank"><img src="https://img.icons8.com/officel/30/000000/instagram-new.png"></a> <a href="https://www.pinterest.es/" target="_blank"><img src="https://img.icons8.com/officel/30/000000/pinterest.png"></a>  <a href="https://www.pinterest.es/" target="_blank"><img src="https://img.icons8.com/officel/30/000000/twitter.png"></a>  <a href="https://www.pinterest.es/" target="_blank"><img src="https://img.icons8.com/offices/30/000000/facebook.png"></a></p></p>
 					</div>
 				</div>
 			</div>
@@ -117,20 +142,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<form action="#" method="post">
 			<div class="row">
 				<div class="col-md-6 contact-left">
-					<input type="text" name="Name" placeholder="Your Name" required="">
-					<input type="email" name="Email" placeholder="Email" required="">
-					<input type="text" name="Mobile Number" placeholder="Mobile Number" required="">
+					<input type="text" name="Name" placeholder="Nombre*" required="">
+					<input type="email" name="Email" placeholder="Email*" required="">
+					<input type="text" name="Mobile Number" placeholder="Móvil (opcional)">
 				</div>
 				<div class="col-md-6 contact-right mt-md-0 mt-4">
-					<textarea name="Message" placeholder="Message" required=""></textarea>
-					<button class="btn">Submit</button>
+					<textarea name="Message" placeholder="Escribe aquí tu mensaje*" required=""></textarea>
+					<button class="btn" onclick="alert('Hemos recibido tu mensaje. Te responderemos en un plazo máximo de 48 horas. ¡Gracias!')">Envíanos tu consulta</button>
 				</div>
 			</div>
 		</form>
 		<!-- map -->
 		<div class="map mt-5">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859251.8642025779!2d-76.08274894689792!3d40.06224332601239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c0fb959e00409f%3A0x2cd27b07f83f6d8d!2sNew+Jersey%2C+USA!5e0!3m2!1sen!2sin!4v1474436926209"
-			 allowfullscreen></iframe>
+			<iframe id="mapafalso"></iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6075.939221316216!2d-3.702266!3d40.409524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42262b3a786155%3A0xda14fa689b2ce8ab!2sCalle+de+Lavapi%C3%A9s%2C+46%2C+28012+Madrid!5e0!3m2!1ses!2ses!4v1563911435859!5m2!1ses!2ses" 
+			allowfullscreen></iframe>
+
 		</div>
 		<!-- //map -->
 	</div>
@@ -138,83 +165,82 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //contact -->
 
 <!-- footer -->
-	<footer class="text-center py-5">
-		<div class="container py-md-3">
-			<!-- logo -->
-			<h2 class="logo2 text-center">
-				<a href="index.html">
-					<span class="fa fa-leaf"></span> Agro Harvest
-				</a>
-			</h2>
-			<!-- //logo -->
-			<!-- address -->
-			<div class="contact-left-footer mt-4">
-				<ul>
-					<li>
-						<p>
-							<span class="fa fa-map-marker mr-2"></span>Agriculture Business, 2nd Block, USA
-						</p>
-					</li>
-					<li class="mx-4">
-						<p>
-							<span class="fa fa-phone mr-2"></span>+12(345) 6789 111.
-						</p>
-					</li>
-					<li>
-						<p class="text-wh">
-							<span class="fa fa-envelope-open mr-2"></span>
-							<a href="mailto:info@example.com">Example@gmail.com</a>
-						</p>
-					</li>
-				</ul>
-			</div>
-			<!-- //address -->
-			<!-- social icons -->
-			<div class="footercopy-social my-4">
-				<ul>
-					<li>
-						<a href="#">
-							<span class="fa fa-facebook-square"></span>
-						</a>
-					</li>
-					<li class="mx-2">
-						<a href="#">
-							<span class="fa fa-twitter-square"></span>
-						</a>
-					</li>
-					<li class="">
-						<a href="#">
-							<span class="fa fa-google-plus-square"></span>
-						</a>
-					</li>
-					<li class="mx-2">
-						<a href="#">
-							<span class="fa fa-linkedin-square"></span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="fa fa-rss-square"></span>
-						</a>
-					</li>
-					<li class="ml-2">
-						<a href="#">
-							<span class="fa fa-pinterest-square"></span>
-						</a>
-					</li>
-				</ul>
-			</div>
-			<!-- //social icons -->
-			<!-- copyright -->
-			<div class="w3l-copy text-center">
-				<p class="text-da">© 2019 Agro Harvest. All rights reserved | Design by
-					<a href="http://w3layouts.com/">W3layouts</a>
-				</p>
-			</div>
-			<!-- //copyright -->
+<footer class="text-center py-5">
+	<div class="container py-md-3">
+		<!-- logo -->
+		<h2 class="logo2 text-center">
+			<a href="index.html">
+				<img src="images/carrot.png" alt="" width="40px"></span> La huerta en casa
+			</a>
+		</h2>
+		<!-- //logo -->
+		<!-- address -->
+		<div class="contact-left-footer mt-4">
+			<ul>
+				<li>
+					<p>
+						<span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)
+					</p>
+				</li>
+				<li class="mx-4">
+					<p>
+						<span class="fa fa-phone mr-2"></span>+34 666 66 66 66.
+					</p>
+				</li>
+				<li>
+					<p class="text-wh">
+						<span class="fa fa-envelope-open mr-2"></span>
+						<a href="mailto:info@example.com">lahuertaencasa@gmail.com</a>
+					</p>
+				</li>
+			</ul>
 		</div>
-	</footer>
-	<!-- //footer -->
+		<!-- //address -->
+		<!-- social icons -->
+		<div class="footercopy-social my-4">
+			<ul>
+				<li>
+					<a href="#">
+						<span class="fab fa-facebook-square"></span>
+					</a>
+				</li>
+				<li class="mx-2">
+					<a href="#">
+						<span class="fab fa-twitter-square"></span>
+					</a>
+				</li>
+				<li class="">
+					<a href="#">
+						<span class="fab fa-google-plus-square"></span>
+					</a>
+				</li>
+				<li class="mx-2">
+					<a href="#">
+						<span class="fab fa-linkedin-square"></span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="fas fa-rss-square"></span>
+					</a>
+				</li>
+				<li class="ml-2">
+					<a href="#">
+						<span class="fab fa-pinterest-square"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- //social icons -->
+		<!-- copyright -->
+		<div class="w3l-copy text-center">
+			<p class="text-da">© 2019 La huerta en casa
+			</p>
+		</div>
+		<!-- //copyright -->
+	</div>
+</footer>
+<!-- //footer -->
 
 	<!-- move top icon -->
 	<a href="#home" class="move-top text-center"></a>
