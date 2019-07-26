@@ -1110,6 +1110,39 @@ form.newsletter {
 /* //newsletter */
 /*-- //services page --*/
 
+/*FAQ*/
+
+/* Título FAQ's */
+article {
+    padding-top: 7%;
+    background-color:#FFFFFF;
+    text-align: center;   
+
+}
+
+#FAQ{
+    font-size: 40px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* Preguntas y respuestas */
+.agrupacionpreguntas{
+    text-align: center;
+    padding-top: 5%;
+}
+
+.pregunta {
+    padding: 3%;
+}
+
+#ultimarespuesta {
+    padding-bottom: 10%;
+
+}
+
+/*FAQ*/
+
 /*-- contact --*/ 
 .contact-left input[type="text"],.contact-left input[type="email"]{
 	border: 1px solid #ccc;
