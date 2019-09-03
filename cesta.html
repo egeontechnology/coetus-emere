@@ -27,7 +27,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- css files -->
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
     <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
-    <link href="css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+	<link href="css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+	<link rel="stylesheet" href="css/cesta.css" rel="stylesheet" type="text/css"><!-- css de cesta.html -->
 	<!-- //css files -->
 	
 	<link href="css/css_slider.css" type="text/css" rel="stylesheet" media="all">
@@ -40,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- //header -->
 <header>
-	<div class="container">
+	<div class="container" id="navegacion">
 		<!-- nav -->
 		<nav class="py-4 d-lg-flex">
 			<div id="logo">
@@ -78,103 +79,190 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- //banner -->
 
-<!-- Comingsoon -->
-<section class="comingsoon py-5">
-	<div class="container py-md-5">
-		<div class="row">
-			<div class="col-lg-6 offset-lg-6 col-md-8 offset-md-4">
-				<h4>Under Construction</h4>
-				<p class="mt-3">Our Gallery page is currently undergoing scheduled maintenance. We should be back shortly. Thank you for your patience.</p>
-				<div class="mt-4">
-					<form action="#" method="post" class="newsletter">
-						<input class="email" type="email" placeholder="Enter your email id..." required="">
-						<button class="form-control btn" value="">Subscribe</button>
-					</form>
-				</div>
-				<p class="mt-2">Sign up now to get early notification!</p>
+<!-- Cuerpo cesta  -->
+<div class="container" id="cestapag">
+	<div class="row">
+		<div class="col-9">
+			<h2>(4) artículo/s es tu cesta</h2>
+			<table class="table table-striped" id="tablacesta">
+				<thead>
+					<tr>
+						<th class="primerafila">Artículo</th>
+						<th></th>
+						<th class="otrosfila">Precio</th>
+						<th class="otrosfila">Unidades</th>
+						<th class="otrosfila">Total</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="align-middle">
+							<img id="articesta" src="images/cereal.png" alt="">
+						</td>
+						<td class="align-middle otrosfila"><p>Pan de masa madre</p></td>
+						<td class="align-middle otrosfila">1.50 €</td>
+						<td>
+							<div class="input-group mb-3 align-middle" id="contadorcesta">
+								<button class="btn btn-outline-secondary" id="btnud">-</button>
+								<input class="form-control" type="numeric" value="1">
+								<button class="btn btn-outline-secondary">+</button>
+							</div>
+						</td>
+						<td class="align-middle otrosfila">3 €</td>
+						<td class="align-middle">
+							<img src="images/close.png" alt="" id="delete">
+						</td>
+					</tr>
+					<tr>
+							<td class="align-middle">
+								<img id="articesta" src="images/carrot.png" alt="">
+							</td>
+							<td class="align-middle otrosfila"><p>Zanahoria ecológica (1kg)</p></td>
+							<td class="align-middle otrosfila">3 €</td>
+							<td>
+								<div class="input-group mb-3 align-middle" id="contadorcesta">
+									<button class="btn btn-outline-secondary" id="btnud">-</button>
+									<input class="form-control" type="numeric" value="1">
+									<button class="btn btn-outline-secondary">+</button>
+								</div>
+							</td>
+							<td class="align-middle otrosfila">6 €</td>
+							<td class="align-middle">
+									<img src="images/close.png" alt="" id="delete">
+							</td>
+					</tr>
+					<tr>
+							<td class="align-middle">
+								<img id="articesta" src="images/calab.png" alt="">
+							</td>
+							<td class="align-middle otrosfila"><p>Calabacines verdes (2kg)</p></td>
+							<td class="align-middle otrosfila">2 €</td>
+							<td>
+								<div class="input-group mb-3 align-middle" id="contadorcesta">
+									<button class="btn btn-outline-secondary" id="btnud">-</button>
+									<input class="form-control" type="numeric" value="1">
+									<button class="btn btn-outline-secondary">+</button>
+								</div>
+							</td>
+							<td class="align-middle otrosfila">2 €</td>
+							<td class="align-middle">
+									<img src="images/close.png" alt="" id="delete">
+							</td>
+					</tr>
+					<tr>
+							<td class="align-middle">
+								<img id="articesta" src="images/legumbres.jpg" alt="">
+							</td>
+							<td class="align-middle otrosfila"><p>Judia de Barco de Ávila (1kg)</p></td>
+							<td class="align-middle otrosfila">1 €</td>
+							<td>
+								<div class="input-group mb-3 align-middle" id="contadorcesta">
+									<button class="btn btn-outline-secondary" id="btnud">-</button>
+									<input class="form-control" type="numeric" value="1">
+									<button class="btn btn-outline-secondary">+</button>
+								</div>
+							</td>
+							<td class="align-middle otrosfila">3 €</td>
+							<td class="align-middle">
+									<img src="images/close.png" alt="" id="delete">
+							</td>
+					</tr>
+				</tbody>
+			</table>
+			<button class="btn btn-outline-secondary" id="vaciarcesta"><img src="images/papelera.png" alt="">   Vaciar cesta</button>
+			<button class="btn btn-outline-secondary" id="total">Seguir comprando</button>
+		</div>
+		<div class="col-3" id="envio">
+			<div class="rounded" id="cuadrototal">
+				<h6>Realiza el pago ahora y recibe los productos para el <b><span>viernes 6 de septiembre</span></b></h6>
+				<hr>
+				<p>TOTAL <span id="total">20 €</span></p>
+			</div> <br>
+			<div class="align-middle">
+				<button class="btn btn-success" id="btnpedido">REALIZAR PEDIDO</button>
 			</div>
 		</div>
 	</div>
-</section>
-<!-- //Comingsoon -->
+</div>
+
 
 <!-- footer -->
-	<footer class="text-center py-5">
-		<div class="container py-md-3">
-			<!-- logo -->
-			<h2 class="logo2 text-center">
-				<a href="index.html">
-					<span class="fa fa-leaf"></span> Agro Harvest
-				</a>
-			</h2>
-			<!-- //logo -->
-			<!-- address -->
-			<div class="contact-left-footer mt-4">
-				<ul>
-					<li>
-						<p>
-							<span class="fa fa-map-marker mr-2"></span>Agriculture Business, 2nd Block, USA
-						</p>
-					</li>
-					<li class="mx-4">
-						<p>
-							<span class="fa fa-phone mr-2"></span>+12(345) 6789 111.
-						</p>
-					</li>
-					<li>
-						<p class="text-wh">
-							<span class="fa fa-envelope-open mr-2"></span>
-							<a href="mailto:info@example.com">Example@gmail.com</a>
-						</p>
-					</li>
-				</ul>
-			</div>
-			<!-- //address -->
-			<!-- social icons -->
-			<div class="footercopy-social my-4">
-				<ul>
-					<li>
-						<a href="#">
-							<span class="fa fa-facebook-square"></span>
-						</a>
-					</li>
-					<li class="mx-2">
-						<a href="#">
-							<span class="fa fa-twitter-square"></span>
-						</a>
-					</li>
-					<li class="">
-						<a href="#">
-							<span class="fa fa-google-plus-square"></span>
-						</a>
-					</li>
-					<li class="mx-2">
-						<a href="#">
-							<span class="fa fa-linkedin-square"></span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="fa fa-rss-square"></span>
-						</a>
-					</li>
-					<li class="ml-2">
-						<a href="#">
-							<span class="fa fa-pinterest-square"></span>
-						</a>
-					</li>
-				</ul>
-			</div>
-			<!-- //social icons -->
-			<!-- copyright -->
-			<div class="w3l-copy text-center">
-				<p class="text-da">© 2019 Agro Harvest. All rights reserved | Design by
-					<a href="http://w3layouts.com/">W3layouts</a>
-				</p>
-			</div>
-			<!-- //copyright -->
+<footer class="text-center py-5">
+	<div class="container py-md-3">
+		<!-- logo -->
+		<h2 class="logo2 text-center">
+			<a href="index.html">
+				<img src="images/carrot.png" alt="" width="40px"></span> La huerta en casa
+			</a>
+		</h2>
+		<!-- //logo -->
+		<!-- address -->
+		<div class="contact-left-footer mt-4">
+			<ul>
+				<li>
+					<p>
+						<span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)
+					</p>
+				</li>
+				<li class="mx-4">
+					<p>
+						<span class="fa fa-phone mr-2"></span>+34 666 66 66 66.
+					</p>
+				</li>
+				<li>
+					<p class="text-wh">
+						<span class="fa fa-envelope-open mr-2"></span>
+						<a href="mailto:info@example.com">lahuertaencasa@gmail.com</a>
+					</p>
+				</li>
+			</ul>
 		</div>
-	</footer>
+		<!-- //address -->
+		<!-- social icons -->
+		<div class="footercopy-social my-4">
+			<ul>
+				<li>
+					<a href="#">
+						<span class="fab fa-facebook-square"></span>
+					</a>
+				</li>
+				<li class="mx-2">
+					<a href="#">
+						<span class="fab fa-twitter-square"></span>
+					</a>
+				</li>
+				<li class="">
+					<a href="#">
+						<span class="fab fa-google-plus-square"></span>
+					</a>
+				</li>
+				<li class="mx-2">
+					<a href="#">
+						<span class="fab fa-linkedin-square"></span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="fas fa-rss-square"></span>
+					</a>
+				</li>
+				<li class="ml-2">
+					<a href="#">
+						<span class="fab fa-pinterest-square"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- //social icons -->
+		<!-- copyright -->
+		<div class="w3l-copy text-center">
+			<p class="text-da">© 2019 La huerta en casa
+			</p>
+		</div>
+		<!-- //copyright -->
+	</div>
+</footer>
 	<!-- //footer -->
 
 	<!-- move top icon -->

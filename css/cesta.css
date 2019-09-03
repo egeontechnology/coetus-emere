@@ -1,0 +1,57 @@
+#cestapag{
+    padding: 40px;
+    align-content: center;
+    min-height: 450px;
+}
+
+#articesta{
+    height: 50px;
+}
+
+
+.otrosfila{
+    text-align: center;
+}
+
+#contadorcesta{
+    width: 50%;
+    margin: auto;
+}
+
+#btnud{
+    width: 35px;
+}
+
+#delete{
+    height: 12px;
+    opacity: 0.3;
+}
+
+#vaciarcesta{
+    width: 25%;
+}
+
+#vaciarcesta img{
+    opacity: 0.4;
+    height: 16px;
+}
+
+#envio{
+    position: relative;
+    padding-top: 40px;
+}
+
+#total{
+    position: absolute;
+    right: 30px;
+}
+
+#cuadrototal{
+    background-color: rgba(168, 168, 168, 0.2);
+    padding: 10px;
+}
+
+#btnpedido{
+    width: 100%;
+    font-size: 16px;
+}
