@@ -12,6 +12,15 @@ body {
 	font-family: 'Thasadith', sans-serif;
 }
 
+nav ::placeholder{
+	color: white !important;
+}
+
+#conjuntobuscador input:focus{
+	box-shadow: none;
+	border-color: white;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -831,7 +840,7 @@ footer{
 
 /*-- inner banner --*/
 .inner-banner{
-    background: url(../images/2.jpg) no-repeat center;
+    background: url(../images/banner.png) no-repeat center;
     background-size: cover;
 	min-height: 250px;
 	position: relative;
