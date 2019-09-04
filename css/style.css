@@ -72,6 +72,30 @@ ul {
     padding: 0;
 }
 
+#login-page {
+    background:url("images/contact.jpeg");
+}
+
+/* Efecto negrita al hacer click en el widget */
+form input[type="text"]:focus, 
+form input[type="email"]:focus, 
+form textarea:focus  {
+    border: 2px solid black;
+}
+
+/* Subrayado palabras sección "únete" (home)*/
+.resaltar {
+    color: #FFA21D;
+}
+
+.resaltar2 {
+    color: #17B531;
+}
+
+/* quitar mapa */
+#mapafalso {
+    height: 0;
+}
 
 /*-- header --*/
 
@@ -905,7 +929,7 @@ h4.abt-text {
 
 /* stats */
 section.w3_stats {
-    background: url(../images/1.jpg) no-repeat center;
+    background: url(../images/cosecha.jpg) no-repeat center;
     background-size: cover;
     position: relative;
 }
