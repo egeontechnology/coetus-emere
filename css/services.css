@@ -1,0 +1,34 @@
+#nuesprod{
+    background-color: #009f4d;
+    width: 100%;
+}
+
+#nuesprod h3{
+    color: white;
+    font-size: 40px;
+    margin: auto;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+#productos{
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+#productos tbody tr th img{
+    max-width: 200px;
+    max-height: 200px;
+    margin-top:20px;
+}
+
+#productos tbody tr th{
+    color: white;
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
