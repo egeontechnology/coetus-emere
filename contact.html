@@ -55,7 +55,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="mr-lg-4 mr-2 nav-item dropdown"><a href="services.html">Foro</a></li>
 				<li class="mr-lg-4 mr-2"><a href="faq.html">FAQ´s</a></li>
 				<li class="mr-lg-4 mr-2 active"><a href="contact.html">Contacto</a></li>
-				<li class="mr-lg-4 mr-2" id="conjuntobuscador"><div class="input-group mb-3">
+				<li class="mr-lg-4 mr-2" id="conjuntobuscador">
+					<div class="input-group mb-3">
 					<input type="text" class="form-control" id="campobusqueda" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
 					<div class="input-group-append">
 					<button class="btn btn-outline-secondary" type="button" id="lupa"><i class="fa fa-search"></i></button>
@@ -139,8 +140,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		</div>
+		<div class="row">
 		<form action="#" method="post">
-			<div class="row">
+			<div class="row">	
 				<div class="col-md-6 contact-left">
 					<input type="text" name="Name" placeholder="Nombre*" required="">
 					<input type="email" name="Email" placeholder="Email*" required="">
@@ -150,8 +152,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<textarea name="Message" placeholder="Escribe aquí tu mensaje*" required=""></textarea>
 					<button class="btn" onclick="alert('Hemos recibido tu mensaje. Te responderemos en un plazo máximo de 48 horas. ¡Gracias!')">Envíanos tu consulta</button>
 				</div>
-			</div>
+			</div>	
 		</form>
+		</div>
 		<!-- map PENDIENTE!!!!!!!!!!!!!!!! ===> FALTA ARREGLAR EL MAPA PARA QUE NO HAGA EFECTO RARO-->
 		<!-- <div class="map mt-5">
 			<iframe id="mapafalso"></iframe>
@@ -160,6 +163,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		</div> -->
 		<!-- //map -->
+		
+		<div class="row mt-4">
+			<div class="col-12">
+				<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 300px;">
+					<iframe class="w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6075.939221316216!2d-3.702266!3d40.409524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42262b3a786155%3A0xda14fa689b2ce8ab!2sCalle+de+Lavapi%C3%A9s%2C+46%2C+28012+Madrid!5e0!3m2!1ses!2ses!4v1563911435859!5m2!1ses!2ses" frameborder="0" style="border:0 w-100" allowfullscreen></iframe>
+				</div>
+		</div>
+		</div>
+	
 	</div>
 </section>
 <!-- //contact -->
@@ -246,6 +258,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<a href="#home" class="move-top text-center"></a>
 	<!-- //move top icon -->
 
-	
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  	
 </body>
 </html>

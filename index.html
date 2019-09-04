@@ -25,7 +25,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 	
 	<!-- css files -->
-    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+	<!--<link href="css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 	<link href="css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<!-- //css files -->
@@ -38,7 +41,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 </head>
 <body>
-
+<!-- Modal -->
+<div class="modal fade mt-5 col-md-4 ml-auto" id="loginform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				</div>
+				<div class="modal-body">
+						<div class="form">
+								<form class="register-form">
+									<div id="tipousuario">
+										<input type="radio" name="user"> Consumidor 
+										<input type="radio" name="user"> Productor 
+									</div>
+								  <input type="text" name="nombre" id="registro_nombre" placeholder="Nombre"required/>
+								  <input type="text" placeholder="Apellido"/>
+								  <input type="text" placeholder="Email"/>
+								  <input type="password" placeholder="Contraseña"/>
+								  <input type="password" placeholder="Confirmar contraseña"/>
+								  <button>¡Únete!</button>
+								  <input type="checkbox"> Acepto política de privacidad <br>
+								  <p class="message">Ya estoy registrado <a href="#">Conectarse</a></p>
+								</form>
+								<form class="login-form">
+								  <input type="text" placeholder="Nombre"/>
+								  <input type="password" placeholder="Contraseña"/>
+								  <button>Acceder</button>
+								   <p><input type="checkbox"> Recuérdame <br>
+								  <p class="message">No estoy registrado <a href="#">Crear una cuenta</a></p>
+								</form>
+							  </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <!-- header -->
 <header>
 	<div class="container" id="navegacion">
@@ -64,11 +108,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				</li>
 				<li class="mr-lg-4 mr-2"><a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a></li>
-				<li class="mr-lg-4 mr-2"><a href="login.html"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a></li>
+				<li class="mr-lg-4 mr-2"><a data-toggle="modal" data-target="#loginform" href="login.html"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a></li>
 			</ul>
 		</nav>
 		<!-- //nav -->
 	</div>
+	
 </header>
 <!-- //header -->
 
@@ -357,6 +402,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- move top icon -->
 <a href="#home" class="move-top text-center"></a>
 <!-- //move top icon -->
-	
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 </body>
 </html>

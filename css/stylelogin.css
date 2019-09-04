@@ -58,9 +58,17 @@
 .container {
   position: relative;
   z-index: 1;
-  max-width: 300px;
   margin: 0 auto;
 }
+
+#formulario{
+  max-width: 300px;
+}
+
+/* #tipousuario{
+  display: inline-block;
+} */
+
 .container:before, .container:after {
   content: "";
   display: block;

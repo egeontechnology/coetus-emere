@@ -36,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- google fonts -->
 	<link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
 	<!-- //google fonts -->
-	<link rel="stylesheet" href="stylelogin.css" type="text/css" media="all"><!-- formulario css -->
+	<link rel="stylesheet" href="css/stylelogin.css" type="text/css" media="all"><!-- formulario css -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" >
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	
@@ -84,13 +84,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- //formulario -->
 <section class="about py-5" id="about">
-	<div class="container py-lg-5 py-sm-3">
+	<div class="container py-lg-5 py-sm-3" id="formulario">
 		<div class="row">
 		<div class="login-page">
 		  <div class="form">
 		    <form class="register-form">
-		    	<input type="radio" name="user"> Consumidor 
-		    	<input type="radio" name="user"> Productor 
+				<div id="tipousuario">
+					<input type="radio" name="user"> Consumidor 
+					<input type="radio" name="user"> Productor 
+				</div>
 		      <input type="text" name="nombre" id="registro_nombre" placeholder="Nombre"required/>
 		      <input type="text" placeholder="Apellido"/>
 		      <input type="text" placeholder="Email"/>
