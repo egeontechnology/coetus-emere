@@ -1,0 +1,98 @@
+/* Navbar */
+nav{
+    font-size: 17px;
+    letter-spacing: 1px;
+    background-color: #9c9f0038;
+}
+
+nav img{
+    width: 40px;
+}
+
+#homeNavbar{
+    font-weight: 600;
+}
+
+#iconosNavbar{
+    margin-left: 30px;
+}
+
+/* //Navbar */
+
+.btn-primary{
+    background-color:#009f4d;
+    border-color: #009f4d;
+}
+
+.btn-primary:hover{
+    background-color: #017438;
+    border-color: #017438;
+}
+
+/* Footer */
+footer{
+    width: 100%;
+    background-color: #191818;
+    
+}
+
+footer h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    margin: auto;
+}
+
+footer h2 img{
+    width: 40px;
+}
+
+footer p{
+    color:#707579;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 2em;
+    margin: auto;
+}
+
+#contactoFooter a{
+    color: inherit;
+    text-decoration: none;
+}
+
+#RRSSFooter a{
+    color: #707579;
+    font-size: 30px;
+    margin: 10px;
+    margin: auto;
+}
+
+/* //Footer */
+
+/* @media */
+@media screen and (max-width:350px){
+    #homeNavbar img{
+        display: none;
+    }
+}
+
+@media screen and (max-width:350px){
+    #homeNavbar img{
+        display: none;
+    }
+}
+
+@media screen and (max-width:992px){
+    #iconosNavbar{
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width:1300px){
+    #homeText{
+        display:none;
+    }
+}
+/* //@media */

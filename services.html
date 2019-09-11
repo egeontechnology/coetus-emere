@@ -9,20 +9,124 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- //CDN -->
     <!-- CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
     <link href="css/services.css" rel='stylesheet' type='text/css' /><!-- services css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
     <!-- //CSS -->
     <!-- JS -->
     <!-- //JS -->
     <title>Nuestra huerta | La huerta en casa</title>
 </head>
 <body>
+    <!-- Modal -->
+    <section>
+        <div class="modal fade" id="modalCesta" tabindex="-1" role="dialog" aria-labelledby="modalCestaTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLongTitle">Nombre de cesta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body container">
+                    <div class="row">
+                        <div class="col-6" id="fotoCestaModal"></div>
+                        <div class="col-6" id="contenidoCestaModal"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- //Modal -->
     <header>
-        <nav>
-        </nav>
+        <!-- Navbar -->
+        <section>
+            <nav class="navbar navbar-expand-xl navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" id="homeNavbar"><img src="images/carrot.png" alt="" class="mr-3"><span id="homeText">La huerta en casa</span></a>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Conoce el proyecto</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link active" href="#">Nuestra huerta</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">FAQ's</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                        <ul class="navbar-nav mt-2 mt-lg-0" id="iconosNavbar">
+                            <li class="mr-lg-4 mr-2"><a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a></li>
+                            <li class="mr-lg-4 mr-2"><a data-toggle="modal" data-target="#loginform" href="login.html"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a></li>
+                        </ul>
+                    </div>
+            </nav>
+        </section>
+        <!-- //Navbar -->
     </header>
     <!-- Cestas -->
     <section>
-        
+        <div class="container">
+            <div class="row">
+                <h3>Nuestras cestas</h3>
+            </div>
+            <div class="row" id="tiposcesta">
+                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <img src="images/cesta1.jpg" class="img-fliud" alt="" />
+                    <div id="textocesta">
+                        <h4>Cesta básica</h4>
+                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    </div>
+                </a></div>
+                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <img src="images/cesta4.jpg" class="img-fliud" alt="" />
+                    <div id="textocesta">
+                        <h4>Cesta norteña</h4>
+                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    </div>
+                </a></div>
+                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <img src="images/cesta3.jpg" class="img-fliud" alt="" />
+                    <div id="textocesta">
+                        <h4>Cesta campera</h4>
+                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    </div>
+                </a></div>
+                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <img src="images/cesta5.jpg" class="img-fliud" alt="" />
+                    <div id="textocesta">
+                        <h4>Cesta tropical</h4>
+                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    </div>
+                </a></div>
+                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <img src="images/cesta2.jpg" class="img-fliud" alt="" />
+                    <div id="textocesta">
+                        <h4>Cesta premium</h4>
+                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    </div>
+                </a></div>
+            </div>
+        </div>
     </section>
     <!-- //Cestas -->
     <!-- Nuestros productos -->
@@ -33,49 +137,112 @@
                     <h3>Nuestros productos</h3>
                 </div>
                 <div class="row justify-content-center">
-                    <table class="table-borderless table-responsive" id="productos">
-                        <tbody>
-                            <!-- Primera fila de productos -->
-                            <tr>
-                                <th class="col-1"><div id="marco"><img id="peq" src="images/calab.png"></div</th>
-                                <th><div id="marco"><img src="images/frut.png"></div></th>
-                                <th><div id="marco"><img id="peq" src="images/carne.png"></div></th>
-                                <th><div id="marco"><img id="peq" src="images/peanut.png"></div></th>
-                                <th><div id="marco"><img src="images/leche.png"></div></th>
-                                
-                            </tr>
-                            <tr>
-                                <th>Verduras y hortalizas</th>
-                                <th>Frutas</th>
-                                <th>Carne, pescado huevos</th>
-                                <th>Patatas, legumbres y frutos secos</th>
-                                <th>Leche y derivados</th>
-                            </tr>
-                            <!-- //Primera fila de productos -->
-                            <!-- Segunda fila de productos -->
-                            <tr>
-                                <th><div id="marco"><img id="peq" src="images/cereal.png"></div></th>
-                                <th><div id="marco"><img src="images/aceite.png"></div></th>
-                                <th><div id="marco"><img id="peq" src="images/beer.png"></div></th>
-                                <th><div id="marco"><img src="images/cafes.png"></div></th>
-                                <th><div id="marco"><img src="images/lavanda.png"></div></th>
-                            </tr>
-                            <tr>
-                                <th>Cereales y derivados</th>
-                                <th>Grasas, aceites y mantequillas</th>
-                                <th>Cervezas y vinos</th>
-                                <th>Cafés y tés</th>
-                                <th>Cosmética</th>
-                            </tr>
-                            <!-- //Segunda fila de productos -->
-                        </tbody>
-                    </table>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/calab.png">
+                        </div>
+                        <div id="texto">
+                            Verduras y hortalizas
+                        </div>
+                    </div>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/frut.png">
+                        </div>
+                        <div id="texto">
+                            Fruta
+                        </div>
+                    </div>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/huevo.png">
+                        </div>
+                        <div id="texto">
+                            Carne, pescado y huevos
+                        </div>
+                    </div>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/peanut.png">
+                        </div>
+                        <div id="texto">
+                            Patatas, legumbres y frutos secos
+                        </div>
+                    </div>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/leche.png">
+                        </div>
+                        <div id="texto">
+                            Lácteos
+                        </div>
+                    </div>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/cereal.png">
+                        </div>
+                        <div id="texto">
+                            Cereales y derivados
+                        </div>
+                    </div>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/aceite-vegetal.png">
+                        </div>
+                        <div id="texto">
+                            Grasas, aceites y mantequillas
+                        </div>
+                    </div>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/beer.png">
+                        </div>
+                        <div id="texto">
+                            Cervezas y vinos
+                        </div>
+                    </div>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/cafes.png">
+                        </div>
+                        <div id="texto">
+                            Café y té
+                        </div>
+                    </div>
+                    <div class="col-2 producto mt-1">
+                        <div id="marco">
+                            <img src="images/lavanda.png">
+                        </div>
+                        <div id="texto">
+                            Cosmética
+                        </div>
+                    </div>
+                            
                 </div>
             </div>
         </div>
     </section>
     <!-- //Nuestros productos -->
     <footer>
+        <div class="text-center py-5 container" id="pie">
+            <div class="row mt-4">
+                <h2><img src="images/carrot.png" alt="" class="mr-3">La huerta en casa</h2>
+            </div>
+            <div class="row mt-5" id="contactoFooter">
+                    <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>
+                    <p><span class="fa fa-phone mr-2"></span>+34 666 66 66 66</p>
+                    <p><span class="fa fa-envelope-open mr-2"></span><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
+            </div>
+            <div class="row mt-5" id="RRSSFooter">
+                <a href="#"><span class="fab fa-facebook-square"></span></a>
+                <a href="#"><span class="fab fa-twitter-square"></span></a>
+                <a href="#"><span class="fab fa-google-plus-square"></span></a>
+                <a href="#"><span class="fab fa-pinterest-square"></span></a>
+            </div>
+            <div class="row mt-5">
+                <p>© 2019 La huerta en casa</p>
+            </div>
+        </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
