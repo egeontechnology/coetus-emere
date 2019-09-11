@@ -16,6 +16,26 @@
     <title>Nuestra huerta | La huerta en casa</title>
 </head>
 <body>
+<!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
     <header>
         <nav>
         </nav>
@@ -27,32 +47,40 @@
                 <h3>Nuestras cestas</h3>
             </div>
             <div class="row" id="tiposcesta">
-                <div class="col-1 cesta">	
+                <div class="col-4 cesta mt-3"><a href="" data-toggle="modal" data-target="#exampleModalCenter">
                     <img src="images/cesta1.jpg" class="img-fliud" alt="" />
-                    <div>
+                    <div id="textocesta">
                         <h4>Cesta básica</h4>
                         <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
                     </div>
-                </div>
-                <div class="col-1 cesta">
-                    <img src="images/cesta2.jpg" class="img-fliud" alt="" />
-                    <h4>Cesta norteña</h4>
-                    <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
-                </div>
-                <div class="col-1 cesta">
-                    <img src="images/cesta3.jpg" class="img-fliud" alt="" />
-                    <h4>Cesta campera</h4>
-                    <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
-                </div>
-                <div class="col-1 cesta">
+                </a></div>
+                <div class="col-4 cesta mt-3">
                     <img src="images/cesta4.jpg" class="img-fliud" alt="" />
-                    <h4>Cesta tropical</h4>
-                    <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    <div id="textocesta">
+                        <h4>Cesta norteña</h4>
+                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    </div>
                 </div>
-                <div class="col-1 cesta">
+                <div class="col-4 cesta mt-3">
+                    <img src="images/cesta3.jpg" class="img-fliud" alt="" />
+                    <div id="textocesta">
+                        <h4>Cesta campera</h4>
+                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    </div>
+                </div>
+                <div class="col-4 cesta mt-3">
                     <img src="images/cesta5.jpg" class="img-fliud" alt="" />
-                    <h4>Cesta premium</h4>
-                    <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    <div id="textocesta">
+                        <h4>Cesta tropical</h4>
+                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    </div>
+                </div>
+                <div class="col-4 cesta mt-3">
+                    <img src="images/cesta2.jpg" class="img-fliud" alt="" />
+                    <div id="textocesta">
+                        <h4>Cesta premium</h4>
+                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
+                    </div>
                 </div>
             </div>
         </div>
