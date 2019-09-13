@@ -18,7 +18,48 @@
     <title>Nuestra huerta | La huerta en casa</title>
 </head>
 <body>
-    <!-- Modal -->
+    <!-- Modal login -->
+    <section>
+        <div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <section class="about py-5" id="about">
+	<div class="container py-lg-5 py-sm-3" id="formulario">
+		<div class="row">
+		<div class="login-page">
+		  <div class="form">
+		    <form class="register-form">
+				<div id="tipousuario">
+					<input type="radio" name="user"> Consumidor 
+					<input type="radio" name="user"> Productor 
+				</div>
+		      <input type="text" name="nombre" id="registro_nombre" placeholder="Nombre"required/>
+		      <input type="text" placeholder="Apellido"/>
+		      <input type="text" placeholder="Email"/>
+		      <input type="password" placeholder="Contraseña"/>
+		      <input type="password" placeholder="Confirmar contraseña"/>
+		      <button>¡Únete!</button>
+		      <input type="checkbox"> Acepto política de privacidad <br>
+		      <p class="message">Ya estoy registrado <a href="#">Conectarse</a></p>
+		    </form>
+		    <form class="login-form">
+		      <input type="text" placeholder="Nombre"/>
+		      <input type="password" placeholder="Contraseña"/>
+		      <button>Acceder</button>
+		       <p><input type="checkbox"> Recuérdame <br>
+		      <p class="message">No estoy registrado <a href="#">Crear una cuenta</a></p>
+		    </form>
+		  </div>
+		</div>
+		</div>
+	</div>
+</section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //Modal login -->
+    <!-- Modal ficha prod -->
     <section>
         <div class="modal fade" id="modalCesta" tabindex="-1" role="dialog" aria-labelledby="modalCestaTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -48,37 +89,37 @@
         <!-- Navbar -->
         <section>
             <nav class="navbar navbar-expand-xl navbar-light">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" href="#" id="homeNavbar"><img src="images/carrot.png" alt="" class="mr-3"><span id="homeText">La huerta en casa</span></a>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
-                            <a class="nav-link" href="#">Conoce el proyecto</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link active" href="#">Nuestra huerta</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="#">FAQ's</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="#">Contacto</a>
-                            </li>
-                        </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                        </form>
-                        <ul class="navbar-nav mt-2 mt-lg-0" id="iconosNavbar">
-                            <li class="mr-lg-4 mr-2"><a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a></li>
-                            <li class="mr-lg-4 mr-2"><a data-toggle="modal" data-target="#loginform" href="login.html"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a></li>
-                        </ul>
-                    </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="homeNavbar"><img src="images/carrot.png" alt="" class="mr-3"><span id="homeText">La huerta en casa</span></a>
+                <div class="" id="iconosNavbar" class="align-right">
+                    <a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a>
+                    <a data-toggle="modal" data-target="#loginform" href="login.html"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Conoce el proyecto</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" href="#">Nuestra huerta</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ's</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" id="buscador">
+                        <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
             </nav>
         </section>
         <!-- //Navbar -->

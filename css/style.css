@@ -15,7 +15,13 @@ nav img{
 
 #iconosNavbar{
     margin-left: 30px;
+    float: right;
+    /* display: inline; */
 }
+
+/* #packIconosNav{
+    display: inline;
+} */
 
 /* //Navbar */
 
@@ -72,6 +78,18 @@ footer p{
 /* //Footer */
 
 /* @media */
+@media screen and (min-width:1200px){
+    #iconosNavbar{
+        position: absolute;
+        right: 15px;
+    }
+
+    #buscador{
+        position: relative;
+        right: 105px;
+    }
+}
+
 @media screen and (max-width:350px){
     #homeNavbar img{
         display: none;
