@@ -35,6 +35,11 @@ nav img{
     border-color: #017438;
 }
 
+#buscador input{
+    box-shadow: none !important;
+    border-color:#777866 !important;
+}
+
 /* Footer */
 footer{
     width: 100%;
