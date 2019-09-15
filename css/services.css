@@ -68,6 +68,10 @@ h3{
     color: white;
 }
 
+#nuesprod a:hover, #nuesprod a:focus{
+    text-decoration: none !important;
+}
+
 .producto{
     min-width: 180px;
 }
