@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- //CDN -->
+        <!-- CSS -->
+        <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
+        <link href="css/cesta.css" rel='stylesheet' type='text/css' /><!-- cesta css -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
+        <!-- //CSS -->
+        <!-- JS -->
+        <!-- //JS -->
+        <title>Cesta de productos | La huerta en casa</title>
+</head>
+<body>
+    <!-- Modal login -->
+    <section>
+            <div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <section class="about py-5" id="about">
+        <div class="container py-lg-5 py-sm-3" id="formulario">
+            <div class="row">
+            <div class="login-page">
+              <div class="form">
+                <form class="register-form">
+                    <div id="tipousuario">
+                        <input type="radio" name="user"> Consumidor 
+                        <input type="radio" name="user"> Productor 
+                    </div>
+                  <input type="text" name="nombre" id="registro_nombre" placeholder="Nombre"required/>
+                  <input type="text" placeholder="Apellido"/>
+                  <input type="text" placeholder="Email"/>
+                  <input type="password" placeholder="Contraseña"/>
+                  <input type="password" placeholder="Confirmar contraseña"/>
+                  <button>¡Únete!</button>
+                  <input type="checkbox"> Acepto política de privacidad <br>
+                  <p class="message">Ya estoy registrado <a href="#">Conectarse</a></p>
+                </form>
+                <form class="login-form">
+                  <input type="text" placeholder="Nombre"/>
+                  <input type="password" placeholder="Contraseña"/>
+                  <button>Acceder</button>
+                   <p><input type="checkbox"> Recuérdame <br>
+                  <p class="message">No estoy registrado <a href="#">Crear una cuenta</a></p>
+                </form>
+              </div>
+            </div>
+            </div>
+        </div>
+    </section>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- //Modal login -->
+    <header>
+        <!-- Navbar -->
+        <section>
+            <nav class="navbar navbar-expand-xl navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" id="homeNavbar"><img src="images/carrot.png" alt="" class="mr-3"><span id="homeText">La huerta en casa</span></a>
+                <div class="" id="iconosNavbar" class="align-right">
+                    <a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a>
+                    <a data-toggle="modal" data-target="#loginform" href="#"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link" href="about.html">Conoce el proyecto</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="services.html">Nuestra huerta</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ's</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" id="buscador">
+                        <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </nav>
+        </section>
+        <!-- //Navbar -->
+    </header>
+    <div class="container" id="cesta">
+        <div class="row">
+            <div class="col-9" id="tablaCesta">
+                <div id="tituloCesta" class="mb-5">
+                    <h4><strong id="nArticulos">(2)</strong>artículos en <strong>tu cesta</strong></h4>
+                </div>
+                <div id="tabla">
+                    <div class="w-100 row" id="cabecerasCesta">
+                        <div class="col-1">Articulo</div>
+                        <div class="col-6"></div>
+                        <div class="col-2">Precio</div>
+                        <div class="col-2">Unidades</div>
+                        <div class="col-1"><strong>Total</strong></div>
+                    </div>
+                    <div class="w-100 cuadro" id="articulosCesta">
+                        <div class="articulo my-4 row">
+                            <div class="col-1"><img src="./images/cereal.png" alt=""></div>
+                            <div class="col-6"><p>Pan de masa madre</p></div>
+                            <div class="col-2 coste">1.50 €</div>
+                            <div class="col-2 coste">2</div>
+                            <div class="col-1 coste"><strong>3 €</strong></div>
+                        </div>
+                        <div class="articulo my-4 row">
+                            <div class="col-1"><img src="./images/cereal.png" alt=""></div>
+                            <div class="col-6"><p>Pan de masa madre</p></div>
+                            <div class="col-2 coste">1.50 €</div>
+                            <div class="col-2 coste">2</div>
+                            <div class="col-1 coste"><strong>3 €</strong></div>
+                        </div>
+                        <div class="articulo my-4 row">
+                            <div class="col-1"><img src="./images/cereal.png" alt=""></div>
+                            <div class="col-6"><p>Pan de masa madre</p></div>
+                            <div class="col-2 coste">1.50 €</div>
+                            <div class="col-2 coste">2</div>
+                            <div class="col-1 coste"><strong>3 €</strong></div>
+                        </div>
+                        <div class="articulo my-4 row">
+                            <div class="col-1"><img src="./images/cereal.png" alt=""></div>
+                            <div class="col-6"><p>Pan de masa madre</p></div>
+                            <div class="col-2 coste">1.50 €</div>
+                            <div class="col-2 coste">2</div>
+                            <div class="col-1 coste"><strong>3 €</strong></div>
+                        </div>
+                    </div>
+                    <div class="cuadro" id="finCesta">
+                        <button class="btn btn-outline-secondary my-2" id="vaciarcesta"><img class="mr-3" src="images/papelera.png" alt="">Vaciar cesta</button>
+                        <button class="btn btn-outline-secondary my-2" id="total">Seguir comprando</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3" id="realizaPago">
+                <div class="cuadro">
+                    <h6>Realiza el pago ahora y recibe los productos para el <b><span>viernes 6 de septiembre</span></b></h6>
+                    <hr>
+                    <p><strong>TOTAL <span id="total">20 €</span></strong> </p>
+                </div> <br>
+                <div class="align-middle">
+                    <button class="btn btn-success" id="btnpedido">REALIZAR PEDIDO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+            <div class="text-center py-5 container" id="pie">
+                <div class="row mt-4">
+                    <h2><img src="images/carrot.png" alt="" class="mr-3">La huerta en casa</h2>
+                </div>
+                <div class="row mt-5" id="contactoFooter">
+                        <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>
+                        <p><span class="fa fa-phone mr-2"></span>+34 666 66 66 66</p>
+                        <p><span class="fa fa-envelope-open mr-2"></span><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
+                </div>
+                <div class="row mt-5" id="RRSSFooter">
+                    <a href="#"><span class="fab fa-facebook-square"></span></a>
+                    <a href="#"><span class="fab fa-twitter-square"></span></a>
+                    <a href="#"><span class="fab fa-google-plus-square"></span></a>
+                    <a href="#"><span class="fab fa-pinterest-square"></span></a>
+                </div>
+                <div class="row mt-5">
+                    <p>© 2019 La huerta en casa</p>
+                </div>
+            </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

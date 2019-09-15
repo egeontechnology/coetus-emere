@@ -1,30 +1,71 @@
-#cestapag{
-    padding: 40px;
-    align-content: center;
-    min-height: 450px;
+#cesta{
+    margin-top: 150px;
+    margin-bottom: 150px;
 }
 
-#articesta{
-    height: 50px;
+#cabecerasCesta{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(100, 100, 100, 0.3);
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    left: 15px;
 }
 
+.articulo{
+    display: flex;
+    flex-direction: row;
+}
 
-.otrosfila{
+.coste{
+    padding-top: 10px;
+}
+
+#articulosCesta{
     text-align: center;
 }
 
-#contadorcesta{
-    width: 50%;
-    margin: auto;
+#finCesta{
+    border-radius: 0 0 10px 10px;
+    border-top: 3px solid #ccc;
 }
 
-#btnud{
-    width: 35px;
+#articulosCesta img{
+    height: 50px
 }
 
-#delete{
-    height: 12px;
-    opacity: 0.3;
+#articulosCesta p{
+    margin: 0;
+    font-size: 17px;
+    line-height: 2em;
+    letter-spacing: 2px;
+    color:#707579;
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+#total{
+    position: absolute;
+    right: 30px;
+}
+
+#realizaPago{
+    position: relative;
+    top: 77px;
+    border-radius: 10px;
+    min-width: 250px;
+}
+
+.cuadro{
+    background-color: rgba(168, 168, 168, 0.2);
+    padding: 10px;
+}
+
+#btnpedido{
+    width: 100%;
+    font-size: 16px;
 }
 
 #vaciarcesta{
@@ -34,24 +75,4 @@
 #vaciarcesta img{
     opacity: 0.4;
     height: 16px;
-}
-
-#envio{
-    position: relative;
-    padding-top: 40px;
-}
-
-#total{
-    position: absolute;
-    right: 30px;
-}
-
-#cuadrototal{
-    background-color: rgba(168, 168, 168, 0.2);
-    padding: 10px;
-}
-
-#btnpedido{
-    width: 100%;
-    font-size: 16px;
 }
