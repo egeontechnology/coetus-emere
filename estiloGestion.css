@@ -1,0 +1,46 @@
+.contenedor img{
+	object-fit:cover;
+	border-radius: 50%;
+	height: 200px;
+	width: 200px; 
+	position: static;
+	display:block;
+	margin:auto;
+}
+
+#miPerfil h4, h3{
+	text-align: center;
+}
+
+#miPerfil p{
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+#miPerfil a{
+	margin-left: 25%;
+	display: block;
+}
+
+#miCuenta h4{
+	text-align: center;
+}
+
+#miCuenta p{
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+.pedidos img{
+	object-fit:cover;
+	border-radius: 20%;
+	height: 200px;
+	width: 200px; 
+}
+
+#deseos img{
+	object-fit:cover;
+	border-radius: 20%;
+	height: 200px;
+	width: 200px; 
+}
