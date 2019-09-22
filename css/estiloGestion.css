@@ -1,3 +1,85 @@
+/*Falta la propiedad display
+Cambiar algunos vw (la letra se ve demasiado pequeña en móviles)
+Faltan iconos de borrar y editar la actividad a la comunidad
+Falta añadir con js o jquery el que aparezcan los campos para modificar el formulario*/
+
+
+/*----------------cabeceras del menú desplegable-----------------*/
+
+.card-header{
+	border-color: #009f4d;
+	background-color:rgba(168, 232, 140, 0.5);
+}
+
+.card-link{
+	color: #009f4d;
+	text-transform: uppercase;
+	font-size: 3vw;
+	font-weight: 3;
+}
+
+a.card-link:hover{
+	color: #4F5D4F;		
+}
+
+/*----------------cabeceras del menú desplegable-----------------*/
+
+
+
+/*---------Estos estilos definen el interior de todos los menús-----------*/
+.card-body h4{
+	text-align: center;
+	font-family: 'Thasadith', sans-serif;
+	text-transform: uppercase;
+	font-size: 2vw;
+	font-weight: 8;
+}
+
+a.enlace:link{
+	color: red !important;/*No consigo cambiar el color*/
+	text-decoration: none;
+	font-size:1.3vw;
+}
+
+a.enlace:visted{
+	font-size:1.3vw;
+	color: #4F5D4F;
+}
+
+a.enlace:hover{
+	color: #4F5D4F;
+	text-decoration: none;
+	font-size: 1.5vw;
+}
+
+.boton{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-right: 30px;
+	font-family: 'Thasadith', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+
+}
+
+/*---------Estos estilos definen el interior de todos los menús-----------*/
+
+
+/*Estilos que define las cartas de los pedidos realizados y lista de deseos*/
+#posicionCarta{
+	display: inline-block;
+	margin-left: 1.5vw;
+	margin-top: 1.5vw;
+}
+
+.botonCargar{
+	margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+/*Estilos que define las cartas de los pedidos realizados y lista de deseos*/
+
+
 .contenedor img{
 	object-fit:cover;
 	border-radius: 50%;
@@ -23,7 +105,7 @@
 }
 
 #miCuenta h4{
-	text-align: center;
+	
 }
 
 #miCuenta p{
@@ -31,16 +113,4 @@
 	margin-right: 25%;
 }
 
-.pedidos img{
-	object-fit:cover;
-	border-radius: 20%;
-	height: 200px;
-	width: 200px; 
-}
 
-#deseos img{
-	object-fit:cover;
-	border-radius: 20%;
-	height: 200px;
-	width: 200px; 
-}
