@@ -1,0 +1,84 @@
+/*contenedor exterior*/
+.contenedorPerfil{
+	margin-top: 15%;
+	margin-bottom: 15%;
+	border-style: inset;
+	border-radius: 20%;
+	border-width: 1px;
+}
+
+/*Imagen de perfil*/
+.contenedorImg img{
+	object-fit:cover;
+	border-radius: 50%;
+	height: 200px;
+	width: 200px; 
+	position: static;
+	display:block;
+	margin:auto;
+	margin-top: 100px;
+}
+
+/*Redes sociales*/
+.RRSS{  	
+  	margin-left: 35% !important;
+}
+
+.RRSS img{
+	width: 5%;	
+}
+/*Redes sociales*/
+
+#descripcion{
+	text-align: center;
+	padding-right: 10%;
+	padding-top: 20px;
+	padding-left: 10%;
+	font-size: 18px;
+}
+
+/*Actividad reciente*/
+.bordes{
+	margin-top: 10px;
+	border-style: outset;
+	border-width: 1px;
+	/*border-color: #666161;*/
+	border-radius: 30px;	
+}
+
+.bordeInferior{
+	margin-bottom: 160px;
+}
+
+.imagenEntrada{
+	object-fit: cover;
+    height: 250px;
+    width: 400px;
+    border-radius: 40px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+
+.actividad h3{
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+/*centra verticalmente el contenido de la publicacion*/
+.centrarVert{
+	display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+
+
+
+
