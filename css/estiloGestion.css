@@ -1,6 +1,4 @@
-/*Falta la propiedad display
-Cambiar algunos vw (la letra se ve demasiado pequeña en móviles)
-Faltan iconos de borrar y editar la actividad a la comunidad
+/*Faltan iconos de borrar y editar la actividad a la comunidad
 Falta añadir con js o jquery el que aparezcan los campos para modificar el formulario*/
 
 
@@ -14,8 +12,8 @@ Falta añadir con js o jquery el que aparezcan los campos para modificar el form
 .card-link{
 	color: #009f4d;
 	text-transform: uppercase;
-	font-size: 3vw;
-	font-weight: 3;
+	font-size: 25px;
+	font-weight: bold;
 }
 
 a.card-link:hover{
@@ -26,30 +24,29 @@ a.card-link:hover{
 
 
 
-/*---------Estos estilos definen el interior de todos los menús-----------*/
+/*---------Estos estilos definen el interior de TODOS LOS MENÚS-----------*/
 .card-body h4{
 	text-align: center;
-	font-family: 'Thasadith', sans-serif;
 	text-transform: uppercase;
-	font-size: 2vw;
-	font-weight: 8;
+	font-size: 30px;
+	font-weight: bold;
 }
 
 a.enlace:link{
 	color: red !important;/*No consigo cambiar el color*/
 	text-decoration: none;
-	font-size:1.3vw;
+	font-size: 16px;
 }
 
 a.enlace:visted{
-	font-size:1.3vw;
+	font-size: 16px ;
 	color: #4F5D4F;
 }
 
 a.enlace:hover{
 	color: #4F5D4F;
 	text-decoration: none;
-	font-size: 1.5vw;
+	font-size: 20px;
 }
 
 .boton{
@@ -59,28 +56,21 @@ a.enlace:hover{
 	font-family: 'Thasadith', sans-serif;
 	font-size: 20px;
 	font-weight: bold;
-
 }
 
-/*---------Estos estilos definen el interior de todos los menús-----------*/
-
-
-/*Estilos que define las cartas de los pedidos realizados y lista de deseos*/
-#posicionCarta{
+.posicionLinea{
 	display: inline-block;
-	margin-left: 1.5vw;
-	margin-top: 1.5vw;
 }
 
-.botonCargar{
-	margin-top: 20px;
-    margin-right: 10px;
-    margin-bottom: 20px;
+.margenIzq{
+	margin-left: 10vw;
 }
-/*Estilos que define las cartas de los pedidos realizados y lista de deseos*/
+
+/*---------Estos estilos definen el interior de TODOS LOS MENÚS-----------*/
 
 
-.contenedor img{
+/*---------Estilos que definen el PERFIL----*/
+.contenedorImg img{
 	object-fit:cover;
 	border-radius: 50%;
 	height: 200px;
@@ -90,13 +80,14 @@ a.enlace:hover{
 	margin:auto;
 }
 
-#miPerfil h4, h3{
+#nomUsuario{
 	text-align: center;
 }
 
-#miPerfil p{
-	margin-left: 25%;
-	margin-right: 25%;
+.def{
+	text-align: center;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 #miPerfil a{
@@ -104,13 +95,32 @@ a.enlace:hover{
 	display: block;
 }
 
-#miCuenta h4{
-	
+/*Estilos que definen el PERFIL*/
+
+
+/*Estilos que define las cartas de los PEDIDOS y LISTA DE DESEOS*/
+#posicionCarta{
+	display: inline-block;
+	margin-left: 1.5vw;
+	margin-top: 1.5vw;
+}
+.card-img-top{
+	object-fit:cover;
+	height: 200px;
 }
 
-#miCuenta p{
-	margin-left: 25%;
-	margin-right: 25%;
+.botonCargar{
+	margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 20px;
 }
 
 
+/*Estilos que define las cartas de los PEDIDOS y LISTA DE DESEOS*/
+
+/*------SEGURIDAD------*/
+.margenes{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+/*SEGURIDAD*/
