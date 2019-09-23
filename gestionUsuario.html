@@ -46,14 +46,20 @@
 			        <h4>Redes Sociales</h4>
 			        <div class="margenIzq">
 				        <div class="posicionLinea"><p>Facebook: </p></div>
-				        <div class="posicionLinea"><p> https://www.facebook.com/</p></div><br>		    	
-				    	<div class="posicionLinea"><p>Instagram: </p></div><div class="posicionLinea"><p> https://www.instagram.com</p></div><br>
-				        <div class="posicionLinea"><p>Twitter: </p></div><div class="posicionLinea"><p>https://www.twitter.com</p></div><br>
+				        <div class="posicionLinea"	id="facebook">
+				        <p>www.facebook.com/</p></div><br>
+
+				    	<div class="posicionLinea"><p>Instagram: </p></div><div class="posicionLinea"	id="instagram"><p>www.instagram.com</p></div><br>
+
+				        <div class="posicionLinea"><p>Twitter: </p></div><div class="posicionLinea"	id="twitter"><p>www.twitter.com</p></div><br>
+
 				    	<div class="posicionLinea">
-				        <p>Youtube: </p></div><div class="posicionLinea"><p>https://www.youtube.com</p></div><br>
-				    	<div class="posicionLinea"><p>LinkedIn: </p></div><div class="posicionLinea"><p>https://www.linkedin.com</p></div><br>
+				        <p>Youtube: </p></div><div class="posicionLinea"	id="youtube"><p>www.youtube.com</p></div><br>
+
+				    	<div class="posicionLinea"><p>LinkedIn: </p></div><div class="posicionLinea	"	id="linkedin"><p>www.linkedin.com</p></div><br>
+				    					    	
 					</div>
-			        <button type="button" class="btn btn-outline-secondary float-right  boton">Editar</button>
+			        <button type="button" class="btn btn-outline-secondary float-right  boton" onclick="editarRRSS(facebook,instagram, twitter,youtube,linkedin,this)">Editar</button>
 			        <br>
 			        <br>
 			        <br>
@@ -76,21 +82,33 @@
 	        <div class="card-body">
 	          	<h4>Datos de envío y facturación</h4>
 	          	<div class="margenIzq">
-		          <div class="posicionLinea"><p>Nombre: </p></div><div class="posicionLinea"><p>Pedro</p></div><br>
-		          <div class="posicionLinea"><p>Apellidos: </p></div><div class="posicionLinea"><p>Galvez</p></div><br>
-		          <div class="posicionLinea"><p>Email: </p></div><div class="posicionLinea"><p>Pedrete@gmail.com</p></div><br>
-		          <div class="posicionLinea"><p>Dirección de envío: </p></div><div class="posicionLinea"><p>C/ Falsa, 123</p></div><br>
-		          <div class="posicionLinea"><p>Provincia: </p></div><div class="posicionLinea"><p>Madrid</p></div> <div class="posicionLinea"><p>     Localidad: </p></div><div class="posicionLinea"><p>Madrid</p></div>
-		          <div class="posicionLinea"><p>Código postal: </p></div><div class="posicionLinea"><p>28045</p></div>
+		          <div class="posicionLinea"><p>Nombre: </p></div><div class="posicionLinea"	id="nombre"><p>Pedro</p></div><br>
+
+		          <div class="posicionLinea"><p>Apellidos: </p></div><div class="posicionLinea"	id="apellidos"><p>Galvez</p></div><br>
+
+		          <div class="posicionLinea"><p>Dirección de envío: </p></div><div class="posicionLinea"	id="calle"><p>C/ Falsa, 123</p></div><br>
+
+		          <div class="posicionLinea"><p>Provincia: </p></div><div class="posicionLinea"	id="provincia"><p>Madrid</p></div>
+
+		           <div class="posicionLinea"><p>Localidad: </p></div><div class="posicionLinea"	id="localidad"><p>Madrid</p></div>
+
+		          <div class="posicionLinea"><p>Código postal: </p></div><div class="posicionLinea"	id="cp"><p>28045</p></div>
 	          	</div>
+	          	
+	          	<button class="btn btn-outline-secondary float-right boton" onclick="editarEnvio(this)">Editar</button>
+				<br>
+				<br>
 				<hr>
 	          	<h4>Datos de pago</h4>
 	          	<div class="margenIzq">
-		          <div class="posicionLinea"><p>Número de tarjeta: </p></div><div class="posicionLinea"><p>XXXX XXXX XXXX XXXX</p></div><br>
-		          <div class="posicionLinea"><p>Fecha de caducidad: </p></div><div class="posicionLinea"><p>XX-XX-XX</p></div>
-		          <div class="posicionLinea"><p>CVV: </p></div><div class="posicionLinea"><p>XXX</p></div>
+		          <div class="posicionLinea"><p>Número de tarjeta: </p></div><div class="posicionLinea" id="tarjeta"><p>XXXX XXXX XXXX XXXX</p></div><br>
+
+		          <div class="posicionLinea"><p>Fecha de caducidad: </p></div><div class="posicionLinea" 	id="caducidad"><p>XX-XX-XX</p></div>
+
+		          <div class="posicionLinea"><p>CVV: </p></div><div class="posicionLinea"	id="cvv"><p>XXX</p></div>
 	          	</div>
-	          	<button class="btn btn-outline-secondary float-right boton">Editar</button>
+
+	          	<button class="btn btn-outline-secondary float-right boton" onclick="editarPago(tarjeta,caducidad,cvv,this)">Editar</button>
 	        </div>
       	</div>
     </div>
@@ -307,4 +325,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--JS-->
+<script type="text/javascript" src="js/gestionUsuario.js"></script>
 </body>
