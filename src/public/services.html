@@ -11,9 +11,11 @@
     <!-- CSS -->
     <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
     <link href="css/services.css" rel='stylesheet' type='text/css' /><!-- services css -->
+    <link href="css/cesta.css" rel='stylesheet' type='text/css' /><!-- cesta css -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
     <!-- //CSS -->
     <!-- JS -->
+    <script src="js/services.js"></script>
     <!-- //JS -->
     <title>Nuestra huerta | La huerta en casa</title>
 </head>
@@ -59,21 +61,29 @@
         </div>
     </section>
     <!-- //Modal login -->
-    <!-- Modal ficha -->
+    <!-- Modal cesta -->
     <section>
         <div class="modal fade" id="modalCesta" tabindex="-1" role="dialog" aria-labelledby="modalCestaTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="ModalLongTitle">Nombre de cesta</h5>
+                    <h5 class="modal-title" id="tituloCestaModal">Cesta campera</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body container">
                     <div class="row">
-                        <div class="col-6" id="fotoCestaModal"></div>
-                        <div class="col-6" id="contenidoCestaModal"></div>
+                        <div class="col-7" id="fotoCestaModal"><img src="images/cesta1.jpg"></div>
+                        <div class="col-5" id="contenidoCestaModal">
+                            <ul id="productosCestasModal">
+                                <li>Zanahoria</li>
+                                <li>Manzana</li>
+                                <li>Pepino</li>
+                                <li>Cerveza</li>
+                                <li>Jamón</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -84,7 +94,68 @@
             </div>
         </div>
     </section>
-    <!-- //Modal ficha-->
+    <!-- //Modal cesta-->
+    <!-- Modal categoria -->
+    <section>
+        <div class="modal fade" id="modalCategoria" tabindex="-1" role="dialog" aria-labelledby="modalCategoriaTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="tituloCategoriaModal">Cesta campera</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body container">
+                    <div class="row">
+                        <div class="col-12" id="contenidoCategoriaModal">
+                            <div id="tabla">
+                                <div class="w-100 row" id="cabecerasCesta">
+                                    <div class="col-1">Articulo</div>
+                                    <div class="col-5"></div>
+                                    <div class="col-2 infoGrande">Precio</div>
+                                    <div class="col-2 infoGrande">Unidades</div>
+                                    <div class="col-1 infoGrande"><strong>Total</strong></div>
+                                    <div class="col-1"></div>
+                                </div>
+                                <div class="w-100 cuadro" id="articulosCesta">
+                                    <div class="articulo my-4 row">
+                                        <div class="col-1" id="fotoArticulo"><img src="./images/cereal.png" alt=""></div>
+                                        <div class="col-5"><p>Pan de masa madre</p><span class="infoPequeño">Precio: 1.50€ Unidades:2 <strong>Total:3€</strong></span></div>
+                                        <div class="col-2 coste infoGrande">1.50 €</div>
+                                        <div class="col-2 coste infoGrande">2</div>
+                                        <div class="col-1 coste infoGrande"><strong>3 €</strong></div>
+                                        <div class="col-1"><img src="images/close.png" alt="" id="delete"></div>
+                                    </div>
+                                    <div class="articulo my-4 row">
+                                        <div class="col-1" id="fotoArticulo"><img src="./images/cereal.png" alt=""></div>
+                                        <div class="col-5"><p>Pan de masa madre</p><span class="infoPequeño">Precio: 1.50€ Unidades:2 <strong>Total:3€</strong></span></div>
+                                        <div class="col-2 coste infoGrande">1.50 €</div>
+                                        <div class="col-2 coste infoGrande">2</div>
+                                        <div class="col-1 coste infoGrande"><strong>3 €</strong></div>
+                                        <div class="col-1"><img src="images/close.png" alt="" id="delete"></div>
+                                    </div>
+                                    <div class="articulo my-4 row">
+                                        <div class="col-1" id="fotoArticulo"><img src="./images/cereal.png" alt=""></div>
+                                        <div class="col-5"><p>Pan de masa madre</p><span class="infoPequeño">Precio: 1.50€ Unidades:2 <strong>Total:3€</strong></span></div>
+                                        <div class="col-2 coste infoGrande">1.50 €</div>
+                                        <div class="col-2 coste infoGrande">2</div>
+                                        <div class="col-1 coste infoGrande"><strong>3 €</strong></div>
+                                        <div class="col-1"><img src="images/close.png" alt="" id="delete"></div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- //Modal categoria-->
     <header>
         <!-- Navbar -->
         <section>
@@ -131,7 +202,7 @@
                 <h3>Nuestras cestas</h3>
             </div>
             <div class="row" id="tiposcesta">
-                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
+                <div class="col-4 cesta mt-5" id="idProducto"><a id="enlaceCesta" href="" data-toggle="modal" data-target="#modalCesta">
                     <img src="images/cesta1.jpg" class="img-fliud" alt="" />
                     <div id="textocesta">
                         <h4>Cesta básica</h4>
@@ -177,8 +248,8 @@
                 <div class="row align-center">
                     <h3>Nuestros productos</h3>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                <div class="row justify-content-center" id="categorias">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/calab.png">
                         </div>
@@ -186,7 +257,7 @@
                             Verduras y hortalizas
                         </div></a>
                     </div>
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/frut.png">
                         </div>
@@ -194,7 +265,7 @@
                             Fruta
                         </div></a>
                     </div>
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/huevo.png">
                         </div>
@@ -202,7 +273,7 @@
                             Carne, pescado y huevos
                         </div></a>
                     </div>
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/peanut.png">
                         </div>
@@ -210,7 +281,7 @@
                             Patatas, legumbres y frutos secos
                         </div></a>
                     </div>
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/leche.png">
                         </div>
@@ -218,7 +289,7 @@
                             Lácteos
                         </div></a>
                     </div>
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/cereal.png">
                         </div>
@@ -226,7 +297,7 @@
                             Cereales y derivados
                         </div></a>
                     </div>
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/aceite-vegetal.png">
                         </div>
@@ -234,7 +305,7 @@
                             Grasas, aceites y mantequillas
                         </div></a>
                     </div>
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/beer.png">
                         </div>
@@ -242,7 +313,7 @@
                             Cervezas y vinos
                         </div></a>
                     </div>
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/cafes.png">
                         </div>
@@ -250,7 +321,7 @@
                             Café y té
                         </div></a>
                     </div>
-                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCesta">
+                    <div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">
                         <div id="marco">
                             <img src="images/lavanda.png">
                         </div>
