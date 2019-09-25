@@ -1,0 +1,63 @@
+h3.heading {
+    font-size: 40px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.contact-form1 {
+    padding: 1.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: .2rem;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+form input, textarea {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.btn-contact {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 15px;
+    font-size: 20px;
+    background-color: green;
+    color:white;
+    border: 1px solid white;
+}
+.input-contact {
+    padding: 5px;
+}
+
+.contact-list {
+    list-style: none;
+    margin-left: 30px;
+}
+
+.contact-icon {
+    display: inline-block;
+    width: 100px;
+    float: left;
+
+}
+
+.material2 {
+    font-variant: normal;
+    font-size: 11.5px;
+    text-align: left;
+    width: 119px;
+    float: left;
+    font-family: Tahoma, Verdana, "Sans Serif";
+    margin-bottom: 25px;
+    display: block;
+}

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- //CDN -->
+    <!-- CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
+    <link href="css/form-login.css" rel='stylesheet' type='text/css' /><!-- form-login css -->
+    <link href="css/FAQS.css" rel='stylesheet' type='text/css' /><!-- FAQS css -->
+    <link href="css/services.css" rel='stylesheet' type='text/css' /><!-- services css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!--Iconos-->
+    <!-- //CSS -->
+    <!-- JS -->
+    <!-- //JS -->
+    <title>Nuestra huerta | La huerta en casa</title>
+</head>
+
+<body>
+    <!-- Modal login -->
+    <section>
+        <!--Modal: Login / Register Form-->
+        <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Modal cascading tabs-->
+                    <div class="modal-c-tabs">
+                        <!-- Nav tabs -->
+                        <ul id="nav-login-form" class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+                            <li class="form-tab">
+                                <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+                                    Login</a>
+                            </li>
+                            <li class="form-tab">
+                                <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+                                    Registro</a>
+                            </li>
+                        </ul>
+                        <!-- Tab panels -->
+                        <div class="tab-content">
+                            <!--Panel 7-->
+                            <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                                <!--Body-->
+                                <div class="modal-body mb-1">
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput10">Email</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput11">Contraseña</label>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <button class="btn btn-info"> Acceder <i class="fas fa-sign-in ml-1"></i></button>
+                                    </div>
+                                </div>
+                                <!--Footer-->
+                                <div class="modal-footer">
+                                    <div class="options text-center text-md-right mt-1">
+                                        <p>¿No eres miembro? <a href="#" class="blue-text">¡Regístrate!</a></p>
+                                        <p>Olvidé mi <a href="#" class="blue-text">contraseña</a></p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                            <!--/.Panel 7-->
+                            <!--Panel 8-->
+                            <div class="tab-pane fade" id="panel8" role="tabpanel">
+                                <!--Body-->
+                                <div class="modal-body">
+                                    <div class="radio">
+                                        <label class="radio-inline"><input type="radio" name="optradio" checked> Consumidor</label>
+                                        <label class="radio-inline"><input type="radio" name="optradio"> Productor</label>
+                                        <label class="radio-inline"><input type="radio" name="optradio"> Ambos</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-user prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Nombre</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-user prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Apellidos</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Email</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput13">Contraseña</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput14">Repetir contraseña</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="checkbox624">
+                                        <label class="white-text form-check-label" for="checkbox624">Acepto los<a href="#" class="green-text font-weight-bold">
+                                                Términos y Condiciones</a></label>
+                                    </div><br>
+                                    <!--<div class="md-form form-sm p-1">
+                                        <input class="form-check-input" type="checkbox" id="checkbox624">
+                                        <label for="checkbox624" class="white-text form-check-label">Acepto los<a href="#" class="green-text font-weight-bold">Términos y Condiciones</a></label>
+                                    </div>-->
+                                    <div class="text-center form-sm mt-2">
+                                        <button class="btn btn-info">Registrarme<i class="fas fa-sign-in ml-1"></i></button>
+                                    </div>
+                                </div>
+                                <!--Footer-->
+                                <div class="modal-footer">
+                                    <div class="options text-right">
+                                        <p class="pt-1">Ya estoy registrado <a href="#" class="blue-text">Acceder</a></p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                            <!--/.Panel 8-->
+                        </div>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+    </section>
+    <!-- //Modal login -->
+    <header>
+        <!-- Navbar -->
+        <section>
+            <nav class="navbar navbar-expand-xl navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" id="homeNavbar"><img src="images/carrot.png" alt="" class="mr-3"><span id="homeText">La huerta en casa</span></a>
+                <div class="" id="iconosNavbar" class="align-right">
+                    <a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a>
+                    <a data-toggle="modal" data-target="#modalLRForm" href="#"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Conoce el proyecto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="services.html">Nuestra huerta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FAQS.html">FAQ's</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" id="buscador">
+                        <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </nav>
+        </section>
+        <!-- //Navbar -->
+    </header>
+
+    <body>
+        <!-- FAQ´s -->
+        <section class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+            <div class="container">
+                <!-- Encabezado FAQ´s -->
+                <div class="entry-header">
+                    <h2>Preguntas frecuentes</h2>
+                </div>
+                <!-- //Encabezado FAQ´s -->
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <!-- FAQ´s Bloque 0-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                            <h3 class="panel-title">
+                                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                                    Sobre el proyecto y nuestra filosofía
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                            <div class="panel-body px-3 mb-4">
+                                <!-- FAQ´s Bloque 0 preguntas-->
+                                <div class="container py-3">
+                                    <div class="row">
+                                        <div class="col-12 mx-auto">
+                                            <div class="accordion" id="faqExample">
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingOne">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                ¿Qué es La huerta en casa?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Un proyecto que busca acercar la filosofía de los grupos de consumo ofreciendo alimentos ecológicos y locales.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingTwo">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                ¿Qué es un grupo de consumo y cuáles son sus ventajas?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Es un grupo de personas que se organizan para adquirir productos (frutas, verduras, cosmética, ropa...) de forma colectiva y regular dirigiéndose directamente al agricultor o productor local. Entre sus ventajas podemos destacar:
+                                                            <ul>
+                                                                <li>tal</li>
+                                                                <li>tal</li>
+                                                                <li>y más</li>
+                                                                <li>tal</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingThree">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                ¿Qué es la soberanía alimentaria?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            El derecho de los pueblos a alimentos nutritivos y culturalmente adecuados, accesibles, producidos de forma sostenible y ecológica, y su derecho a decidir su propio sistema alimentario y productivo.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="heading4">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                                                ¿Por qué consumir productos ecológicos y locales?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Porque mola mil veces más.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="heading5">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                                                ¿Por qué pedir a través de grupos de consumo y no de forma individual?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Porque mola mil veces más (otra vez te lo tengo que decir, carajo).
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+                                </div>
+                                <!-- //FAQ´s Bloque 0 preguntas-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //FAQ´s Bloque 0-->
+                    <!-- FAQ´s Bloque 1-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                            <h3 class="panel-title">
+                                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                    Para participar en La huerta en casa
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                            <div class="panel-body px-3 mb-4">
+                                <!-- FAQ´s Bloque 1 preguntas-->
+                                <div class="container py-3">
+                                    <div class="row">
+                                        <div class="col-12 mx-auto">
+                                            <div class="accordion" id="faqExample">
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingSix">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapsefOUR">
+                                                                ¿Cómo puedo entrar a formar parte de La huerta en casa?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Puedes participar de dos formas: como <b>consumidor</b> o <b>proveedor</b>. En ambos casos, <b>será necesario registrarse</b>.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingSeven">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                                ¿Puedo comprar o vender productos sin registrarme?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            <b>No</b>, registrarse es una <b>condición obliglatoria</b>.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="heading8">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                                                ¿Puedo cambiar de grupo de consumo?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Siempre que en tu ciudad haya más de un grupo para elegir o en caso de que cambies de ciudad.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+                                </div>
+                                <!-- //FAQ´s Bloque 1 preguntas-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //FAQ´s Bloque 1-->
+                    <!-- FAQ´s Bloque 2-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                            <h3 class="panel-title">
+                                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                    Sobre los productos
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                            <div class="panel-body px-3 mb-4">
+                                <!-- FAQ´s Bloque 2 preguntas-->
+                                <div class="container py-3">
+                                    <div class="row">
+                                        <div class="col-12 mx-auto">
+                                            <div class="accordion" id="faqExample">
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="heading9">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+                                                                ¿Cuáles son los precios de los productos?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Depende, las cestas tienen un precio y los productos individuales otro.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="heading10">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                                                ¿Es más caro consumir productos ecológicos?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Vale la pena.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="heading11">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse11" aria-expanded="true" aria-controls="collapse11">
+                                                                ¿Los productos están certificados?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Oh, yeah.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="heading12">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                                                                ¿Cómo se eligen los proveedores?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse12" class="collapse" aria-labelledby="heading12" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            A ciegas.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+                                </div>
+                                <!-- //FAQ´s Bloque 2 preguntas-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //FAQ´s Bloque 2-->
+                    <!-- FAQ´s Bloque 3-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading p-3 mb-3" role="tab" id="heading3">
+                            <h3 class="panel-title">
+                                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                                    Sobre los pedidos
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                            <div class="panel-body px-3 mb-4">
+                                <!-- FAQ´s Bloque 3 preguntas-->
+                                <div class="container py-3">
+                                    <div class="row">
+                                        <div class="col-12 mx-auto">
+                                            <div class="accordion" id="faqExample">
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingSix">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapsefOUR">
+                                                                ¿Cómo se realizan los pedidos?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Con mucho cuidado.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingSeven">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                                ¿Hay gastos de transporte?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            No, siempre que los productos adicionales se añadan a la cesta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="heading8">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                                                ¿Cuál es la frecuencia de entrega de las cestas?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Día sí y día también.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="heading8">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                                                ¿Cómo se realizan los repartos?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Tenemos esclavos que los llevan hasta tu portal.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingSeven">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                                ¿Puedo añadir otros productos a mi cesta?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            <b>YES</b>.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingSeven">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                                ¿Puedo cambiar de cesta?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            <b>Sí</b>.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingSeven">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                                ¿Puedo cancelar mi entrega si estoy de vacaciones?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            <b>Sí</b>.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header p-2" id="headingSeven">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                                ¿Puedo darme de baja?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqExample">
+                                                        <div class="card-body">
+                                                            Por supuesto, basta con que nos llames o nos escribas un email.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+                                </div>
+                                <!--//bloque 3 preguntas-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //FAQ´s Bloque 3-->
+        </section>
+        <!-- //FAQ´s -->
+    </body>
+    <footer>
+        <div class="text-center py-5 container" id="pie">
+            <div class="row mt-4">
+                <h2><img src="images/carrot.png" alt="" class="mr-3">La huerta en casa</h2>
+            </div>
+            <div class="row mt-5" id="contactoFooter">
+                <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>
+                <p><span class="fa fa-phone mr-2"></span>+34 666 66 66 66</p>
+                <p><span class="fa fa-envelope-open mr-2"></span><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
+            </div>
+            <div class="row mt-5" id="RRSSFooter">
+                <a href="#"><span class="fab fa-facebook-square"></span></a>
+                <a href="#"><span class="fab fa-twitter-square"></span></a>
+                <a href="#"><span class="fab fa-google-plus-square"></span></a>
+                <a href="#"><span class="fab fa-pinterest-square"></span></a>
+            </div>
+            <div class="row mt-5">
+                <p>© 2019 La huerta en casa</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
