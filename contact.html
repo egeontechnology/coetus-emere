@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- //CDN -->
+    <!-- CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
+    <link href="css/form-login.css" rel='stylesheet' type='text/css' /><!-- form-login css -->
+    <link href="css/FAQS.css" rel='stylesheet' type='text/css' /><!-- FAQS css -->
+    <link href="css/services.css" rel='stylesheet' type='text/css' /><!-- services css -->
+    <link href="css/contact.css" rel='stylesheet' type='text/css' /><!-- contacto css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!--Iconos-->
+    <!-- //CSS -->
+    <!-- JS -->
+    <!-- //JS -->
+    <title>Contacto | La huerta en casa</title>
+</head>
+
+<body>
+    <!-- Modal login -->
+    <section>
+        <!--Modal: Login / Register Form-->
+        <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Modal cascading tabs-->
+                    <div class="modal-c-tabs">
+                        <!-- Nav tabs -->
+                        <ul id="nav-login-form" class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+                            <li class="form-tab">
+                                <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+                                    Login</a>
+                            </li>
+                            <li class="form-tab">
+                                <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+                                    Registro</a>
+                            </li>
+                        </ul>
+                        <!-- Tab panels -->
+                        <div class="tab-content">
+                            <!--Panel 7-->
+                            <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                                <!--Body-->
+                                <div class="modal-body mb-1">
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput10">Email</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput11">Contraseña</label>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <button class="btn btn-info"> Acceder <i class="fas fa-sign-in ml-1"></i></button>
+                                    </div>
+                                </div>
+                                <!--Footer-->
+                                <div class="modal-footer">
+                                    <div class="options text-center text-md-right mt-1">
+                                        <p>¿No eres miembro? <a href="#" class="blue-text">¡Regístrate!</a></p>
+                                        <p>Olvidé mi <a href="#" class="blue-text">contraseña</a></p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                            <!--/.Panel 7-->
+                            <!--Panel 8-->
+                            <div class="tab-pane fade" id="panel8" role="tabpanel">
+                                <!--Body-->
+                                <div class="modal-body">
+                                    <div class="radio">
+                                        <label class="radio-inline"><input type="radio" name="optradio" checked> Consumidor</label>
+                                        <label class="radio-inline"><input type="radio" name="optradio"> Productor</label>
+                                        <label class="radio-inline"><input type="radio" name="optradio"> Ambos</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-user prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Nombre</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-user prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Apellidos</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Email</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput13">Contraseña</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput14">Repetir contraseña</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="checkbox624">
+                                        <label class="white-text form-check-label" for="checkbox624">Acepto los<a href="#" class="green-text font-weight-bold">
+                                                Términos y Condiciones</a></label>
+                                    </div><br>
+                                    <!--<div class="md-form form-sm p-1">
+                                        <input class="form-check-input" type="checkbox" id="checkbox624">
+                                        <label for="checkbox624" class="white-text form-check-label">Acepto los<a href="#" class="green-text font-weight-bold">Términos y Condiciones</a></label>
+                                    </div>-->
+                                    <div class="text-center form-sm mt-2">
+                                        <button class="btn btn-info">Registrarme<i class="fas fa-sign-in ml-1"></i></button>
+                                    </div>
+                                </div>
+                                <!--Footer-->
+                                <div class="modal-footer">
+                                    <div class="options text-right">
+                                        <p class="pt-1">Ya estoy registrado <a href="#" class="blue-text">Acceder</a></p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                            <!--/.Panel 8-->
+                        </div>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+    </section>
+    <!-- //Modal login -->
+    <header>
+        <!-- Navbar -->
+        <section>
+            <nav class="navbar navbar-expand-xl navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" id="homeNavbar"><img src="images/carrot.png" alt="" class="mr-3"><span id="homeText">La huerta en casa</span></a>
+                <div class="" id="iconosNavbar" class="align-right">
+                    <a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a>
+                    <a data-toggle="modal" data-target="#modalLRForm" href="#"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Conoce el proyecto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="services.html">Nuestra huerta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FAQS.html">FAQ's</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" id="buscador">
+                        <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </nav>
+        </section>
+        <!-- //Navbar -->
+    </header>
+    <!-- Contact-form -->
+    <section class="contact-section py-5">
+        <div class="container py-sm-3">
+            <div class="row">
+                <h3 class="heading mb-sm-5 mb-4 text-center"> Hola, ¿en qué podemos ayudarte?</h3>
+                <!-- Contact-form-apartados -->
+                <div class="contact-form1 col-lg-8">
+                    <form class="contact-forma">
+                        <div class="row">
+                            <div class="col-md-6" id="">
+                                <div class="input-contact"><input type="text" name="Name" placeholder="Nombre*" required=""></div>
+                                <div class="input-contact"><input type="email" name="Email" placeholder="Email*" required=""></div>
+                                <div class="input-contact"><input type="text" name="Mobile Number" placeholder="Móvil (opcional)"></div>
+                                <div class="input-contact"><input type="text" name="Asunto" placeholder="Asunto*" required=""></div>
+                            </div>
+                            <div class="col-md-6">
+                               <textarea name="Message" placeholder="Escribe aquí tu mensaje*" required=""></textarea> 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12"> 
+                                <button class="btn-contact" onclick="alert('Hemos recibido tu mensaje. Te responderemos en un plazo máximo de 48 horas. ¡Gracias!')">Envíanos tu consulta</button> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- //Contact-form-apartados -->
+                <!-- Contact-form-iconos -->
+                <div class="contact-form">
+                    <ul class="contact-list">
+                        <li>
+                            <div class="contact-icon">
+                                <img id="icono_lugar" src="images/gps.png" alt="" width="65px">
+                            </div>
+                            <div class="material2">
+                                <h5>Visítanos</h5>
+                                <p>Calle de Lavapies, 46, 28012 Madrid</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <img id="icono_email" src="images/email.png" alt="" width="50px">
+                            </div>
+                            <div class="material2">
+                                <h5>Escríbenos</h5>
+                                <p><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <img id="icono_call" src="images/phone.png" alt="" width="50px">
+                            </div>
+                            <div class="material2">
+                                <h5>Llámanos</h5>
+                                <p>(+34) 642 16 11 43</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <img id="icono_rrss" src="images/rrss.png" alt="" width="50px">
+                            </div>
+                            <div class="material2">
+                                <h5>Síguenos</h5>
+                                <p><a href="https://www.instagram.com/?hl=es" target="_blank"><img src="https://img.icons8.com/officel/30/000000/instagram-new.png" width="25px"></a> <a href="https://www.pinterest.es/" target="_blank"><img src="https://img.icons8.com/officel/30/000000/pinterest.png" width="25px"></a> <a href="https://www.pinterest.es/" target="_blank"><img src="https://img.icons8.com/officel/30/000000/twitter.png" width="25px"></a> <a href="https://www.pinterest.es/" target="_blank"><img src="https://img.icons8.com/offices/30/000000/facebook.png" width="25px"></a></p></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //Contact-form-iconos -->
+            </div>
+            <!-- map -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 300px;">
+                        <iframe class="w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6075.939221316216!2d-3.702266!3d40.409524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42262b3a786155%3A0xda14fa689b2ce8ab!2sCalle+de+Lavapi%C3%A9s%2C+46%2C+28012+Madrid!5e0!3m2!1ses!2ses!4v1563911435859!5m2!1ses!2ses" frameborder="0" style="border:0 w-100" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- //map -->
+        </div>
+    </section>
+    <!-- //Contact-form -->
+    <footer>
+        <div class="text-center py-5 container" id="pie">
+            <div class="row mt-4">
+                <h2><img src="images/carrot.png" alt="" class="mr-3">La huerta en casa</h2>
+            </div>
+            <div class="row mt-5" id="contactoFooter">
+                <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>
+                <p><span class="fa fa-phone mr-2"></span>+34 666 66 66 66</p>
+                <p><span class="fa fa-envelope-open mr-2"></span><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
+            </div>
+            <div class="row mt-5" id="RRSSFooter">
+                <a href="#"><span class="fab fa-facebook-square"></span></a>
+                <a href="#"><span class="fab fa-twitter-square"></span></a>
+                <a href="#"><span class="fab fa-google-plus-square"></span></a>
+                <a href="#"><span class="fab fa-pinterest-square"></span></a>
+            </div>
+            <div class="row mt-5">
+                <p>© 2019 La huerta en casa</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
