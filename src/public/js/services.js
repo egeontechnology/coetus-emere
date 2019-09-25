@@ -10,4 +10,8 @@ $(document).ready(function(){
         $('#tituloCategoriaModal').html($(this).children().children().eq(1).html())
         // console.log($(this).children().children().eq(1).html())
     })
-})
+
+    $('.btnmas .btnmenos').click(function(){
+        console.log('e')
+    });
+});

@@ -115,7 +115,7 @@ http.createServer(function (req, res){
 		
 		console.log('condición de busqueda mySQL es WHERE : '+cond);
 		
-		con.query("SELECT Nombre FROM `coetus-emere`.tcategorias c join `coetus-emere`.tproductos p on c.idCategoria = p.idCategoria where p.idProveedor =  " + condicion, function (err, result, fields) {
+		con.query("SELECT idCategoria, Nombre FROM `coetus-emere`.tcategorias c join `coetus-emere`.tproductos p on c.idCategoria = p.idCategoria where p.idProveedor =  " + condicion, function (err, result, fields) {
 			if (err) throw err;
 
 			// Se inicia variable cestas
@@ -123,7 +123,7 @@ http.createServer(function (req, res){
 			
 			// Bucle para generar las categorias del grupo
 			for(var i=0; i<result.length; i++){
-				categoria += '<div class="col-2 producto mt-1"><a href="" data-toggle="modal" data-target="#modalCategoria">';
+				categoria += '<div class="col-2 producto mt-1" id="'+result[i].idCategoria+'"><a href="" data-toggle="modal" data-target="#modalCategoria">';
 				categoria += '<div id="marco">'
 				categoria += '<img src="'+result[i].img+'">'
 				categoria += '</div>';
@@ -162,7 +162,7 @@ http.createServer(function (req, res){
 	}
 
 
-	// Carga los productos de la categoria cuando se abre el modal en #productosCestaModal
+	// Carga los productos de la categoria cuando se abre el modal en #productosCategoriaModal
 	// where el el grupo sea el mismo que el del usuario y la categoria la misma que la seleccionada
 	function cargarProductosCategoria(cond){
 
@@ -181,7 +181,7 @@ http.createServer(function (req, res){
 
 			//Devuelve la respusta información actualizada con éxito
 			res.writeHead(200, {'Content-Type': 'text/html', 'charset': 'utf-8'});
-			res.write(cestas);
+			res.write(productos);
 			res.end();	
 		});
 	}

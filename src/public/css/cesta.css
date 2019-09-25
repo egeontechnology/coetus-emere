@@ -50,7 +50,7 @@
 
 #articulosCesta p{
     margin: 0;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 2em;
     letter-spacing: 2px;
     color:#707579;
@@ -58,7 +58,7 @@
     padding-top: 5px;
 }
 
-#delete{
+.delete{
     height: 12px;
     opacity: 0.3;
     margin-top: 18px;
@@ -110,7 +110,7 @@
         max-width: 82%;
     }
 
-    #delete{
+    .delete{
         margin-top: 45px;
     }
     
