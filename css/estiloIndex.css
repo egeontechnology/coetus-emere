@@ -43,7 +43,7 @@
 .soberaniaAlimentaria h2{
 	color: #000000;
 	font-weight: 800;
-	font-size: 50px;
+	font-size: 40px;
 }
 
 
@@ -57,20 +57,20 @@
 
 /*Iconos y explicación en la franja verde*/
 .comoConsumidor{
-	background-color: #009f4d;
+	background-color: #3B2939;
 	height: 100px;
 	text-transform: uppercase;
 }
 
-#tituloComoConsumidor{
+.tituloFranja{
 	text-align: center;
 	padding-top: 20px;
-	color: white;
+	color: black;
 }
 
 .iconosExplicacion{
-	background-color: #009f4d;
-	
+	background-color: #3B2939;
+	padding-top: 40px;
 	color: white;
     text-align: center;
 }
@@ -85,14 +85,13 @@
 /*Iconos y explicacion para consumidores en la franja verde*/
 
 /*FRANJA SI ERES PRODUCTOR*/
-#comoProductor{
+.franja{
     text-align: center !important;
     margin-top: 30px;
-
 }
 
 #tituloComoProductor{
-	color: #009f4d;
+	color: #3B2939;
 	height: 100px;
 	text-transform: uppercase;
     padding-top: 50px;
@@ -100,16 +99,16 @@
 
 .franjaProductor{
 	text-align: center !important;
-	color: #009f4d;
+	color: #3B2939;
 	padding-bottom: 40px;
 }
 /*FRANJA SI ERES PRODUCTOR*/
 
 /*-----------------Franja Unete--------------------*/
 #franjaUnete{
-    background-size: 1300px;
+    background-size: 1600px;
     height: 300px;
-    background-image: url(file:///C:/Users/Psyndrome/Desktop/Espacio/EOI/Proyecto/images/franja_lechuga.jpg); 
+    background-image: url(file:///C:/Users/Psyndrome/Desktop/Espacio/EOI/Lahuertaencasa/coetus-emere/images/franja_unete.jpg); 
 }
 
 .boton{
@@ -125,6 +124,9 @@
 
 
 /*----------------Suscríbete----------------------*/
+#franjaSuscripcion{
+	background-color: rgba(165, 167, 184, 0.2);
+}
 #suscribete{
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -148,14 +150,14 @@
 }
 
 .colorNews{
-	color: #009f4d;
+	color: #862b35;
 }
 
 
 
 /*falta hacer responsive el formulario para que se mantenga en una sola línea*/
 #formEmail form{	
-	padding-left: 30%; 
+	justify-content: center; 
 }
 
 
@@ -164,7 +166,7 @@
 	font-size: 30px;
 	font-family: 'Thasadith', sans-serif;
 	font-weight: 600;
-	width: 300px;
+	width: 40vw;
 }
 
 #btnSuscribir{
@@ -172,6 +174,7 @@
 	font-size: 30px;
 	font-family: 'Thasadith', sans-serif;
 	font-weight: 600;
+	
 }
 
 /*-----------------------Suscríbete----------------------*/

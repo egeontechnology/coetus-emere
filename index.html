@@ -11,9 +11,12 @@
 	<title>HOME | La huerta en casa</title>
 
 <!--Estilos y fuentes-->
-<link href="https://fonts.googleapis.com/css?family=Thasadith&display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="css/estiloIndex.css">
-
+<link href="https://fonts.googleapis.com/css?family=Thasadith&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lalezar&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
+<link href="css/estiloIndex.css" rel="stylesheet">
+<link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
 
 </head>
 
@@ -22,7 +25,47 @@
 <!--***************************EMPIEZA EL CONTENIDO**********************-->
 
 <!--En pantallas tamaño movil se verá una imagen de cabecera y no un Slider-->
-<header class="container-fluid">
+<header>
+        <!-- Navbar -->
+        <section>
+            <nav class="navbar navbar-expand-xl navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" id="homeNavbar"><img src="images/iconos/logo_lh.png" alt="" class="mr-3" id="logo">
+                	<div id="homeText">La huerta en casa</div></a>
+                <div class="" id="iconosNavbar" class="align-right">
+                    <a href="cesta.html"><img id="icono" src="images/iconos/cesta_compra.png" alt="" width="40px"></a>
+                    <a data-toggle="modal" data-target="#loginform" href="#"><img id="icono" src="images/iconos/usuario.png" alt="" width="40px"></i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0	linksNav">
+                        <li class="nav-item">
+                        <a class="nav-link" href="about.html" style="color: white;">Conoce el proyecto</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" href="services.html"	style="color: white;">Nuestra huerta</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="blog.html"	style="color: white;">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="faq.html"	style="color: white;">FAQ's</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="contact.html"	style="color: white;">Contacto</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" id="buscador">
+                        <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </nav>
+        </section>
+        <!-- //Navbar -->
+    </header>
+<div class="container-fluid">
 
 	<div class="row">
 		<div class="col-12   d-block d-sm-block d-md-none">
@@ -33,7 +76,7 @@
 		</div>
 	</div>
 
-</header>
+</div>
 
 <!--**************************SLIDER****************************-->
 
@@ -50,7 +93,7 @@
 	<div class="carousel-inner">
 
 	    <div class="carousel-item active">
-	      <img src="images/banner1.jpg" alt="Grupos de consumo" width="1100" height="500">
+	      <img src="images/banner00.jpg" alt="Grupos de consumo" width="1100" height="500">
 
 	    <div class="carousel-caption   tituloBanner">	    	
 	        <h2 class="display-1">Grupos de consumo</h2>	        
@@ -60,7 +103,7 @@
 	    </div>
 
 	    <div class="carousel-item">
-	      <img src="images/banner2.jpg" alt="Productores locales" width="1100" height="500">	    
+	      <img src="images/banner03.jpg" alt="Productores locales" width="1100" height="500">	    
 	     <div class="carousel-caption   tituloBanner">			
 	        <h3 class="display-1 ">Productores locales</h3>	        
 	        <p class="display-4">Aumenta la visibilidad de tu negocio</p>	   
@@ -115,8 +158,8 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-12 comoConsumidor">
-			<h2 id="tituloComoConsumidor">Como consumidor</h2>
+		<div class="col-12	franja"><!--comoConsumidor-->
+			<h2 class="tituloFranja	consumidor">Como consumidor</h2>
 		</div>
 	</div>
 
@@ -153,8 +196,8 @@
 <!-- INICIO FRANJA CON INFORMACIÓN PARA LOS PRODUCTORES -->
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-12" id="comoProductor">
-			<h2 id="tituloComoProductor">Como productor</h2>
+		<div class="col-12	franja">
+			<h2 class="tituloFranja	productor">Como productor</h2>
 		</div>
 	</div>
 	<div class="row franjaProductor">
@@ -170,7 +213,7 @@
 		</div>
 <!--3-->
 		<div class="col-6 col-md-3">
-			<img src="images/iconos/productor3.png" alt="" width="50px">
+			<img src="images/iconos/mas_clientes.png" alt="" width="50px">
 			<h4>Consigue clientes fijos</h4>
 		</div>
 
@@ -204,7 +247,7 @@
 <!--UNIRME-->
 
 <!--Franja para la suscripción-->
-<section class="jumbotron jumbotron-fluid">
+<section class="jumbotron jumbotron-fluid"	id="franjaSuscripcion">
 	<div class="container">
 		<div class="col-12">
 			<div id="suscribete">
@@ -231,9 +274,28 @@
 		</div>
 	</div>
 </section>
-
 <!--Franja para la suscripción-->
-
+    <footer>
+        <div class="text-center py-5 container" id="pie">
+            <div class="row mt-4">
+                <h2><img src="images/iconos/logo_lahuerta.png" alt="" class="mr-3"></h2>
+            </div>
+            <div class="row mt-5" id="contactoFooter">
+                    <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>
+                    <p><span class="fa fa-phone mr-2"></span>+34 666 66 66 66</p>
+                    <p><span class="fa fa-envelope-open mr-2"></span><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
+            </div>
+            <div class="row mt-5" id="RRSSFooter">
+                <a href="#"><span class="fab fa-facebook-square"></span></a>
+                <a href="#"><span class="fab fa-twitter-square"></span></a>
+                <a href="#"><span class="fab fa-google-plus-square"></span></a>
+                <a href="#"><span class="fab fa-pinterest-square"></span></a>
+            </div>
+            <div class="row mt-5">
+                <p>© 2019 La huerta en casa</p>
+            </div>
+        </div>
+    </footer>
 
 <!--*****************TERMINA EL CONTENIDO*****************-->
  <!-- Optional JavaScript -->
