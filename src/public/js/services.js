@@ -7,10 +7,12 @@ function procesa_datos_recibidos(data, status, accion, datos){
     }
 }
 
-// Se cargan las cestas. Pendiente que la condición sea el grupo al que pertence
-send_post('cargarCategorias', '1')
 
 $(document).ready(function(){
+    // Se cargan las cestas. Pendiente que la condición sea el grupo al que pertence
+    let x = {id:1};
+    send_post('cargarCategorias', x)
+
     // Al hacer click en la cesta el modal emplea el titulo y foto de su original
     $('.cesta').click(function(){
         $('#tituloCestaModal').html(($(this).children().children().eq(1).children().eq(0).html()));

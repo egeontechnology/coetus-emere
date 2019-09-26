@@ -1,11 +1,11 @@
 // Función base para las llamadas al servidor
 function send_post(accion, datos){
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: accion, 
         data: datos,
         success: 
-            function(data, status){				
+            function(data, status){
                 procesa_datos_recibidos(data, status, accion, datos);
             },
         error: 
@@ -16,9 +16,4 @@ function send_post(accion, datos){
 }	
 
 $(document).ready(function(){
-    
-    // Se cargan las cestas y categorías al iniciar la página
-    send_post('cargarCategorias', 1)
-
-    
 });
