@@ -25,6 +25,23 @@ con.connect((err) => {
 });
 
 
+// Login en la aplicación
+app.post('/login', (req, res) =>{
+    // Acceso al valor del objeto
+    const cond = req.body
+    console.log(cond);
+    console.log('Login de usuario WHERE username='+cond.user+'pass='+cond.pass);
+    con.query("SELECT idUsuario, Nombre, Rol, idGrupo, img, Password FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
+        if (err) throw err;
+        if(result.length != 0) {
+            resultado = JSON.stringify(result)
+        } else {
+            result = 'ko'
+        }
+        console.log(result);
+        res.send(resultado);
+    });
+})
 // Consultas a la base de datos
 // app.get('cargarCestas', (cond, cestas)=>{
 //     console.log('Se cargan las cestas con la condición WHERE idGrupo='+cond);

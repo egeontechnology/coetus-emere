@@ -1,14 +1,5 @@
-// Procesa los datos de la llamada a AJAX
-function procesa_datos_recibidos(data, status, accion, datos){
-    switch(accion){
-        case 'cargarCategorias':
-            $('#categorias').html(data);
-            break;
-    }
-}
-
 // Se cargan las cestas. Pendiente que la condición sea el grupo al que pertence
-let x = {id:1,pass:ytur6767};
+let x = {id:1};
 send_post('cargarCategorias', x);
 
 $(document).ready(function(){
