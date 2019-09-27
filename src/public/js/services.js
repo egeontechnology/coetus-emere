@@ -7,11 +7,11 @@ function procesa_datos_recibidos(data, status, accion, datos){
     }
 }
 
+// Se cargan las cestas. Pendiente que la condición sea el grupo al que pertence
+let x = {id:1,pass:ytur6767};
+send_post('cargarCategorias', x);
 
 $(document).ready(function(){
-    // Se cargan las cestas. Pendiente que la condición sea el grupo al que pertence
-    let x = {id:1};
-    send_post('cargarCategorias', x)
 
     // Al hacer click en la cesta el modal emplea el titulo y foto de su original
     $('.cesta').click(function(){
@@ -25,7 +25,7 @@ $(document).ready(function(){
         // console.log($(this).children().children().eq(1).html())
     })
 
-    $('.btnmas .btnmenos').click(function(){
-        console.log('e')
+    $('.btnmas').click(function(){
+        console.log(this)
     });
 });

@@ -26,26 +26,26 @@ con.connect((err) => {
 
 
 // Consultas a la base de datos
-app.get('cargarCestas', (cond, cestas)=>{
-    console.log('Se cargan las cestas con la condición WHERE idGrupo='+cond);
+// app.get('cargarCestas', (cond, cestas)=>{
+//     console.log('Se cargan las cestas con la condición WHERE idGrupo='+cond);
 		
-    con.query("SELECT idProducto, img, Nombre, Descripcion FROM tproductos join `coetus-emere`.tusuarios u on idProducto = u.idUsuario WHERE tipo=cesta AND u.idUsuario=" + cond, function (err, result, fields) {
-        if (err) throw err;
+//     con.query("SELECT idProducto, img, Nombre, Descripcion FROM tproductos join `coetus-emere`.tusuarios u on idProducto = u.idUsuario WHERE tipo=cesta AND u.idUsuario=" + cond, function (err, result, fields) {
+//         if (err) throw err;
 
-        // Se inicia variable cestas
-        cestas = "";
+//         // Se inicia variable cestas
+//         cestas = "";
 
-        // Bucle para generar las cestas del grupo
-        for(var i=0; i<result.length; i++){
-            cestas += '<div class="col-4 cesta mt-5" id='+result[i].idProductos+'><a href="" data-toggle="modal" data-target="#modalCesta">';
-            cestas += '<img src="'+result[i].img+'" class="img-fliud" alt="" />'
-            cestas += '<div id="textocesta">'
-            cestas += '<h4>'+result[i].Nombre+'</h4>';
-            cestas += '<p class="mt-2">'+result[i].Descripcion+'</p>';
-            cestas += '</div></a></div>';
-        }	
-    });
-});
+//         // Bucle para generar las cestas del grupo
+//         for(var i=0; i<result.length; i++){
+//             cestas += '<div class="col-4 cesta mt-5" id='+result[i].idProductos+'><a href="" data-toggle="modal" data-target="#modalCesta">';
+//             cestas += '<img src="'+result[i].img+'" class="img-fliud" alt="" />'
+//             cestas += '<div id="textocesta">'
+//             cestas += '<h4>'+result[i].Nombre+'</h4>';
+//             cestas += '<p class="mt-2">'+result[i].Descripcion+'</p>';
+//             cestas += '</div></a></div>';
+//         }	
+//     });
+// });
 
 app.post('/cargarCategorias', (req, res) =>{
     // Accesi al valor del objeto
@@ -56,7 +56,6 @@ app.post('/cargarCategorias', (req, res) =>{
     let categoria = "";
 		
     con.query("SELECT c.idCategoria, c.Nombre FROM `coetus-emere`.tcategorias c join `coetus-emere`.tproductos p on c.idCategoria = p.idCategoria join `coetus-emere`.tusuarios u on u.idUsuario = p.idProveedor where "+cond+" group by c.Nombre;", function (err, result, fields) {
-        // console.log('sql='+result)
         if (err) throw err;
 
         
