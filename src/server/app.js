@@ -29,50 +29,51 @@ con.connect((err) => {
 app.post('/login', (req, res) =>{
     // Acceso al valor del objeto
     const cond = req.body
-    console.log(cond);
-    console.log('Login de usuario WHERE username='+cond.user+'pass='+cond.pass);
-    con.query("SELECT idUsuario, Nombre, Rol, idGrupo, img, Password FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
+    con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
         if (err) throw err;
         if(result.length != 0) {
             resultado = JSON.stringify(result)
         } else {
-            result = 'ko'
+            resultado = 'ko'
         }
-        console.log(result);
         res.send(resultado);
     });
 })
+
+
 // Consultas a la base de datos
-// app.get('cargarCestas', (cond, cestas)=>{
-//     console.log('Se cargan las cestas con la condición WHERE idGrupo='+cond);
+app.post('/cargarCestas', (req, res)=>{
+
+    const cond = req.body.idGrupo
 		
-//     con.query("SELECT idProducto, img, Nombre, Descripcion FROM tproductos join `coetus-emere`.tusuarios u on idProducto = u.idUsuario WHERE tipo=cesta AND u.idUsuario=" + cond, function (err, result, fields) {
-//         if (err) throw err;
+    // Se inicia variable cestas
+    let cestas = "";
 
-//         // Se inicia variable cestas
-//         cestas = "";
+    con.query("SELECT p.idProducto, p.img, p.nombre, p.descripcion, p.precio FROM tproductos p join `coetus-emere`.tusuarios u on p.idUsuario = u.idUsuario WHERE tipo='cesta' AND u.idGrupo=" + cond, function (err, result, fields) {
+        if (err) throw err;
 
-//         // Bucle para generar las cestas del grupo
-//         for(var i=0; i<result.length; i++){
-//             cestas += '<div class="col-4 cesta mt-5" id='+result[i].idProductos+'><a href="" data-toggle="modal" data-target="#modalCesta">';
-//             cestas += '<img src="'+result[i].img+'" class="img-fliud" alt="" />'
-//             cestas += '<div id="textocesta">'
-//             cestas += '<h4>'+result[i].Nombre+'</h4>';
-//             cestas += '<p class="mt-2">'+result[i].Descripcion+'</p>';
-//             cestas += '</div></a></div>';
-//         }	
-//     });
-// });
+        // Bucle para generar las cestas del grupo
+        for(var i=0; i<result.length; i++){
+            cestas += '<div class="col-4 cesta mt-5" id="'+result[i].idProducto+'"><a id="enlaceCesta" href="" data-toggle="modal" data-target="#modalCesta">';
+            cestas += '<img src="'+result[i].img+'" class="img-fliud" alt="" />'
+            cestas += '<div id="textocesta">'
+            cestas += '<h4>'+result[i].nombre+'</h4>';
+            cestas += '<p class="mt-2">'+result[i].descripcion+'</p>';
+            cestas += '</div></a></div>';
+        }	
+        res.send(cestas);
+    });
+});
 
 app.post('/cargarCategorias', (req, res) =>{
-    // Accesi al valor del objeto
-    const cond = req.body.id
-    console.log('Se cargan todas las categorias WHERE '+cond);
+    // Acceso al valor del objeto
+    const cond = req.body.idGrupo
 
     // Se inicia variable cestas
     let categoria = "";
 		
-    con.query("SELECT c.idCategoria, c.Nombre FROM `coetus-emere`.tcategorias c join `coetus-emere`.tproductos p on c.idCategoria = p.idCategoria join `coetus-emere`.tusuarios u on u.idUsuario = p.idProveedor where "+cond+" group by c.Nombre;", function (err, result, fields) {
+    con.query("select c.nombre, c.idPadre, c.idCategoria from `coetus-emere`.tcategorias c	inner join (select p.idCategoria from tproductos p inner join (SELECT u.idUsuario FROM `coetus-emere`.tusuarios u where u.rol!='consumidor' and u.idGrupo="+cond+") x on p.idUsuario=x.idUsuario) y on c.idCategoria=y.idCategoria group by c.idCategoria;"
+    , function (err, result, fields) {
         if (err) throw err;
 
         
@@ -80,14 +81,60 @@ app.post('/cargarCategorias', (req, res) =>{
         for(var i=0; i<result.length; i++){
             categoria += '<div class="col-2 producto mt-1" id="'+result[i].idCategoria+'"><a href="" data-toggle="modal" data-target="#modalCategoria">';
             categoria += '<div id="marco">'
-            // categoria += '<img src="'+result[i].img+'">'
+            categoria += '<img src="'+result[i].img+'">'
             categoria += '</div>';
-            categoria += '<div id="texto">'+result[i].Nombre+'</div></a></div>';
+            categoria += '<div id="texto">'+result[i].nombre+'</div></a></div>';
         }
-        console.log('categorias creadas');
         res.send(categoria);
     });
 })
+
+app.post('/cargarProductosCestas', (req,res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    //  Se inicia la variable productos
+    let productos = "";
+
+    con.query("SELECT p.nombre, cp.cantidad FROM `coetus-emere`.tcestasproductos cp inner join tproductos p on p.idProducto=cp.idProducto where cp.idCesta='"+cond.idCesta+"';", function (err, result, fields) {
+        if (err) throw err;
+
+        // Bucle para cargar todos los productos de la cesta
+        for(var i=0; i<result.length; i++){
+            productos += '<li>'+result[i].cantidad+' unidades de '+result[i].nombre+'</li>';
+        }
+
+        //Se devulve al cliente los productos
+        res.send(productos);
+    });
+})
+
+app.post('/cargarProductosCategorias', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    //  Se inicia la variable productos
+    let productos = "";
+
+    // Consulta a la base de datos
+    con.query("select p.nombre, p.img, p.precio from tproductos p inner join (SELECT u.idUsuario FROM `coetus-emere`.tusuarios u where u.rol!='consumidor' and u.idGrupo="+cond.idGrupo+") x on p.idUsuario=x.idUsuario where p.idCategoria="+cond.idCategoria+";", function (err, result, fields) {
+        if (err) throw err;
+
+        // Bucle para cargar todos los productos de la cesta
+        for(var i=0; i<result.length; i++){
+            productos += '<div class="articulo my-4 row">';    
+            productos += '<div class="col-1" id="fotoArticulo"><img src="'+result[i].img+'" alt=""></div>';    
+            productos += '<div class="col-4"><p>'+result[i].nombre+'</p><span class="infoPequeño">Precio: '+result[i].precio+'€ Unidades:2 <strong>Total:<span class="totalProducto"></span>€</strong></span></div>';    
+            productos += '<div class="col-2 coste infoGrande"><span>'+result[i].precio+'</span> €</div>';    
+            productos += '<div class="input-group mb-3 align-middle col-3" id="contadorcesta"><button class="btn btn-outline-secondary btnmenos">-</button><input class="form-control" type="numeric" value="0"><button class="btn btn-outline-secondary btnmas">+</button></div>';    
+            productos += '<div class="col-2 coste infoGrande"><strong><span class="totalProducto">0</span> €</strong></div></div>';
+        }
+
+        //Se devulve al cliente los productos
+        res.send(productos);
+    });
+});
+
 
 // Se configura el puerto del servidor 
 const server = app.listen(8080);
