@@ -87,7 +87,7 @@ app.post('/cargarCategorias', (req, res) =>{
         }
         res.send(categoria);
     });
-})
+});
 
 app.post('/cargarProductosCestas', (req,res) => {
     // Acceso al valor del objeto
@@ -107,7 +107,7 @@ app.post('/cargarProductosCestas', (req,res) => {
         //Se devulve al cliente los productos
         res.send(productos);
     });
-})
+});
 
 app.post('/cargarProductosCategorias', (req, res) => {
     // Acceso al valor del objeto
@@ -135,6 +135,25 @@ app.post('/cargarProductosCategorias', (req, res) => {
     });
 });
 
+app.post('/comprarCesta', (req,res)=>{
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    // Se inicializa variable de respuesta
+    let respuesta = "";
+    // Se comprueba que no tiene un pedido pendiente
+    con.query("SELECT idPedido FROM `coetus-emere`.tpedidos where idUsuario="+cond.idUsuario+" AND estado='pendiente';", function (err, result, fields) {
+        if (err) throw err;
+        // En caso de que tenga un pedido pendiente se usa añade a tlineapedido con el mismo idPedido
+        if(result.length !== 0){
+            con.query("INSERT INTO `coetus-emere`.`tlineaspedido` (`idPedido`, `idProducto`, `cantidad`, `descuento`) VALUES ('"+result[0].idPedido+"', '"+cond.idCesta+"', '1', '0');", function (err, result, fields) {
+                if (err) throw err;
+                respuesta = 'ok';
+                res.send(respuesta);
+            })
+        }
+    });
+});
 
 // Se configura el puerto del servidor 
 const server = app.listen(8080);
