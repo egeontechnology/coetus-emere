@@ -7,6 +7,7 @@
     <!-- CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <!--Sweet alert-->
     <!-- //CDN -->
     <!-- CSS -->
     <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
@@ -64,32 +65,27 @@
     <!-- //Modal login -->
     <!-- Modal cesta -->
     <section>
-        <div class="modal fade" id="modalCesta" tabindex="-1" role="dialog" aria-labelledby="modalCestaTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal fade bd-example-modal-lg" id="modalCesta" tabindex="-1" role="dialog" aria-labelledby="modalCestaTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="tituloCestaModal">Cesta campera</h5>
+                    <h5 class="modal-title" id="tituloCestaModal"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body container">
                     <div class="row">
-                        <div class="col-7" id="fotoCestaModal"><img src="images/cesta1.jpg"></div>
+                        <div class="col-7" id="fotoCestaModal"><img src=""></div>
                         <div class="col-5" id="contenidoCestaModal">
                             <ul id="productosCestasModal">
-                                <li>Zanahoria</li>
-                                <li>Manzana</li>
-                                <li>Pepino</li>
-                                <li>Cerveza</li>
-                                <li>Jamón</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                    <button type="button" class="btn btn-primary">Comprar</button>
+                    <button type="button" id="" class="btn btn-primary btnComprar" data-dismiss="modal">Comprar</button>
                 </div>
             </div>
             </div>
@@ -102,7 +98,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="tituloCategoriaModal">Cesta campera</h5>
+                    <h5 class="modal-title" id="tituloCategoriaModal"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -136,7 +132,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                    <button type="button" class="btn btn-primary">Comprar</button>
+                    <button type="button" id="comprarProducto" class="btn btn-primary" data-dismiss="modal">Comprar</button>
                 </div>
             </div>
             </div>
@@ -189,41 +185,6 @@
                 <h3>Nuestras cestas</h3>
             </div>
             <div class="row" id="tiposcesta">
-                <div class="col-4 cesta mt-5" id="idProducto"><a id="enlaceCesta" href="" data-toggle="modal" data-target="#modalCesta">
-                    <img src="images/cesta1.jpg" class="img-fliud" alt="" />
-                    <div id="textocesta">
-                        <h4>Cesta básica</h4>
-                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
-                    </div>
-                </a></div>
-                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
-                    <img src="images/cesta4.jpg" class="img-fliud" alt="" />
-                    <div id="textocesta">
-                        <h4>Cesta norteña</h4>
-                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
-                    </div>
-                </a></div>
-                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
-                    <img src="images/cesta3.jpg" class="img-fliud" alt="" />
-                    <div id="textocesta">
-                        <h4>Cesta campera</h4>
-                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
-                    </div>
-                </a></div>
-                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
-                    <img src="images/cesta5.jpg" class="img-fliud" alt="" />
-                    <div id="textocesta">
-                        <h4>Cesta tropical</h4>
-                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
-                    </div>
-                </a></div>
-                <div class="col-4 cesta mt-5"><a href="" data-toggle="modal" data-target="#modalCesta">
-                    <img src="images/cesta2.jpg" class="img-fliud" alt="" />
-                    <div id="textocesta">
-                        <h4>Cesta premium</h4>
-                        <p class="mt-2">Integer sit ut amet mattis quam, sit amet ultricies velit. Praesent ullam corper dui turpis sit.</p>
-                    </div>
-                </a></div>
             </div>
         </div>
     </section>
@@ -343,7 +304,6 @@
             </div>
         </div>
     </footer>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

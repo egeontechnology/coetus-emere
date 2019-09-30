@@ -96,7 +96,7 @@ app.post('/cargarProductosCestas', (req,res) => {
     //  Se inicia la variable productos
     let productos = "";
 
-    con.query("SELECT p.nombre, cp.cantidad FROM `coetus-emere`.tcestasproductos cp inner join tproductos p on p.idProducto=cp.idProducto where cp.idCesta='"+cond.idCesta+"';", function (err, result, fields) {
+    con.query("SELECT p.nombre, cp.cantidad FROM `coetus-emere`.tcestasproductos cp inner join tproductos p on p.idProducto=cp.idProducto where cp.idProducto='"+cond.idProducto+"';", function (err, result, fields) {
         if (err) throw err;
 
         // Bucle para cargar todos los productos de la cesta
@@ -117,12 +117,12 @@ app.post('/cargarProductosCategorias', (req, res) => {
     let productos = "";
 
     // Consulta a la base de datos
-    con.query("select p.nombre, p.img, p.precio from tproductos p inner join (SELECT u.idUsuario FROM `coetus-emere`.tusuarios u where u.rol!='consumidor' and u.idGrupo="+cond.idGrupo+") x on p.idUsuario=x.idUsuario where p.idCategoria="+cond.idCategoria+";", function (err, result, fields) {
+    con.query("select p.idProducto, p.nombre, p.img, p.precio from tproductos p inner join (SELECT u.idUsuario FROM `coetus-emere`.tusuarios u where u.rol!='consumidor' and u.idGrupo="+cond.idGrupo+") x on p.idUsuario=x.idUsuario where p.idCategoria="+cond.idCategoria+";", function (err, result, fields) {
         if (err) throw err;
 
         // Bucle para cargar todos los productos de la cesta
         for(var i=0; i<result.length; i++){
-            productos += '<div class="articulo my-4 row">';    
+            productos += '<div id='+result[i].idProducto+' class="articulo my-4 row">';    
             productos += '<div class="col-1" id="fotoArticulo"><img src="'+result[i].img+'" alt=""></div>';    
             productos += '<div class="col-4"><p>'+result[i].nombre+'</p><span class="infoPequeño">Precio: '+result[i].precio+'€ Unidades:2 <strong>Total:<span class="totalProducto"></span>€</strong></span></div>';    
             productos += '<div class="col-2 coste infoGrande"><span>'+result[i].precio+'</span> €</div>';    
@@ -135,7 +135,7 @@ app.post('/cargarProductosCategorias', (req, res) => {
     });
 });
 
-app.post('/comprarCesta', (req,res)=>{
+app.post('/comprarProducto', (req,res)=>{
     // Acceso al valor del objeto
     const cond = req.body;
 
@@ -146,12 +146,29 @@ app.post('/comprarCesta', (req,res)=>{
         if (err) throw err;
         // En caso de que tenga un pedido pendiente se usa añade a tlineapedido con el mismo idPedido
         if(result.length !== 0){
-            con.query("INSERT INTO `coetus-emere`.`tlineaspedido` (`idPedido`, `idProducto`, `cantidad`, `descuento`) VALUES ('"+result[0].idPedido+"', '"+cond.idCesta+"', '1', '0');", function (err, result, fields) {
+            con.query("INSERT INTO `coetus-emere`.`tlineaspedido` (`idPedido`, `idProducto`, `cantidad`, `descuento`) VALUES ('"+result[0].idPedido+"', '"+cond.idProducto+"', '"+cond.cantidad+"', '0');", function (err, result, fields) {
                 if (err) throw err;
                 respuesta = 'ok';
                 res.send(respuesta);
             })
-        }
+        // En caso de que no tenga un pedido pendiente
+        }else{
+            // Se crea un nuevo pedido
+            con.query("INSERT INTO `coetus-emere`.`tpedidos` (`idUsuario`, `estado`) VALUES ('"+cond.idUsuario+"', 'pendiente');", function (err, result, fields) {
+                if (err) throw err;
+            });
+            // Se busca el id del nuevo pedido
+            con.query("SELECT idPedido FROM `coetus-emere`.tpedidos where idUsuario="+cond.idUsuario+" AND estado='pendiente';", function (err, result, fields) {
+                if (err) throw err;
+
+                //Se añade la cesta a ese Pedido pendiente
+                con.query("INSERT INTO `coetus-emere`.`tlineaspedido` (`idPedido`, `idProducto`, `cantidad`, `descuento`) VALUES ('"+result[0].idPedido+"', '"+cond.idProducto+"', '1', '0');", function (err, result, fields) {
+                    if (err) throw err;
+                    respuesta = 'ok';
+                    res.send(respuesta);
+                })
+            })
+        };
     });
 });
 
