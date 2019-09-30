@@ -3,7 +3,7 @@
 function editarRRSS(facebook,instagram,twitter,youtube,linkedin,boton){
 	boton.innerHTML = (boton.innerHTML == 'Guardar')? 'Editar' : 'Guardar';
 	if(boton.innerHTML == 'Guardar'){
-				facebook.innerHTML = "<form action=''><input type='text' name='facebook'/></form>";
+				facebook.innerHTML = "<input type='text' name='facebook'/>";
 				instagram.innerHTML = "<form action=''><input type='text' name='instagram'/></form>";
 				twitter.innerHTML = "<form action=''><input type='text' name='twitter'/></form>";
 				youtube.innerHTML = "<form action=''><input type='text' name='youtube'/></form>";

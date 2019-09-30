@@ -1,0 +1,43 @@
+#profileContent{
+    min-height: 500px;
+}
+
+h1{
+	font-family: 'Lalezar', cursive;
+}
+#profileContent img{
+	object-fit:cover;
+	border-radius: 50%;
+	height: 200px;
+	width: 200px; 
+	margin-top: 40px;
+}
+.btnStyle{
+	margin-top: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #AFAFAF;
+	text-align: center;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-radius: 15px;
+	font-family: 'Thasadith', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+
+}
+a:link{
+	color: #737373;
+}
+a:hover{
+	color: green;
+	font-size: 25px;
+	text-decoration: none;
+	letter-spacing: 2px;
+}
+#apart1Btn{
+	margin-top: 20px;
+}
+footer{
+	margin-top: 100px;
+}

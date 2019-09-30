@@ -23,37 +23,148 @@
 
 <body>
 <!--***************************EMPIEZA EL CONTENIDO**********************-->
-
-<!--En pantallas tamaño movil se verá una imagen de cabecera y no un Slider-->
-<header>
+<!-- Modal login -->
+    <section>
+        <!--Modal: Login / Register Form-->
+        <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Modal cascading tabs-->
+                    <div class="modal-c-tabs">
+                        <!-- Nav tabs -->
+                        <ul id="nav-login-form" class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+                            <li class="form-tab">
+                                <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+                                    Login</a>
+                            </li>
+                            <li class="form-tab">
+                                <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+                                    Registro</a>
+                            </li>
+                        </ul>
+                        <!-- Tab panels -->
+                        <div class="tab-content">
+                            <!--Panel 7-->
+                            <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                                <!--Body-->
+                                <div class="modal-body mb-1">
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput10">Email</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput11">Contraseña</label>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <button class="btn btn-info"> Acceder <i class="fas fa-sign-in ml-1"></i></button>
+                                    </div>
+                                </div>
+                                <!--Footer-->
+                                <div class="modal-footer">
+                                    <div class="options text-center text-md-right mt-1">
+                                        <p>¿No eres miembro? <a href="#" class="blue-text">¡Regístrate!</a></p>
+                                        <p>Olvidé mi <a href="#" class="blue-text">contraseña</a></p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                            <!--/.Panel 7-->
+                            <!--Panel 8-->
+                            <div class="tab-pane fade" id="panel8" role="tabpanel">
+                                <!--Body-->
+                                <div class="modal-body">
+                                    <div class="radio">
+                                        <label class="radio-inline"><input type="radio" name="optradio" checked> Consumidor</label>
+                                        <label class="radio-inline"><input type="radio" name="optradio"> Productor</label>
+                                        <label class="radio-inline"><input type="radio" name="optradio"> Ambos</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-user prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Nombre</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-user prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Apellidos</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Email</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput13">Contraseña</label>
+                                    </div>
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput14">Repetir contraseña</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="checkbox624">
+                                        <label class="white-text form-check-label" for="checkbox624">Acepto los<a href="#" class="green-text font-weight-bold">
+                                                Términos y Condiciones</a></label>
+                                    </div><br>
+                                    <!--<div class="md-form form-sm p-1">
+                                        <input class="form-check-input" type="checkbox" id="checkbox624">
+                                        <label for="checkbox624" class="white-text form-check-label">Acepto los<a href="#" class="green-text font-weight-bold">Términos y Condiciones</a></label>
+                                    </div>-->
+                                    <div class="text-center form-sm mt-2">
+                                        <button class="btn btn-info">Registrarme<i class="fas fa-sign-in ml-1"></i></button>
+                                    </div>
+                                </div>
+                                <!--Footer-->
+                                <div class="modal-footer">
+                                    <div class="options text-right">
+                                        <p class="pt-1">Ya estoy registrado <a href="#" class="blue-text">Acceder</a></p>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                            <!--/.Panel 8-->
+                        </div>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+    </section>
+    <!-- //Modal login -->
+    <header>
         <!-- Navbar -->
         <section>
             <nav class="navbar navbar-expand-xl navbar-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="index.html" id="homeNavbar"><img src="images/iconos/logo_lh.png" alt="" class="mr-3" id="logo">
-                	<div id="homeText">La huerta en casa</div></a>
+                <a class="navbar-brand" href="index.html" id="homeNavbar"><img src="images/carrot.png" alt="" class="mr-3"><span id="homeText">La huerta en casa</span></a>
                 <div class="" id="iconosNavbar" class="align-right">
-                    <a href="cesta.html"><img id="icono" src="images/iconos/cesta_compra.png" alt="" width="40px"></a>
-                    <a data-toggle="modal" data-target="#loginform" href="#"><img id="icono" src="images/iconos/usuario.png" alt="" width="40px"></i></a>
+                    <a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a>
+                    <a data-toggle="modal" data-target="#modalLRForm" href="#"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0	linksNav">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link" href="about.html" style="color: white;">Conoce el proyecto</a>
+                            <a class="nav-link" href="about.html">Conoce el proyecto</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link active" href="services.html"	style="color: white;">Nuestra huerta</a>
+                            <a class="nav-link active" href="services.html">Nuestra huerta</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="blog.html"	style="color: white;">Blog</a>
+                            <a class="nav-link" href="blog.html">Blog</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="faq.html"	style="color: white;">FAQ's</a>
+                            <a class="nav-link" href="FAQS.html">FAQ's</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="contact.html"	style="color: white;">Contacto</a>
+                            <a class="nav-link" href="contact.html">Contacto</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0" id="buscador">
@@ -65,19 +176,6 @@
         </section>
         <!-- //Navbar -->
     </header>
-<div class="container-fluid">
-
-	<div class="row">
-		<div class="col-12   d-block d-sm-block d-md-none">
-			<div id="cabecera">		
-			<img class="img-fluid"src="images/cabeceraLHC.jpg" alt="">
-			<!--<h1 id="tituloLaHuerta">La huerta en casa</h1>-->
-			</div>	
-		</div>
-	</div>
-
-</div>
-
 <!--**************************SLIDER****************************-->
 
 <div id="myCarousel" class="carousel slide   d-none d-sm-none d-md-block" data-ride="carousel">
@@ -144,7 +242,7 @@
 			<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae ad deleniti quibusdam quaerat, eum, temporibus, minus odit rem adipisci tempora porro! Assumenda enim praesentium, molestias veniam sed, iure necessitatibus.<br><br>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, nihil unde sit, harum, veniam alias voluptates consequuntur excepturi quisquam earum velit. Ducimus expedita, obcaecati rem officia, maiores molestias corporis. Magnam.</h3>
 
-			<button type="button" class="btn btn-outline-dark   boton">Saber más</button>	
+			<button type="button" class="btn btn-outline-dark"	id="btnMas">Saber más</button>	
 			</div>
 		</div>
 	</div>
@@ -152,18 +250,16 @@
 <!--Texto explicativo-->
 
 
-<!--Iconos y explicación-->
-
-<!-- INICIO FRANJA CON INFORMACIÓN PARA COMPRADORES -->
-
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-12	franja"><!--comoConsumidor-->
-			<h2 class="tituloFranja	consumidor">Como consumidor</h2>
+<!--Franjas info para consumidores y productores-->
+<!--PARA LOS CONSUMIDORES-->
+<section class="container-fluid">
+	<div class="row"	id="comoConsumidor">
+		<div class="col-12">
+			<h2>Como consumidor</h2>
 		</div>
 	</div>
 
-	<div class="row iconosExplicacion">
+	<div class="row"	id="franjaCons">
 <!--1-->
 		<div class="col-6 col-md-3">
 			<img src="images/iconos/productores locales.png" alt="icono productores locales" width="40px">			
@@ -173,34 +269,31 @@
 		<div class="col-6 col-md-3">
 			<span><img src="images/iconos/dieta saludable.png" alt="icono dieta saludable" width="40px"></span>
 			<h4>Apoya la agricultura local</h4>
-			<!--<h4>Productos frescos, de temporada y locales</h4>-->
 		</div>
 <!--3-->
-		<div class="col-6 col-md-3">
+		<div class="col-6 col-md-3	espacio">
 			<img src="images/iconos/de la huerta a tu nevera.png" alt="" width="30px">
 			<h4>Mejores precios, mejor calidad</h4>
 		</div>
 
 <!--4-->
-		<div class="col-6 col-md-3">
+		<div class="col-6 col-md-3	espacio">
 			<img src="images/iconos/comunidad sobre consumo sostenible.png" alt="icono consumo sostenible" width="40px">
 			<h4>Participa en nuestra comunidad</h4>
 			
 		</div>
 	</div>
-</div>
-
-<!-- FIN FRANJA CON INFORMACIÓN PARA LOS COMPRADORES -->
+</section>
 
 
-<!-- INICIO FRANJA CON INFORMACIÓN PARA LOS PRODUCTORES -->
+<!--PARA LOS PRODUCTORES -->
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-12	franja">
-			<h2 class="tituloFranja	productor">Como productor</h2>
+	<div class="row"	id="comoProductor">
+		<div class="col-12">
+			<h2>Como productor</h2>
 		</div>
 	</div>
-	<div class="row franjaProductor">
+	<div class="row"	id="franjaProd">
 <!--1-->
 		<div class="col-6 col-md-3 ">
 			<img src="images/iconos/productor2.png" alt="icono productores locales" width="50px">
@@ -212,20 +305,20 @@
 			<h4>Recibe el pago de tus ventas cada 15 días</h4>
 		</div>
 <!--3-->
-		<div class="col-6 col-md-3">
+		<div class="col-6 col-md-3	espacio">
 			<img src="images/iconos/mas_clientes.png" alt="" width="50px">
 			<h4>Consigue clientes fijos</h4>
 		</div>
 
 <!--4-->
-		<div class="col-6 col-md-3">
+		<div class="col-6 col-md-3	espacio">
 			<img src="images/iconos/productor4.png" alt="icono consumo sostenible" width="50px">
 			<h4>Divulga un consumo ecológico</h4>
 			
 		</div>
 	</div>
 </div>
-<!--Iconos y explicación-->
+<!--Franjas info para consumidores y productores-->
 
 <!--UNIRME-->
 <section class="container-fluid">
@@ -278,12 +371,12 @@
     <footer>
         <div class="text-center py-5 container" id="pie">
             <div class="row mt-4">
-                <h2><img src="images/iconos/logo_lahuerta.png" alt="" class="mr-3"></h2>
+                <h2><img src="images/carrot.png" alt="" class="mr-3">La huerta en casa</h2>
             </div>
             <div class="row mt-5" id="contactoFooter">
-                    <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>
-                    <p><span class="fa fa-phone mr-2"></span>+34 666 66 66 66</p>
-                    <p><span class="fa fa-envelope-open mr-2"></span><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
+                <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>
+                <p><span class="fa fa-phone mr-2"></span>+34 666 66 66 66</p>
+                <p><span class="fa fa-envelope-open mr-2"></span><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
             </div>
             <div class="row mt-5" id="RRSSFooter">
                 <a href="#"><span class="fab fa-facebook-square"></span></a>

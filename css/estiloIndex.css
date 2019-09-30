@@ -1,10 +1,4 @@
-/*-------------------Cabecera para móvil---------------------------*/
-.img-fluid{
-	max-width: 100%;
-	height:auto;
-}
 
-/*------------------------Cabecera para movil----------------------*/
 
 /*----------------------------Slider---------------------------*/
 
@@ -43,7 +37,9 @@
 .soberaniaAlimentaria h2{
 	color: #000000;
 	font-weight: 800;
-	font-size: 40px;
+	text-transform: uppercase;
+	font-size: 50px;
+	font-family: 'Lalezar', cursive;
 }
 
 
@@ -53,62 +49,73 @@
 	font-family: 'Thasadith', sans-serif;
 }
 
+#btnMas{
+	padding: 20px;
+	margin-top: 50px;
+	font-size: 30px;
+	font-family: 'Thasadith', sans-serif;
+}
 
-
-/*Iconos y explicación en la franja verde*/
-.comoConsumidor{
-	background-color: #3B2939;
+/*Franjas con info para consumidores y productores*/
+#comoConsumidor{
+	background-color: #009f4d;
 	height: 100px;
-	text-transform: uppercase;
-}
-
-.tituloFranja{
 	text-align: center;
-	padding-top: 20px;
-	color: black;
+	text-transform: uppercase;
+	color: white;	
 }
 
-.iconosExplicacion{
-	background-color: #3B2939;
+#comoConsumidor h2{
+	padding-top: 40px;
+	font-size:40px;
+	font-family: 'Lalezar', cursive;
+}
+
+#franjaCons{
+	background-color: #009f4d;
 	padding-top: 40px;
 	color: white;
     text-align: center;
+    padding-bottom: 30px;
 }
 
-#iconos{
-    display: block;
-    margin: auto;
-    max-width: 130px;
-    max-height: 125px;
-    padding-top:38px;
-}
-/*Iconos y explicacion para consumidores en la franja verde*/
-
-/*FRANJA SI ERES PRODUCTOR*/
-.franja{
-    text-align: center !important;
-    margin-top: 30px;
+#franjaCons h4{
+	font-family: 'Thasadith', sans-serif;
+    font-weight: bold;
 }
 
-#tituloComoProductor{
-	color: #3B2939;
+
+/*---------------------------------------------------------------------*/
+#comoProductor{
 	height: 100px;
+	text-align: center;
 	text-transform: uppercase;
-    padding-top: 50px;
+	color: #009f4d;
 }
 
-.franjaProductor{
-	text-align: center !important;
-	color: #3B2939;
-	padding-bottom: 40px;
+#comoProductor h2{
+	padding-top: 40px;
+	font-size:40px;
+	font-family: 'Lalezar', cursive;
 }
-/*FRANJA SI ERES PRODUCTOR*/
+
+#franjaProd{
+	color: #009f4d;
+	padding-top: 40px;
+	text-align: center;
+    padding-bottom: 30px;    
+}
+
+#franjaProd h4{
+	font-family: 'Thasadith', sans-serif;
+    font-weight: bold;
+}
 
 /*-----------------Franja Unete--------------------*/
 #franjaUnete{
     background-size: 1600px;
     height: 300px;
-    background-image: url(file:///C:/Users/Psyndrome/Desktop/Espacio/EOI/Lahuertaencasa/coetus-emere/images/franja_unete.jpg); 
+    background-image: url(file:///C:/Users/Psyndrome/Desktop/Espacio/EOI/Lahuertaencasa/coetus-emere/images/franja_lechuga.jpg); 
 }
 
 .boton{
@@ -150,7 +157,7 @@
 }
 
 .colorNews{
-	color: #862b35;
+	color: #009f4d;
 }
 
 
@@ -182,18 +189,22 @@
 
 
 /* ---------------------RESPONSIVE---------------*/
-/*Franjas de información para consumidores y productores*/
-@media(max-width: 768px) {
-    .iconosExplicacion{
-    height: 300px;
+@media(max-width: 425px){
+	.boton{
+		padding: 20px;
+		margin-top: 50px;
+		font-size: 20px;
+	}
+	#email{
+		font-size: 15px;
+	}
+	#btnSuscribir{
+		font-size: 15px;
+		margin-top: -15px;	
+	}
+	.espacio{
+		margin-top: 20px;
+	}
 }
-}
-
-@media(min-width: 768px) {
-    .iconosExplicacion{
-    height: 150px;
-}
-}
-/*Franjas de información para consumidores y productores*/
 
 /* ---------------------RESPONSIVE---------------*/
