@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
         <!-- //CSS -->
         <!-- JS -->
-        <script src="js/cesta.js"></script>
+        <script src="js/main.js"></script>
         <!-- //JS -->
         <title>Cesta de productos | La huerta en casa</title>
 </head>
@@ -103,7 +103,7 @@
         <div class="row">
             <div class="col-9" id="tablaCesta">
                 <div id="tituloCesta" class="mb-5">
-                    <h4><strong id="nArticulos">(2)</strong> Artículos en <strong>tu cesta</strong></h4>
+                    <h4><strong id="nArticulos"></strong> Artículos en <strong>tu cesta</strong></h4>
                 </div>
                 <div id="tabla">
                     <div class="w-100 row" id="cabecerasCesta">
@@ -115,30 +115,6 @@
                         <div class="col-1"></div>
                     </div>
                     <div class="w-100 cuadro" id="articulosCesta">
-                        <div class="articulo my-4 row">
-                            <div class="col-1" id="fotoArticulo"><img src="./images/cereal.png" alt=""></div>
-                            <div class="col-5"><p>Pan de masa madre</p><span class="infoPequeño">Precio: 1.50€ Unidades:2 <strong>Total:3€</strong></span></div>
-                            <div class="col-2 coste infoGrande">1.50 €</div>
-                            <div class="col-2 coste infoGrande">2</div>
-                            <div class="col-1 coste infoGrande"><strong>3 €</strong></div>
-                            <div class="col-1"><img src="images/close.png" alt="" class="delete"></div>
-                        </div>
-                        <div class="articulo my-4 row">
-                            <div class="col-1" id="fotoArticulo"><img src="./images/cereal.png" alt=""></div>
-                            <div class="col-5"><p>Pan de masa madre</p><span class="infoPequeño">Precio: 1.50€ Unidades:2 <strong>Total:3€</strong></span></div>
-                            <div class="col-2 coste infoGrande">1.50 €</div>
-                            <div class="col-2 coste infoGrande">2</div>
-                            <div class="col-1 coste infoGrande"><strong>3 €</strong></div>
-                            <div class="col-1"><img src="images/close.png" alt="" class="delete"></div>
-                        </div>
-                        <div class="articulo my-4 row">
-                            <div class="col-1" id="fotoArticulo"><img src="./images/cereal.png" alt=""></div>
-                            <div class="col-5"><p>Pan de masa madre</p><span class="infoPequeño">Precio: 1.50€ Unidades:2 <strong>Total:3€</strong></span></div>
-                            <div class="col-2 coste infoGrande">1.50 €</div>
-                            <div class="col-2 coste infoGrande">2</div>
-                            <div class="col-1 coste infoGrande"><strong>3 €</strong></div>
-                            <div class="col-1"><img src="images/close.png" alt="" class="delete"></div>
-                        </div>
                     </div>
                     <div class="cuadro" id="finCesta">
                         <div class="row">
@@ -153,7 +129,7 @@
                 <div class="cuadro" id="totalPago">
                     <h6>Realiza el pago ahora y recibe los productos para el <b><span>viernes 6 de septiembre</span></b></h6>
                     <hr>
-                    <p><strong>TOTAL <span id="total">20 €</span></strong> </p>
+                    <p><strong>TOTAL <span id="totalPedido"></span> €</strong> </p>
                 </div> <br>
                 <div class="align-middle">
                     <button class="btn btn-success" id="btnpedido">REALIZAR PEDIDO</button>
@@ -182,7 +158,8 @@
                 </div>
             </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="js/cesta.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

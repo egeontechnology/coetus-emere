@@ -1,8 +1,7 @@
+let dato = {
+    user: sessionStorage.getItem('idUsuario'),
+}
+send_post('cargarCarrito', dato)
 $(document).ready(function(){
-    $('.delete').click(function(){
-        $(this).parent().parent().remove();
-    });
-    $('#vaciarcesta').click(function(){
-        $('#articulosCesta').remove();
-    })
+    
 })

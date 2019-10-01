@@ -38,6 +38,7 @@ function procesa_datos_recibidos(data, status, accion, datos){
             };
             break;
         case 'cargarProductosCestas':
+            console.log(data);
             $('#productosCestasModal').html(data);
             break;
         case 'cargarProductosCategorias':
@@ -76,6 +77,17 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 sessionStorage.setItem('img', dataLogin[0].img);
                 window.location.href = "services.html";
             }
+            break;
+        case 'cargarCarrito':
+            $('#articulosCesta').html(data.carrito);
+            $('#totalPedido').html(data.totalPedido);
+            $('#nArticulos').html(data.contItems);
+            $('.delete').click(function(){
+                $(this).parent().parent().remove();
+            });
+            $('#vaciarcesta').click(function(){
+                $('#articulosCesta').remove();
+            });
             break;
     }
 }
