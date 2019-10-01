@@ -96,7 +96,7 @@ app.post('/cargarProductosCestas', (req,res) => {
     //  Se inicia la variable productos
     let productos = "";
 
-    con.query("SELECT p.nombre, cp.cantidad FROM `coetus-emere`.tcestasproductos cp inner join tproductos p on p.idProducto=cp.idProducto where cp.idProducto='"+cond.idProducto+"';", function (err, result, fields) {
+    con.query("SELECT p.nombre, cp.cantidad FROM `coetus-emere`.tcestasproductos cp inner join tproductos p on p.idProducto=cp.idProducto where cp.idCesta='"+cond.idCesta+"';", function (err, result, fields) {
         if (err) throw err;
 
         // Bucle para cargar todos los productos de la cesta
@@ -171,6 +171,40 @@ app.post('/comprarProducto', (req,res)=>{
         };
     });
 });
+
+app.post('/cargarCarrito', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    // Se inicializa variable de carrito, contador de items y totalPedido
+    let carrito = "";
+    let contItems = 0;
+    let totalPedido = 0;
+
+    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.estado = 'pendiente' and p.idUsuario="+cond.user+";", function (err, result, fields) {
+        if (err) throw err;
+
+        for(var i=0; i<result.length; i++) {
+            contItems++
+            totalPedido += result[i].totalLinea
+            carrito += '<div class="articulo my-4 row" id='+result[i].idLinea+'>';
+            carrito += '<div class="col-1" id="fotoArticulo"><img src="'+result[i].img+'" alt=""></div>';
+            carrito += '<div class="col-5"><p>'+result[i].nombre+'</p><span class="infoPequeño">Precio: '+result[i].precio+'€ Unidades:'+result[i].cantidad+' <strong>Total:'+result[i].totalLinea+'€</strong></span></div>';
+            carrito += '<div class="col-2 coste infoGrande">'+result[i].precio+' €</div>';
+            carrito += '<div class="col-2 coste infoGrande">'+result[i].cantidad+'</div>';
+            carrito += '<div class="col-1 coste infoGrande"><strong>'+result[i].totalLinea+' €</strong></div>';
+            carrito += '<div class="col-1"><img src="images/close.png" alt="" class="delete"></div></div>'
+        }
+
+        let rta = {
+            carrito : carrito, 
+            contItems : contItems,
+            totalPedido : totalPedido
+        }
+
+        res.send(rta);
+    })
+})
 
 // Se configura el puerto del servidor 
 const server = app.listen(8080);
