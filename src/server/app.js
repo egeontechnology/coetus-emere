@@ -181,7 +181,7 @@ app.post('/cargarCarrito', (req, res) => {
     let contItems = 0;
     let totalPedido = 0;
 
-    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.estado = 'pendiente' and p.idUsuario="+cond.user+";", function (err, result, fields) {
+    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.estado = 'pendiente' and p.idUsuario="+cond.idUsuario+";", function (err, result, fields) {
         if (err) throw err;
 
         for(var i=0; i<result.length; i++) {
@@ -205,6 +205,26 @@ app.post('/cargarCarrito', (req, res) => {
         res.send(rta);
     })
 })
+
+app.post('/eliminarLinea', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    // Query de MySQL
+    con.query("DELETE FROM `coetus-emere`.`tlineaspedido` WHERE (`idLinea` = '"+cond.idLinea+"');", function (err, result, fields) {
+        if (err) throw err;
+    })
+});
+
+app.post('/eliminarCarrito', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    // Query de MySQL
+    con.query("delete lp FROM `coetus-emere`.`tlineaspedido` lp inner join tpedidos p on lp.idPedido=p.idPedido WHERE (`idUsuario` = "+cond.idUsuario+" AND `estado`='pendiente')", function (err, result, fields) {
+        if (err) throw err;
+    })
+});
 
 // Se configura el puerto del servidor 
 const server = app.listen(8080);

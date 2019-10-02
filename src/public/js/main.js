@@ -84,9 +84,18 @@ function procesa_datos_recibidos(data, status, accion, datos){
             $('#nArticulos').html(data.contItems);
             $('.delete').click(function(){
                 $(this).parent().parent().remove();
+                let datos = {
+                    idLinea :$(this).parent().parent().attr('id'),
+                }
+                send_post('eliminarLinea', datos);
             });
-            $('#vaciarcesta').click(function(){
+            $('#vaciarcesta').off('click').on('click', function(){
                 $('#articulosCesta').remove();
+                let datos = {
+                    idUsuario : sessionStorage.getItem('idUsuario'),
+                }
+                send_post('eliminarCarrito', datos);
+                send_post('cargarCarrito', datos)
             });
             break;
     }
