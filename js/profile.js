@@ -26,4 +26,22 @@ $(document).ready(()=>{
         $('.profileInfo').hide();
         $('#apart5').show();
     })
+    $('#apart6Btn').click(()=>{
+        $('.profileInfo').hide();
+        $('#apart6').show();
+    })
 });
+
+
+function editar(nombre,apellidos,calle,provincia,localidad,cp,cuenta,btnEditar){
+    nombre.innerHTML = "<input type='text' name='nombre'/>";
+    apellidos.innerHTML = "<input type='text' name='apellidos'/>";
+    calle.innerHTML = "<input type='text' name='calle'/>";
+    provincia.innerHTML = "<input type='text' name='provincia'/>";
+    localidad.innerHTML = "<input type='text' name='apellidos'/>";
+    cp.innerHTML = "<input type='text' name='apellidos'/>";
+    cuenta.innerHTML = "<input type='text' name='apellidos'/>";
+    document.getElementById('btnEditar').style.display = 'none';
+    document.getElementById('btnGuardar').style.display = 'block';
+    document.getElementById('btnCancelar').style.display = 'block';    
+}

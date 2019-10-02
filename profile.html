@@ -183,38 +183,124 @@
                     <div class="col-12">
                         <img src="images/te3.jpg" alt="" srcset="">
                     </div>
+<!--Perfil  Datos de perfil, cobros y pagos--> 
                     <div class="col-12  btnStyle" id="apart1Btn">
-                        <a href="#">Apartado 1</a>
+                        <a href="#">Mi cuenta</a>
                     </div>
+<!--Perfil-->
+<!--Actividad   Registro de publicaciones-->
                     <div class="col-12  btnStyle" id="apart2Btn">
-                        <a href="#">Apartado 2</a>
+                        <a href="#">Actividad</a><!--publicaciones-->
                     </div>
+<!--/Actividad-->
+<!--Mis pedidos     CLIENTES-->
                     <div class="col-12  btnStyle">
-                        <a id="apart3Btn" href="#">Apartado 3</a>
+                        <a id="apart3Btn" href="#">Mis pedidos</a>
                     </div>
+<!--/Mis pedidos       CLIENTES-->
+<!--Productos   PRODUCTORES-->
                     <div class="col-12  btnStyle" id="apart4Btn">
-                        <a href="#">Apartado 4</a>
+                        <a href="#">Productos</a>
                     </div>
+<!--/Productos  PRODUCTORES-->
+<!--Ventas PRODUCTORES-->
                     <div class="col-12  btnStyle" id="apart5Btn">
-                        <a href="#">Apartado 5</a>
+                        <a href="#">Análisis de ventas</a>
                     </div>
+<!--Ventas PRODUCTORES-->
+<!--Seguridad-->
+                    <div class="col-12  btnStyle" id="apart6Btn">
+                        <a href="#">Seguridad</a>
+                    </div>
+<!--/Seguridad-->
                 </div>
-                <div class="col-9">
+<!--****************************Contenido***************************-->
+              
+                <div class="col-9   contenido">
+<!--Mi cuenta-->
                     <div class="profileInfo" id="apart1">
-                        <h1>Apartado 1</h1>
+                    <h1>Mi cuenta</h1>
+                    <hr>
+
+                    <h2>Datos personales</h2>
+                    <div class="enLinea font-weight-bold"><p>Nombre: </p></div><div class="enLinea   espacio"  id="nombre"><p>Pedro</p></div><br>
+
+                    <div class="enLinea font-weight-bold"><p>Apellidos: </p></div><div class="enLinea    espacio"   id="apellidos"><p>Galvez</p></div><br>
+
+                    <div class="enLinea font-weight-bold"><p>Dirección de envío: </p></div><div class="enLinea   espacio"    id="calle"><p>C/ Falsa, 123</p></div><br>
+
+                    <div class="enLinea font-weight-bold"><p>Provincia: </p></div><div class="enLinea    espacio" id="provincia"><p>Madrid</p></div>
+
+                    <div class="enLinea espacio2    font-weight-bold"><p>Localidad: </p></div><div class="enLinea    espacio"    id="localidad"><p>Madrid</p></div>
+
+                    <div class="enLinea espacio2    font-weight-bold"><p>Código postal: </p></div><div class="enLinea    espacio" id="cp"><p>28045</p></div><br>
+
+                    <div class="enLinea font-weight-bold"><p>Nº de cuenta: </p></div><div class="enLinea espacio" id="cuenta"><p>XXXX-XX-XXXX-XXXXXX</p></div><br>
+                    <button class="btn btn-outline-secondary float-left boton" id="btnBorrar">Eliminar cuenta</button>  
+                    <button class="btn btn-outline-secondary float-right boton" id="btnEditar" onclick="editar(nombre,apellidos,calle,provincia,localidad,cp,cuenta,this)">Editar</button>
+                    <button class="btn btn-outline-secondary float-right boton" id="btnGuardar">Guardar</button>
+                    <button class="btn btn-outline-secondary float-right boton" id="btnCancelar">Cancelar</button>       
                     </div>
+<!--/Mi cuenta-->
+<!--Actividad-->
                     <div class="profileInfo" id="apart2">
-                        <h1>Apartado 2</h1>
+                        <h1>Actividad</h1>
+                        <hr>
+                              
                     </div>
+<!--/Actividad-->
+<!--Mis pedidos CLIENTE-->
                     <div class="profileInfo" id="apart3">
-                        <h1>Apartado 3</h1>
+                        <h1>Mis pedidos</h1>
+                        <hr>
                     </div>
+<!--/Mis pedidos    CLIENTE-->
+<!--Productos  PRODUCTOR-->
                     <div class="profileInfo" id="apart4">
-                        <h1>Apartado 4</h1>
+                        <h1>Productos</h1>
+                        <hr>
                     </div>
-                    <div class="profileInfo" id="apart5">
-                        <h1>Apartado 5</h1>
+<!--/Productos     PRODUCTOR-->
+<!--Ventas  PRODUCTOR-->
+                    <div class="profileInfo" id="apart4">
+                        <h1>Analisis de ventas</h1>
+                        <hr>
                     </div>
+<!--Ventas  PRODUCTOR-->
+<!--Seguridad-->
+                    <div class="profileInfo" id="apart6">
+                        <h1>Seguridad</h1>
+                        <hr>
+                        <p>Utilice el siguiente formulario para cambiar la dirección de correo electrónico o la contraseña de su cuenta de La huerta en casa. Utilice la nueva dirección la próxima vez que se identifique. </p>
+                        <h2>Cambio de email</h2>
+                        <form action="#">
+                            <div class="form-group">
+                            <label for="email">Nueva dirección de email:</label>
+                            <input type="email" class="form-control" id="emailNuevo1">
+                            <label for="email">Repite la nueva dirección de email:</label>
+                            <input type="email" class="form-control" id="emailNuevo2">
+                            <label for="#">Contraseña:</label>
+                            <input type="password" class="form-control" id="contraseña1">
+                            <button class="btn btn-outline-secondary float-right boton" id="btnSaveEmail">Guardar</button>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                        </form>
+                        <h2>Cambio de contraseña</h2>
+                        <form action="#">
+                             <div class="form-group">
+                            <label for="contraseñaAnterior">Contraseña actual:</label>
+                            <input type="password" class="form-control" id="contraseñaAnterior">
+                            <label for="contraseñaNueva1">Nueva contraseña:</label>
+                            <input type="password" class="form-control" id="contraseñaNueva1">
+                            <label for="contraseñaNueva2">Introduce la nueva contraseña otra vez:</label>
+                            <input type="password" class="form-control" id="contraseñaNueva2">
+                            <button class="btn btn-outline-secondary float-right boton" id="btnSavePwd">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+<!--/Seguridad-->
                 </div>
             </div>
         </div>

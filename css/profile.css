@@ -1,10 +1,6 @@
 #profileContent{
     min-height: 500px;
 }
-
-h1{
-	font-family: 'Lalezar', cursive;
-}
 #profileContent img{
 	object-fit:cover;
 	border-radius: 50%;
@@ -26,17 +22,72 @@ h1{
 	font-weight: bold;
 
 }
-a:link{
+#profileContent a:link{
 	color: #737373;
 }
-a:hover{
+#profileContent	a:hover{
 	color: green;
 	font-size: 25px;
 	text-decoration: none;
 	letter-spacing: 2px;
 }
+
 #apart1Btn{
 	margin-top: 20px;
+}
+.profileInfo{
+	margin-left: 15px;
+}
+
+
+/*----------------------CONTENIDO-----------------*/
+.contenido{
+	margin-top: 200px;
+}
+.profileInfo h1{
+	font-family: 'Lalezar', cursive;
+	text-align: center;
+	text-transform: uppercase;
+	color: #009f4d;
+	font-size: 50px;
+}
+.profileInfo h2{
+	font-family: 'Thasadith', sans-serif;
+	font-weight: bold;
+}
+p{
+	font-family: 'Thasadith', sans-serif;
+	font-size: 20px;
+}
+.espacio{
+	margin-left: 10px;
+}
+.espacio2{
+	margin-left: 20px;
+}
+.enLinea{
+	display: inline-block;
+}
+#nombre{
+	margin-top: 25px;
+}
+.boton{
+	font-family: 'Thasadith', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+#btnSavePwd{
+	margin-top: 20px
+}
+#btnSaveEmail{
+	margin-top: 20px;
+}
+#btnCancelar{
+	display: none;
+	margin-right: 10px;
+}
+#btnGuardar{
+	display: none;
 }
 footer{
 	margin-top: 100px;
