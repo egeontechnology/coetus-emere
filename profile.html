@@ -273,12 +273,10 @@
                         <hr>
                         <p>Utilice el siguiente formulario para cambiar la dirección de correo electrónico o la contraseña de su cuenta de La huerta en casa. Utilice la nueva dirección la próxima vez que se identifique. </p>
                         <h2>Cambio de email</h2>
-                        <form action="#">
+                        <form action="servidor.php" method="POST" id="cambioEmail">
                             <div class="form-group">
                             <label for="email">Nueva dirección de email:</label>
-                            <input type="email" class="form-control" id="emailNuevo1">
-                            <label for="email">Repite la nueva dirección de email:</label>
-                            <input type="email" class="form-control" id="emailNuevo2">
+                            <input type="email" class="form-control cambioEmail" id="cambio_email1" required onfocusout="valemail(cambio_email1.value)">
                             <label for="#">Contraseña:</label>
                             <input type="password" class="form-control" id="contraseña1">
                             <button class="btn btn-outline-secondary float-right boton" id="btnSaveEmail">Guardar</button>
@@ -288,14 +286,12 @@
                             <br>
                         </form>
                         <h2>Cambio de contraseña</h2>
-                        <form action="#">
+                        <form action="#" method="POST" id="cambioPsw">
                              <div class="form-group">
-                            <label for="contraseñaAnterior">Contraseña actual:</label>
-                            <input type="password" class="form-control" id="contraseñaAnterior">
-                            <label for="contraseñaNueva1">Nueva contraseña:</label>
-                            <input type="password" class="form-control" id="contraseñaNueva1">
-                            <label for="contraseñaNueva2">Introduce la nueva contraseña otra vez:</label>
-                            <input type="password" class="form-control" id="contraseñaNueva2">
+                            <label for="contrasenaAnterior">Contraseña actual:</label>
+                            <input type="password" class="form-control" id="contrasenaAnterior">
+                            <label for="contrasenaNueva1">Nueva contraseña:</label>
+                            <input type="password" class="form-control" id="contrasenaNueva1">                            
                             <button class="btn btn-outline-secondary float-right boton" id="btnSavePwd">Guardar</button>
                             </div>
                         </form>

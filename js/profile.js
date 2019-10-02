@@ -32,7 +32,7 @@ $(document).ready(()=>{
     })
 });
 
-
+//Aparecen los input para editar los datos personales
 function editar(nombre,apellidos,calle,provincia,localidad,cp,cuenta,btnEditar){
     nombre.innerHTML = "<input type='text' name='nombre'/>";
     apellidos.innerHTML = "<input type='text' name='apellidos'/>";
@@ -44,4 +44,13 @@ function editar(nombre,apellidos,calle,provincia,localidad,cp,cuenta,btnEditar){
     document.getElementById('btnEditar').style.display = 'none';
     document.getElementById('btnGuardar').style.display = 'block';
     document.getElementById('btnCancelar').style.display = 'block';    
+}
+
+//Validación de formularios
+function valemail(email){
+    let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/igm;
+    if (! emailRegex.test(email) && emailRegex.length != 0){
+        swal("Error", "El correo electrónico no cumple el formato predefinido (xxxxxxxxxx@xxxxx.com)", "warning");
+        document.getElementsByClassName("cambioEmail").focus();
+    }
 }
