@@ -168,7 +168,7 @@
 }
 
 
-#email{
+#suscripcion_email{
 	padding: 10px;
 	font-size: 30px;
 	font-family: 'Thasadith', sans-serif;
@@ -195,7 +195,7 @@
 		margin-top: 50px;
 		font-size: 20px;
 	}
-	#email{
+	#suscripcion_email{
 		font-size: 15px;
 	}
 	#btnSuscribir{

@@ -351,14 +351,15 @@
 
 			<div id="formEmail">
 <!--Falta action y completar el envío del email-->
-				<form class="form-inline" action="/action_page.php">
+				<form class="form-inline" action="servidor.php" method="POST" id="suscripcion">
 				
 				<div class="form-group">
       				<label class="sr-only" for="email">Email:</label>
-      				<input type="email" class="form-control" id="email" placeholder="Introduce tu email" name="email">
+      				<input type="email" class="form-control" placeholder="Introduce tu email" name="email" id="suscripcion_email" required onfocusout="valemail(suscripcion_email.value)">
     			</div>	
 
-				  <button type="submit" class="btn btn-outline-secondary" id="btnSuscribir">Suscribirme</button>
+				  <button type="submit" class="btn btn-outline-secondary" id="btnSuscribir" onclick="return enviar()">Suscribirme</button>
+                  
 				  
 				</form>
 			</div>
@@ -391,6 +392,7 @@
     </footer>
 
 <!--*****************TERMINA EL CONTENIDO*****************-->
+<script src="js/index.js"></script>
  <!-- Optional JavaScript -->
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
