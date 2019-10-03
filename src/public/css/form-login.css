@@ -76,6 +76,7 @@
 
 .modal-dialog.cascading-modal .modal-c-tabs .md-tabs li a {
     text-align: center;
+    color: #fff;
 }
 
 .md-tabs .nav-item.open .nav-link, .md-tabs .nav-link.active {
@@ -83,7 +84,7 @@
     color: #fff;
     transition: all 1s;
     border-radius: .25rem;
-    border-color: #367dc4 #dee2e6 #fff;
+    border-color: #fff;
 }
 
 .nav-link:focus, .nav-link:hover {
@@ -111,6 +112,7 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
+
 .mb-5, .my-5 {
     margin-bottom: 3rem !important;
 }
@@ -118,13 +120,14 @@
 .mb-1, .my-1 {
     margin-bottom: .25rem !important;
 }
+
 .modal-body {
     position: relative;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 1rem;
-        padding-right: 1rem;
-        padding-left: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .md-form.form-sm .prefix {
@@ -135,14 +138,16 @@
     position: absolute;
     transition: color .2s;
 }
+
 .md-form .prefix {
     top: .25rem;
     font-size: 1.75rem;
 }
+
 .fa, .fas {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    }
+}
 
 .fa, .fab, .fal, .far, .fas {
     -moz-osx-font-smoothing: grayscale;
@@ -155,7 +160,6 @@
 }
 
 .md-form.form-sm .prefix ~ input, .md-form.form-sm .prefix ~ textarea {
-    margin-left: 2rem;
     width: calc(100% - 2rem);
 }
 
@@ -163,9 +167,9 @@
     box-sizing: content-box;
     background-color: transparent;
     border: none;
-        border-bottom-color: currentcolor;
-        border-bottom-style: none;
-        border-bottom-width: medium;
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: medium;
     border-bottom: 1px solid #ced4da;
     border-radius: 0;
     outline: 0;
@@ -176,14 +180,17 @@
 .md-form.form-sm .validate {
     margin-bottom: 2.3rem;
 }
+
 .md-form .prefix ~ input, .md-form .prefix ~ textarea {
     margin-left: 2.5rem;
     width: calc(100% - 2.5rem);
 }
+
 .md-form .validate {
     margin-bottom: 2.5rem;
 }
-.md-form .form-control {
+
+.md-form .form-control1 {
     margin: 0 0 .5rem 0;
         margin-bottom: 0.5rem;
         margin-left: 0px;
@@ -192,6 +199,7 @@
     background-color: transparent;
     height: auto;
 }
+
 .form-control-sm {
     height: calc(1.5em + .5rem + 2px);
     padding: .25rem .5rem;
@@ -199,7 +207,8 @@
     line-height: 1.5;
     border-radius: .2rem;
 }
-.form-control {
+
+.form-control1 {
     display: block;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
@@ -214,9 +223,11 @@
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
 button, input {
     overflow: visible;
 }
+
 button, input, optgroup, select, textarea {
     margin: 0;
     font-family: inherit;
@@ -227,12 +238,15 @@ button, input, optgroup, select, textarea {
 .md-form.form-sm .prefix ~ label {
     margin-left: 2rem;
 }
+
 .md-form.form-sm label {
     font-size: .875rem;
 }
+
 .md-form .prefix ~ label {
     margin-left: 2.5rem;
 }
+
 .md-form label {
     position: absolute;
     top: 0;
@@ -244,17 +258,60 @@ button, input, optgroup, select, textarea {
     cursor: text;
     color: #757575;
 }
+
 .md-form label {
     font-size: 1rem;
 }
+
 label {
     display: inline-block;
     margin-bottom: .5rem;
 }
 
 .btn-outline-info {
-    border: 2px solid #33e55c !important;
+    border: 2px solid #28a745 !important;
+    background-color: #9c9f0038;
+    color: #28a745;
 }
+
+.btn-outline-info:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+ }
+
+ .btn-info {
+ 	color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+ }
+
+ .btn-info:focus, .btn-info:hover {
+    border: 2px solid #1f201f !important;
+    background-color: #138496;
+    color: #fff;
+ }
+
+a {
+    color:#28a745;
+}
+
+a:focus, a:hover {
+	color: #138496;
+	text-decoration: none;
+}
+
+#botonLogin {
+	color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+ }
+
+ #botonLogin:focus, #botonLogin:hover {
+    border: 2px solid #1f201f !important;
+    background-color: #138496;
+    color: #fff;
+ }
 
 .radio {
     text-align: center;
@@ -264,3 +321,26 @@ label {
 .radio-inline {
     margin:5px;
 }
+
+
+#checkbox624 {
+    width:revert;
+}
+
+.checkinput {
+    visibility: hidden;
+    color: green;
+    position:absolute;
+    left:390px;
+    font-size:20px;
+}
+
+.wronginput {
+    visibility: hidden;
+    color: red;
+    position:absolute;
+    left:390px;
+    font-size:20px;
+}
+
+

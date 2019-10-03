@@ -5,60 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha3.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- //CDN -->
     <!-- CSS -->
     <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
+    <link href="css/form-login.css" rel='stylesheet' type='text/css' /><!-- login css -->
     <link href="css/about.css" rel='stylesheet' type='text/css' /><!-- services css -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
     <!-- //CSS -->
     <!-- JS -->
+    <script src="js/main.js"></script>
     <!-- //JS -->
     <title>Conoce el proyecto | La huerta en casa</title>
 </head>
 <body>
     <!-- Modal login -->
-    <section>
-            <div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <section class="about py-5" id="about">
-        <div class="container py-lg-5 py-sm-3" id="formulario">
-            <div class="row">
-            <div class="login-page">
-              <div class="form">
-                <form class="register-form">
-                    <div id="tipousuario">
-                        <input type="radio" name="user"> Consumidor 
-                        <input type="radio" name="user"> Productor 
-                    </div>
-                  <input type="text" name="nombre" id="registro_nombre" placeholder="Nombre"required/>
-                  <input type="text" placeholder="Apellido"/>
-                  <input type="text" placeholder="Email"/>
-                  <input type="password" placeholder="Contraseña"/>
-                  <input type="password" placeholder="Confirmar contraseña"/>
-                  <button>¡Únete!</button>
-                  <input type="checkbox"> Acepto política de privacidad <br>
-                  <p class="message">Ya estoy registrado <a href="#">Conectarse</a></p>
-                </form>
-                <form class="login-form">
-                  <input type="text" placeholder="Nombre"/>
-                  <input type="password" placeholder="Contraseña"/>
-                  <button>Acceder</button>
-                   <p><input type="checkbox"> Recuérdame <br>
-                  <p class="message">No estoy registrado <a href="#">Crear una cuenta</a></p>
-                </form>
-              </div>
-            </div>
-            </div>
-        </div>
-    </section>
+<section>
+    <!--Modal: Login / Register Form-->
+    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Modal cascading tabs-->
+                <div class="modal-c-tabs">
+                    <!-- Nav tabs -->
+                    <ul id="nav-login-form" class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+                        <li class="form-tab">
+                            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+                                Login</a>
+                        </li>
+                        <li class="form-tab">
+                            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+                                Registro</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panels -->
+                    <div class="tab-content">
+                        <!--Panel 7-->
+                        <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                            <!--Body-->
+                            <div class="modal-body mb-1">
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fas fa-envelope prefix"></i>
+                                    <input type="email" class="form-control form-control-sm validate" id="userName" placeholder="Email">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput10"></label>
+                                </div>
+                                <div class="md-form form-sm mb-4">
+                                    <i class="fas fa-lock prefix"></i>
+                                    <input type="password" class="form-control form-control-sm validate" id="userPass" placeholder="Contraseña">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput11"></label>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button class="btn btn-primary" id="botonLogin"> Acceder <i class="fas fa-sign-in ml-1"></i></button>
+                                </div>
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-center text-md-right mt-1">
+                                    <p>¿No eres miembro? <a href="#" class="blue-text">¡Regístrate!</a></p>
+                                    <p>Olvidé mi <a href="#" class="blue-text">contraseña</a></p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                        <!--/.Panel 7-->
+                        <!--Panel 8-->
+                        <div class="tab-pane fade" id="panel8" role="tabpanel">
+                            <!--Body-->
+                            <div class="modal-body">
+                                <div class="radio">
+                                    <label class="radio-inline"><input type="radio" name="optradio" checked> Consumidor</label>
+                                    <label class="radio-inline"><input type="radio" name="optradio"> Productor</label>
+                                    <label class="radio-inline"><input type="radio" name="optradio"> Ambos</label>
+                                </div>
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fas fa-user prefix"></i>
+                                    <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput12">Nombre</label>
+                                </div>
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fas fa-user prefix"></i>
+                                    <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput12">Apellidos</label>
+                                </div>
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fas fa-envelope prefix"></i>
+                                    <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput12">Email</label>
+                                </div>
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fas fa-lock prefix"></i>
+                                    <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput13">Contraseña</label>
+                                </div>
+                                <div class="md-form form-sm mb-4">
+                                    <i class="fas fa-lock prefix"></i>
+                                    <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="right" for="modalLRInput14">Repetir contraseña</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="checkbox624">
+                                    <label class="white-text form-check-label" for="checkbox624">Acepto los<a href="#" class="green-text font-weight-bold">
+                                            Términos y Condiciones</a></label>
+                                </div><br>
+                                <!--<div class="md-form form-sm p-1">
+                                    <input class="form-check-input" type="checkbox" id="checkbox624">
+                                    <label for="checkbox624" class="white-text form-check-label">Acepto los<a href="#" class="green-text font-weight-bold">Términos y Condiciones</a></label>
+                                </div>-->
+                                <div class="text-center form-sm mt-2">
+                                    <button class="btn btn-info">Registrarme<i class="fas fa-sign-in ml-1"></i></button>
+                                </div>
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-right">
+                                    <p class="pt-1">Ya estoy registrado <a href="#" class="blue-text">Acceder</a></p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                        <!--/.Panel 8-->
                     </div>
                 </div>
             </div>
-    </section>
-    <!-- //Modal login -->
+            <!--/.Content-->
+        </div>
+    </div>
+</section>
+<!-- //Modal login -->
     <header>
         <!-- Navbar -->
         <section>
@@ -68,31 +144,27 @@
                 </button>
                 <a class="navbar-brand" href="index.html" id="homeNavbar"><img src="images/carrot.png" alt="" class="mr-3"><span id="homeText">La huerta en casa</span></a>
                 <div class="" id="iconosNavbar" class="align-right">
-                    <a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a>
-                    <a data-toggle="modal" data-target="#loginform" href="#"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a>
+                    <a href="cesta.html" class="loged"><img id="icono" src="images/cesta.png" alt="" width="40px"></a>
+                    <a data-toggle="modal" data-target="#modalLRForm" href="#"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link active" href="about.html">Conoce el proyecto</a>
+                            <a class="nav-link active" href="about.html">Conoce el proyecto</a>
+                        </li>
+                        <li class="nav-item loged">
+                            <a class="nav-link" href="services.html">Nuestra huerta</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="services.html">Nuestra huerta</a>
+                            <a class="nav-link" href="blog.html">Blog</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
+                            <a class="nav-link" href="faqs.html">FAQ's</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="faq.html">FAQ's</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contacto</a>
+                            <a class="nav-link" href="contact.html">Contacto</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0" id="buscador">
-                        <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
                 </div>
             </nav>
         </section>
@@ -262,7 +334,6 @@
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

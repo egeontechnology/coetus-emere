@@ -4,8 +4,6 @@ function procesa_datos_recibidos(data, status, accion, datos){
         case 'cargarCategorias':
             $('#categorias').html(data);
             $('.producto').click(function(){
-                // let idGrupo = 'idGrupo='+sessionStorage.getItem('idGrupo');
-                // let idCategoria = 'idCategoria='+this.id;
                 let datosEnviados = {
                     idGrupo: sessionStorage.getItem('idGrupo'),
                     idCategoria : this.id
@@ -64,6 +62,7 @@ function procesa_datos_recibidos(data, status, accion, datos){
             });
             break;
         case 'login':
+            console.log(data)
             if(data=='ko'){
                 console.log('contraseña incorrecta');
             } else {
@@ -118,9 +117,107 @@ function send_post(accion, datos){
     });					
 }	
 
+// Login/Registro Modal
+function ValidarEmail(userName) {
+    var m = /\w+@\w+\.+[a-z]/;
+
+    if (userName.match(m)) {
+        $("#checkuser").css("visibility", "visible");
+        $("#wronguser").css("visibility", "hidden");
+    } else {
+        $("#wronguser").css("visibility", "visible");
+        $("#checkuser").css("visibility", "hidden");
+
+    }
+};
+
+
+function ValidarPassword(userPass) {
+    var m = /^(?=.*\d)(?=.*[A-Z])(?!.*[^a-zA-Z0-9@#$^+=])(.{6,})$/;
+
+    if (userPass.match(m)) {
+        $("#checkpass").css("visibility", "visible");
+        $("#wrongpass").css("visibility", "hidden");
+    } else {
+        $("#wrongpass").css("visibility", "visible");
+        $("#checkpass").css("visibility", "hidden");
+    }
+};
+
+function ValidarEmailRegistro(userName_Reg) {
+    var m = /\w+@\w+\.+[a-z]/;
+
+    if (userName_Reg.match(m)) {
+        $("#checkuser_2").css("visibility", "visible");
+        $("#wronguser_2").css("visibility", "hidden");
+    } else {
+        $("#wronguser_2").css("visibility", "visible");
+        $("#checkuser_2").css("visibility", "hidden");
+
+    }
+};
+
+function ValidarPasswordRegistro(userPass_Reg) {
+    var m = /^(?=.*\d)(?=.*[A-Z])(?!.*[^a-zA-Z0-9@#$^+=])(.{6,})$/;
+
+    if (userPass_Reg.match(m)) {
+        $("#checkpassreg").css("visibility", "visible");
+        $("#wrongpassreg").css("visibility", "hidden");
+    } else {
+        $("#wrongpassreg").css("visibility", "visible");
+        $("#checkpassreg").css("visibility", "hidden");
+    }
+};
+
+function ValidarPasswordRegistro2(userPass_Reg2) {
+    var m = /^(?=.*\d)(?=.*[A-Z])(?!.*[^a-zA-Z0-9@#$^+=])(.{6,})$/;
+
+    if (userPass_Reg2.match(m)) {
+        $("#checkpassreg2").css("visibility", "visible");
+        $("#wrongpassreg2").css("visibility", "hidden");
+    } else {
+        $("#wrongpassreg2").css("visibility", "visible");
+        $("#checkpassreg2").css("visibility", "hidden");
+    }
+};
+
+function ValidarNombre(userNombre) {
+    var m = /^([a-z ñáéíóú]{3,30})$/;
+
+    if (userNombre.match(m)) {
+        $("#checkNombre").css("visibility", "visible");
+        $("#wrongNombre").css("visibility", "hidden");
+    } else {
+        $("#wrongNombre").css("visibility", "visible");
+        $("#checkNombre").css("visibility", "hidden");
+    }
+};
+
+function ValidarApellidos(userApellido) {
+    var m = /^([a-z ñáéíóú]{5,60})$/;
+
+    if (userApellido.match(m)) {
+        $("#checkApellido").css("visibility", "visible");
+        $("#wrongApellido").css("visibility", "hidden");
+    } else {
+        $("#wrongApellido").css("visibility", "visible");
+        $("#checkApellido").css("visibility", "hidden");
+    }
+};
+
+
+$("boton").click(function(event) {
+$(".form_reg")[0].reset();
+});
+
+
 $(document).ready(function(){
     $('#botonLogin').click(()=>{
         datosLogin = 'user='+$('#userName').val()+'&pass='+CryptoJS.SHA3($('#userPass').val(),{ outputLength: 512 });
         send_post('login', datosLogin);
     })
+    if(sessionStorage.getItem('login')=='true'){
+        $('.loged').css('display','inline-block')
+        $('#loginIcon').attr('data-toggle', '').attr('data-target', '').attr('href','profile.html')
+    }
 });

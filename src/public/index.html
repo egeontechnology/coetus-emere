@@ -1,26 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha3.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!-- //CDN -->
-        <!-- CSS -->
-        <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
-        <link href="css/form-login.css" rel='stylesheet' type='text/css' /><!-- login css -->
-        <link href="css/cesta.css" rel='stylesheet' type='text/css' /><!-- cesta css -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
-        <!-- //CSS -->
-        <!-- JS -->
-        <script src="js/main.js"></script>
-        <!-- //JS -->
-        <title>Cesta de productos | La huerta en casa</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!--Diseño responsive-->
+    <meta http-equiv="x-ua-compatible" content="ie-edge"> <!--Compatibilidad con todos los navegadores-->
+
+<!-- CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <!--Sweet alert-->
+<!-- //CDN -->
+
+	<title>HOME | La huerta en casa</title>
+
+<!--Estilos y fuentes-->
+<link href="https://fonts.googleapis.com/css?family=Thasadith&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lalezar&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
+<link href="css/estiloIndex.css" rel="stylesheet">
+<link rel="stylesheet" href="css/form-login.css">
+<link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
+
+<!-- JS -->
+<script src="js/main.js"></script>
+<!-- //JS -->
 </head>
+
+
 <body>
+<!--***************************EMPIEZA EL CONTENIDO**********************-->
     <!-- Modal login -->
     <section>
         <!--Modal: Login / Register Form-->
@@ -135,7 +146,6 @@
         </div>
     </section>
     <!-- //Modal login -->
-    <header>
     <!-- Navbar -->
     <section>
         <nav class="navbar navbar-expand-xl navbar-light">
@@ -150,7 +160,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="about.html">Conoce el proyecto</a>
+                        <a class="nav-link" href="about.html">Conoce el proyecto</a>
                     </li>
                     <li class="nav-item loged">
                         <a class="nav-link" href="services.html">Nuestra huerta</a>
@@ -170,67 +180,226 @@
     </section>
     <!-- //Navbar -->
     </header>
-    <div class="container" id="cesta">
-        <div class="row">
-            <div class="col-9" id="tablaCesta">
-                <div id="tituloCesta" class="mb-5">
-                    <h4><strong id="nArticulos"></strong> Artículos en <strong>tu cesta</strong></h4>
-                </div>
-                <div id="tabla">
-                    <div class="w-100 row" id="cabecerasCesta">
-                        <div class="col-1">Articulo</div>
-                        <div class="col-5"></div>
-                        <div class="col-2 infoGrande">Precio</div>
-                        <div class="col-2 infoGrande">Unidades</div>
-                        <div class="col-1 infoGrande"><strong>Total</strong></div>
-                        <div class="col-1"></div>
-                    </div>
-                    <div class="w-100 cuadro" id="articulosCesta">
-                    </div>
-                    <div class="cuadro" id="finCesta">
-                        <div class="row">
-                            <button class="btn btn-outline-secondary my-2 col-4" id="vaciarcesta"><img class="mr-3" src="images/papelera.png" alt="">Vaciar cesta</button>
-                            <div class="col-4"></div>
-                            <a href="services.html"><button class="btn btn-outline-secondary my-2 col-4" id="total">Seguir comprando</button></a>
-                        </div>
-                    </div>
-                </div>
+<!--**************************SLIDER****************************-->
+
+<div id="myCarousel" class="carousel slide   d-none d-sm-none d-md-block" data-ride="carousel">
+
+	  <!-- Indicadores -->
+	  <ul class="carousel-indicators">
+	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	    <li data-target="#myCarousel" data-slide-to="1"></li>
+	    <li data-target="#myCarousel" data-slide-to="2"></li>
+	  </ul>
+	  
+	  <!-- Contenido del slider -->
+	<div class="carousel-inner">
+
+	    <div class="carousel-item active">
+	      <img src="images/banner00.jpg" alt="Grupos de consumo" width="1100" height="500">
+
+	    <div class="carousel-caption   tituloBanner">	    	
+	        <h2 class="display-1">Grupos de consumo</h2>	        
+	        <p class="display-4">La unión hace la fuerza</p>
+	    	
+	      </div>  
+	    </div>
+
+	    <div class="carousel-item">
+	      <img src="images/banner03.jpg" alt="Productores locales" width="1100" height="500">	    
+	     <div class="carousel-caption   tituloBanner">			
+	        <h3 class="display-1 ">Productores locales</h3>	        
+	        <p class="display-4">Aumenta la visibilidad de tu negocio</p>	   
+	      </div>   
+		</div>
+
+	    <div class="carousel-item">
+	      <img src="images/banner3.jpg" alt="Nuestras cestas" width="1100" height="500">
+	    
+		    <div class="carousel-caption   tituloBanner">   	
+		        <h3 class="display-1">Nuestras cestas</h3>	        
+		        <p class="display-4">Recibe en tu casa productos locales cada quincena</p>
+		    </div> 
+
+	    </div> 
+	  </div>
+	  
+	  <!-- Controles de derecha-izquierda -->
+	  <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+	    <span class="carousel-control-prev-icon"></span>
+	  </a>
+	  <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+	    <span class="carousel-control-next-icon"></span>
+	  </a>
+
+</div>
+
+
+<!--**************************SLIDER****************************-->
+
+<!--Texto explicativo-->
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 soberaniaAlimentaria">
+			<h2>SOBERANÍA ALIMENTARIA</h2>
+
+			<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quae ad deleniti quibusdam quaerat, eum, temporibus, minus odit rem adipisci tempora porro! Assumenda enim praesentium, molestias veniam sed, iure necessitatibus.<br><br>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, nihil unde sit, harum, veniam alias voluptates consequuntur excepturi quisquam earum velit. Ducimus expedita, obcaecati rem officia, maiores molestias corporis. Magnam.</h3>
+
+			<button type="button" class="btn btn-outline-dark"	id="btnMas">Saber más</button>	
+			</div>
+		</div>
+	</div>
+
+<!--Texto explicativo-->
+
+
+<!--Franjas info para consumidores y productores-->
+<!--PARA LOS CONSUMIDORES-->
+<section class="container-fluid">
+	<div class="row"	id="comoConsumidor">
+		<div class="col-12">
+			<h2>Como consumidor</h2>
+		</div>
+	</div>
+
+	<div class="row"	id="franjaCons">
+<!--1-->
+		<div class="col-6 col-md-3">
+			<img src="images/iconos/productores locales.png" alt="icono productores locales" width="40px">			
+			<h4>De la huerta a tu nevera</h4>
+		</div>
+<!--2-->
+		<div class="col-6 col-md-3">
+			<span><img src="images/iconos/dieta saludable.png" alt="icono dieta saludable" width="40px"></span>
+			<h4>Apoya la agricultura local</h4>
+		</div>
+<!--3-->
+		<div class="col-6 col-md-3	espacio">
+			<img src="images/iconos/de la huerta a tu nevera.png" alt="" width="30px">
+			<h4>Mejores precios, mejor calidad</h4>
+		</div>
+
+<!--4-->
+		<div class="col-6 col-md-3	espacio">
+			<img src="images/iconos/comunidad sobre consumo sostenible.png" alt="icono consumo sostenible" width="40px">
+			<h4>Participa en nuestra comunidad</h4>
+			
+		</div>
+	</div>
+</section>
+
+
+<!--PARA LOS PRODUCTORES -->
+<div class="container-fluid">
+	<div class="row"	id="comoProductor">
+		<div class="col-12">
+			<h2>Como productor</h2>
+		</div>
+	</div>
+	<div class="row"	id="franjaProd">
+<!--1-->
+		<div class="col-6 col-md-3 ">
+			<img src="images/iconos/productor2.png" alt="icono productores locales" width="50px">
+			<h4>Aumenta tus beneficios</h4>
+		</div>
+<!--2-->
+		<div class="col-6 col-md-3">
+			<img src="images/iconos/productor1.png" alt="icono dieta saludable" width="50px">
+			<h4>Recibe el pago de tus ventas cada 15 días</h4>
+		</div>
+<!--3-->
+		<div class="col-6 col-md-3	espacio">
+			<img src="images/iconos/mas_clientes.png" alt="" width="50px">
+			<h4>Consigue clientes fijos</h4>
+		</div>
+
+<!--4-->
+		<div class="col-6 col-md-3	espacio">
+			<img src="images/iconos/productor4.png" alt="icono consumo sostenible" width="50px">
+			<h4>Divulga un consumo ecológico</h4>
+			
+		</div>
+	</div>
+</div>
+<!--Franjas info para consumidores y productores-->
+
+<!--UNIRME-->
+<section class="container-fluid">
+
+	<div class="row">
+		<div class="col-12" id="franjaUnete">
+			<div class="container  text-center">
+				<div class="row">
+					<div class="col-12">
+						<button type="button" class="btn btn-light mx-auto  boton">¡Quiero unirme!</button>
+						<button type="button" class="btn btn-light   boton">¿Tienes alguna consulta?</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+<!--UNIRME-->
+
+<!--Franja para la suscripción-->
+<section class="jumbotron jumbotron-fluid"	id="franjaSuscripcion">
+	<div class="container">
+		<div class="col-12">
+			<div id="suscribete">
+			<p>Si quieres estar al tanto de las últimas noticias, conocer deliciosas recetas, saber cuándo se celebrarán destacados eventos del mundo de la alimentación saludable; no lo pienses más y...</p>
+						
+			<h4><span class="colorNews">Suscríbete</span> a nuestra <span class="colorNews">Newsletter</span></h4>			
+			</div>
+
+			<div id="formEmail">
+
+				<form class="form-inline" action="servidor.php" method="POST" id="suscripcion">
+				
+				<div class="form-group">
+      				<label class="sr-only" for="email">Email:</label>
+      				<input type="email" class="form-control" placeholder="Introduce tu email" name="email" id="suscripcion_email" required onfocusout="valemail(suscripcion_email.value)">
+    			</div>	
+
+				  <button type="submit" class="btn btn-outline-secondary" id="btnSuscribir" onclick="return enviar()">Suscribirme</button>
+                  
+				  
+				</form>
+			</div>
+
+
+		</div>
+	</div>
+</section>
+<!--Franja para la suscripción-->
+    <footer>
+        <div class="text-center py-5 container" id="pie">
+            <div class="row mt-4">
+                <h2><img src="images/carrot.png" alt="" class="mr-3">La huerta en casa</h2>
             </div>
-            <div class="col-3" id="realizaPago">
-                <div class="cuadro" id="totalPago">
-                    <h6>Realiza el pago ahora y recibe los productos para el <b><span>viernes 6 de septiembre</span></b></h6>
-                    <hr>
-                    <p><strong>TOTAL <span id="totalPedido"></span> €</strong> </p>
-                </div> <br>
-                <div class="align-middle">
-                    <button class="btn btn-success" id="btnpedido">REALIZAR PEDIDO</button>
-                </div>
+            <div class="row mt-5" id="contactoFooter">
+                <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>
+                <p><span class="fa fa-phone mr-2"></span>+34 666 66 66 66</p>
+                <p><span class="fa fa-envelope-open mr-2"></span><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
+            </div>
+            <div class="row mt-5" id="RRSSFooter">
+                <a href="#"><span class="fab fa-facebook-square"></span></a>
+                <a href="#"><span class="fab fa-twitter-square"></span></a>
+                <a href="#"><span class="fab fa-google-plus-square"></span></a>
+                <a href="#"><span class="fab fa-pinterest-square"></span></a>
+            </div>
+            <div class="row mt-5">
+                <p>© 2019 La huerta en casa</p>
             </div>
         </div>
-    </div>
-    <footer>
-            <div class="text-center py-5 container" id="pie">
-                <div class="row mt-4">
-                    <h2><img src="images/carrot.png" alt="" class="mr-3">La huerta en casa</h2>
-                </div>
-                <div class="row mt-5" id="contactoFooter">
-                        <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>
-                        <p><span class="fa fa-phone mr-2"></span>+34 666 66 66 66</p>
-                        <p><span class="fa fa-envelope-open mr-2"></span><a href="mailto:info@example.com">lahuertaencasa@gmail.com</a></p>
-                </div>
-                <div class="row mt-5" id="RRSSFooter">
-                    <a href="#"><span class="fab fa-facebook-square"></span></a>
-                    <a href="#"><span class="fab fa-twitter-square"></span></a>
-                    <a href="#"><span class="fab fa-google-plus-square"></span></a>
-                    <a href="#"><span class="fab fa-pinterest-square"></span></a>
-                </div>
-                <div class="row mt-5">
-                    <p>© 2019 La huerta en casa</p>
-                </div>
-            </div>
     </footer>
-    <script src="js/cesta.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!--*****************TERMINA EL CONTENIDO*****************-->
+<script src="js/index.js"></script>
+ <!-- Optional JavaScript -->
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
