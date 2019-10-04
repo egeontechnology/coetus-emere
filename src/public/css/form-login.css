@@ -1,3 +1,13 @@
+.error{
+    border:1px solid red !important;
+}
+
+#passErr{
+    margin: auto;
+    color: red;
+    position: relative;
+    left: 135px;
+}
 
 .modal-dialog .modal-content {
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15);

@@ -72,7 +72,7 @@ app.post('/cargarCategorias', (req, res) =>{
     // Se inicia variable cestas
     let categoria = "";
 		
-    con.query("select c.nombre, c.idPadre, c.idCategoria from `coetus-emere`.tcategorias c	inner join (select p.idCategoria from tproductos p inner join (SELECT u.idUsuario FROM `coetus-emere`.tusuarios u where u.rol!='consumidor' and u.idGrupo="+cond+") x on p.idUsuario=x.idUsuario) y on c.idCategoria=y.idCategoria group by c.idCategoria;"
+    con.query("select c.nombre, c.idPadre, c.idCategoria, c.imagen from `coetus-emere`.tcategorias c	inner join (select p.idCategoria from tproductos p inner join (SELECT u.idUsuario FROM `coetus-emere`.tusuarios u where u.rol!='consumidor' and u.idGrupo="+cond+") x on p.idUsuario=x.idUsuario) y on c.idCategoria=y.idCategoria group by c.idCategoria;"
     , function (err, result, fields) {
         if (err) throw err;
 
@@ -81,7 +81,7 @@ app.post('/cargarCategorias', (req, res) =>{
         for(var i=0; i<result.length; i++){
             categoria += '<div class="col-2 producto mt-1" id="'+result[i].idCategoria+'"><a href="" data-toggle="modal" data-target="#modalCategoria">';
             categoria += '<div id="marco">'
-            categoria += '<img src="'+result[i].img+'">'
+            categoria += '<img src="'+result[i].imagen+'">'
             categoria += '</div>';
             categoria += '<div id="texto">'+result[i].nombre+'</div></a></div>';
         }
