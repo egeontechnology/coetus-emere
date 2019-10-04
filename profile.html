@@ -179,9 +179,14 @@
     <section>
         <div class="container" id="profileContent">
             <div class="row">
+                <div class="col-12">
+                    <img class="img-fluid" id="cabeceraPerfil" src="images/banner002.jpg" alt="" srcset="">
+                </div>
+            </div>
+            <div class="row" id="contenedor">
                 <div class="col-3">
                     <div class="col-12">
-                        <img src="images/te3.jpg" alt="" srcset="">
+                        <img id="imgPerfil" src="images/perfil.jpg" alt="" srcset="">
                     </div>
 <!--Perfil  Datos de perfil, cobros y pagos--> 
                     <div class="col-12  btnStyle" id="apart1Btn">
@@ -233,13 +238,19 @@
 
                     <div class="enLinea espacio2    font-weight-bold"><p>Localidad: </p></div><div class="enLinea    espacio"    id="localidad"><p>Madrid</p></div>
 
-                    <div class="enLinea espacio2    font-weight-bold"><p>Código postal: </p></div><div class="enLinea    espacio" id="cp"><p>28045</p></div><br>
+                    <div id="bloqueCp">
+                    <div class="enLinea espacio2    font-weight-bold"><p>Código postal: </p></div><div class="enLinea    espacio" id="cp"><p>28045</p></div>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
 
                     <div class="enLinea font-weight-bold"><p>Nº de cuenta: </p></div><div class="enLinea espacio" id="cuenta"><p>XXXX-XX-XXXX-XXXXXX</p></div><br>
+                    <br>
                     <button class="btn btn-outline-secondary float-left boton" id="btnBorrar">Eliminar cuenta</button>  
                     <button class="btn btn-outline-secondary float-right boton" id="btnEditar" onclick="editar(nombre,apellidos,calle,provincia,localidad,cp,cuenta,this)">Editar</button>
-                    <button class="btn btn-outline-secondary float-right boton" id="btnGuardar">Guardar</button>
-                    <button class="btn btn-outline-secondary float-right boton" id="btnCancelar">Cancelar</button>       
+                    <button class="btn btn-outline-secondary float-right boton" id="btnGuardar" onclick="guardar()">Guardar</button>
+                    <button class="btn btn-outline-secondary float-right boton" id="btnCancelar" onclick="cancelar()">Cancelar</button>       
                     </div>
 <!--/Mi cuenta-->
 <!--Actividad-->
@@ -273,13 +284,13 @@
                         <hr>
                         <p>Utilice el siguiente formulario para cambiar la dirección de correo electrónico o la contraseña de su cuenta de La huerta en casa. Utilice la nueva dirección la próxima vez que se identifique. </p>
                         <h2>Cambio de email</h2>
-                        <form action="servidor.php" method="POST" id="cambioEmail">
+                        <form name="cambioEmail" id="cambioEmail">
                             <div class="form-group">
                             <label for="email">Nueva dirección de email:</label>
-                            <input type="email" class="form-control cambioEmail" id="cambio_email1" required onfocusout="valemail(cambio_email1.value)">
+                            <input type="email" class="form-control" id="changeEmail" required onkeyup="valemail(changeEmail.value)">
                             <label for="#">Contraseña:</label>
                             <input type="password" class="form-control" id="contraseña1">
-                            <button class="btn btn-outline-secondary float-right boton" id="btnSaveEmail">Guardar</button>
+                            <button class="btn btn-outline-secondary float-right boton" id="btnSaveEmail" disabled>Guardar</button>
                             </div>
                             <br>
                             <br>

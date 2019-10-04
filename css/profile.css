@@ -1,7 +1,22 @@
+body{
+	background-color: #e9eac7;
+}
 #profileContent{
     min-height: 500px;
 }
-#profileContent img{
+#contenedor{
+	border: 3px solid #880404;
+	margin-top: -150px;
+	background-color: white;
+}
+#cabeceraPerfil{
+	width: 100%;
+	height: 350px;
+	object-fit: cover;
+	border-radius: 50px 50px 0px 0px;
+	margin-top: 70px;
+}
+#imgPerfil{
 	object-fit:cover;
 	border-radius: 50%;
 	height: 200px;
@@ -23,7 +38,7 @@
 
 }
 #profileContent a:link{
-	color: #737373;
+	color: black; /*No funciona este estilo*/
 }
 #profileContent	a:hover{
 	color: green;
@@ -43,17 +58,19 @@
 /*----------------------CONTENIDO-----------------*/
 .contenido{
 	margin-top: 200px;
+	padding-bottom: 100px;
 }
-.profileInfo h1{
-	font-family: 'Lalezar', cursive;
+.profileInfo h1{	
+	font-weight: bolder;
 	text-align: center;
 	text-transform: uppercase;
-	color: #009f4d;
+	color: #054f28;
 	font-size: 50px;
 }
 .profileInfo h2{
 	font-family: 'Thasadith', sans-serif;
 	font-weight: bold;
+	color: #880404;
 }
 p{
 	font-family: 'Thasadith', sans-serif;
@@ -70,6 +87,9 @@ p{
 }
 #nombre{
 	margin-top: 25px;
+}
+#bloqueCp{
+	margin-left: -20px;
 }
 .boton{
 	font-family: 'Thasadith', sans-serif;
