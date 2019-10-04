@@ -182,46 +182,58 @@
                 <div class="col-12">
                     <img class="img-fluid" id="cabeceraPerfil" src="images/banner002.jpg" alt="" srcset="">
                 </div>
+                <div class="col-12" id="imgContenedor">
+                    <img src="images/perfil.jpg" alt="" id="imgMovil">
+                </div>
             </div>
+
             <div class="row" id="contenedor">
-                <div class="col-md-4 col-lg-3">
+                <div class="col-lg-3">
                     <div class="col-12">
-                        <img id="imgPerfil" src="images/perfil.jpg" alt="" srcset="">
+                        <img class="ocultarMov" id="imgPerfil" src="images/perfil.jpg" alt="" srcset="">
                     </div>
+<div class="bajar">
 <!--Perfil  Datos de perfil, cobros y pagos--> 
                     <div class="col-12  btnStyle" id="apart1Btn">
-                        <a href="#">Mi cuenta</a>
+                        <a class="ocultarMov" href="#">Mi cuenta</a>
+                        <a class="ocultarOrd" href="#"><i class="fas fa-user-alt"></i></a>
                     </div>
 <!--Perfil-->
 <!--Actividad   Registro de publicaciones-->
                     <div class="col-12  btnStyle" id="apart2Btn">
-                        <a href="#">Actividad</a><!--publicaciones-->
+                        <a class="ocultarMov" href="#">Actividad</a>
+                        <a class="ocultarOrd" href="#"><i class="fas fa-pen"></i></i></a>
                     </div>
 <!--/Actividad-->
 <!--Mis pedidos     CLIENTES-->
-                    <div class="col-12  btnStyle">
-                        <a id="apart3Btn" href="#">Mis pedidos</a>
+                    <div class="col-12  btnStyle" id="apart3Btn">
+                        <a class="ocultarMov" href="#">Mis pedidos</a>
+                        <a class="ocultarOrd" href="#"><i class="fas fa-cart-arrow-down"></i></a>
                     </div>
 <!--/Mis pedidos       CLIENTES-->
 <!--Productos   PRODUCTORES-->
                     <div class="col-12  btnStyle" id="apart4Btn">
-                        <a href="#">Productos</a>
+                        <a class="ocultarMov" href="#">Productos</a>
+                        <a class="ocultarOrd" href="#"><i class="fas fa-carrot"></i></a>
                     </div>
 <!--/Productos  PRODUCTORES-->
 <!--Ventas PRODUCTORES-->
                     <div class="col-12  btnStyle" id="apart5Btn">
-                        <a href="#">Análisis de ventas</a>
+                        <a class="ocultarMov" href="#">Análisis de ventas</a>
+                        <a class="ocultarOrd" href="#"><i class="fas fa-chart-line"></i></a>
                     </div>
 <!--Ventas PRODUCTORES-->
 <!--Seguridad-->
                     <div class="col-12  btnStyle" id="apart6Btn">
-                        <a href="#">Seguridad</a>
+                        <a class="ocultarMov" href="#">Seguridad</a>
+                        <a class="ocultarOrd" href="#"><i class="fas fa-shield-alt"></i></a>
                     </div>
 <!--/Seguridad-->
                 </div>
+</div>
 <!--****************************Contenido***************************-->
               
-                <div class="col-md-8 col-lg-9   contenido">
+                <div class="col-12 col-lg-9   contenido">
 <!--Mi cuenta-->
                     <div class="profileInfo" id="apart1">
                     <h1>Mi cuenta</h1>
@@ -232,11 +244,13 @@
 
                     <div class="enLinea font-weight-bold"><p>Apellidos: </p></div><div class="enLinea    espacio"   id="apellidos"><p>Galvez</p></div><br>
 
-                    <div class="enLinea font-weight-bold"><p>Dirección de envío: </p></div><div class="enLinea   espacio"    id="calle"><p>C/ Falsa, 123</p></div><br>
+                    <div class="enLinea font-weight-bold"><p>Dirección: </p></div><div class="enLinea   espacio"    id="calle"><p>C/ Falsa, 123</p></div><br>
 
                     <div class="enLinea font-weight-bold"><p>Provincia: </p></div><div class="enLinea    espacio" id="provincia"><p>Madrid</p></div>
-
+                    <br class="ocultarOrd">
+                    <div id="bloqueLocalidad">
                     <div class="enLinea espacio2    font-weight-bold"><p>Localidad: </p></div><div class="enLinea    espacio"    id="localidad"><p>Madrid</p></div>
+                    </div>
 
                     <div id="bloqueCp">
                     <div class="enLinea espacio2    font-weight-bold"><p>Código postal: </p></div><div class="enLinea    espacio" id="cp"><p>28045</p></div>
@@ -333,6 +347,9 @@
                 <p>© 2019 La huerta en casa</p>
             </div>
         </div>
+
+
+
     </footer>
     <script src="js/profile.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
