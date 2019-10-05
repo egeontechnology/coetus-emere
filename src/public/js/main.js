@@ -75,6 +75,7 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 sessionStorage.setItem('rol', dataLogin[0].rol);
                 sessionStorage.setItem('idGrupo', dataLogin[0].idGrupo);
                 sessionStorage.setItem('img', dataLogin[0].img);
+                sessionStorage.setItem('direccion', dataLogin[0].direccion);
                 window.location.href = "services.html";
             }
             break;
@@ -97,6 +98,22 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 send_post('eliminarCarrito', datos);
                 send_post('cargarCarrito', datos)
             });
+            break;
+        case 'cargarPedidos':
+            $('#pedidosTotales').html(data);
+            $('#pedidosTotales').children().mouseover(function(){
+                $(this).css('color','#b35a00')
+            }).mouseout(function(){
+                $(this).css('color','#707579')
+            }).off('click').on('click', function(){
+                let input = {
+                    idPedido : $(this).attr('id')
+                }
+                send_post('mostrarPedido', input)
+            })
+            break;
+        case 'mostrarPedido':
+            $('#pedidoModal').html(data);
             break;
     }
 }

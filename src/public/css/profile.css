@@ -1,3 +1,47 @@
 #profileContent{
     min-height: 500px;
 }
+
+/* Pedidos */
+#cabeceraPedidos{
+    display: flex !important;
+    background-color: rgba(100, 100, 100, 0.3);
+    border-radius: 10px 10px 0 0;
+    font-weight: 700;
+    /* color: #155132; */
+}
+
+.pedidos{
+    background-color: rgba(168, 168, 168, 0.2);
+    font-size: 15px;
+    line-height: 2em;
+    letter-spacing: 2px;
+    color:#707579;
+    font-weight: 600;
+}
+
+.estadoPedido{
+    text-transform: capitalize;
+}
+
+#footerTabla{
+    height: 20px;
+    background-color: rgba(168, 168, 168, 0.2);
+    border-radius: 0 0 10px 10px;
+}
+
+.pedidos div{
+    display: flex !important;
+}
+
+.pedidoReg{
+    display:flex;
+}
+
+#pedidoModal{
+    text-align: center;
+}
+
+#repetirPedido{
+    float:right;
+}

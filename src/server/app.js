@@ -29,7 +29,7 @@ con.connect((err) => {
 app.post('/login', (req, res) =>{
     // Acceso al valor del objeto
     const cond = req.body
-    con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
+    con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, direccion FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
         if (err) throw err;
         if(result.length != 0) {
             resultado = JSON.stringify(result)
@@ -226,5 +226,50 @@ app.post('/eliminarCarrito', (req, res) => {
     })
 });
 
+app.post('/cargarPedidos', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body.user;
+
+    // Se inicializar variable de salida
+    let pedidos = '';
+    let contPedido = 0;
+
+    // Query de MySQL
+    con.query("SELECT p.idPedido, p.fecha, p.estado FROM `coetus-emere`.tpedidos p where p.idUsuario ="+cond+";", function (err, result, fields) {
+        if (err) throw err;
+        for(var i=0; i<result.length; i++){
+            con.query("SELECT * FROM `coetus-emere`.tlineaspedido where idPedido ="+result[i].idPedido+";", function (err, result, fields) {
+                if (err) throw err;
+                contPedido = result.length;
+                // console.log(result.length)
+                return contPedido
+            });
+            console.log(contPedido)
+            pedidos += "<div class='entradaPedido py-3' id='"+result[i].idPedido+"' data-toggle='modal' data-target='.pedidoModal'>";
+            pedidos += '<div class="col-6 pl-4">Pedido de '+contPedido+' artículos</div>';
+            pedidos += '<div class="col-3">'+result[i].fecha+'</div>';
+            pedidos += '<div class="col-3 estadoPedido">'+result[i].estado+'</div></div>';
+        }
+        res.send(pedidos)
+    })
+});
+
+app.post('/mostrarPedido', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body.idPedido;
+
+    let pedido = '';
+
+    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img,x.idProducto, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.idPedido="+cond, function (err, result, fields) {
+        if (err) throw err;
+        for(var i=0; i<result.length; i++) {
+            pedido += "<div class='pedidoReg'><div class='col-6 my-4' id="+result[i].idProducto+">"+result[i].nombre+"</div>";
+            pedido += "<div class='col-2 my-4'>"+result[i].precio+"€</div>";
+            pedido += "<div class='col-2 my-4'>"+result[i].cantidad+"</div>";
+            pedido += "<div class='col-2 my-4'>"+result[i].totalLinea+"€</div></div>";
+        }
+        res.send(pedido)
+    });
+})
 // Se configura el puerto del servidor 
 const server = app.listen(8080);
