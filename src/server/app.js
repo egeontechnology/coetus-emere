@@ -29,7 +29,7 @@ con.connect((err) => {
 app.post('/login', (req, res) =>{
     // Acceso al valor del objeto
     const cond = req.body
-    con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, direccion FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
+    con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, email, direccion FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
         if (err) throw err;
         if(result.length != 0) {
             resultado = JSON.stringify(result)
