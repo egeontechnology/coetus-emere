@@ -110,12 +110,96 @@ function procesa_datos_recibidos(data, status, accion, datos){
                     idPedido : $(this).attr('id')
                 }
                 send_post('mostrarPedido', input)
+                $('#fechaPedido').html($(this).children().eq(1).html())
             })
             break;
         case 'mostrarPedido':
             $('#pedidoModal').html(data);
             break;
-    }
+        case 'cargarMisProductos':
+            $('#tablaMisProductos').html(data);
+            $('#tabla1').DataTable({
+                language: {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando 0 al 0 de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                },
+                "order": [[ 1, "asc" ]],
+            });
+            break;
+        case 'cargarEstadisticas':
+            var ctx = document.getElementById('chart1').getContext('2d');
+            var chart = new Chart(ctx, {
+            // The type of chart we want to create
+                type: 'horizontalBar',
+
+                // The data for our dataset
+                data: {
+                    labels: data.label,
+                    datasets: [{
+                        // label: none,
+                        backgroundColor: '#f57c0075',
+                        // borderColor: '#f57c00',
+                        data: data.datos
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                    legend: {
+                        display: false,
+                    },
+                    title: {
+                        display: true,
+                        text: "Productos vendidos",
+                        fontSize: 26,
+                    },
+                    scales: {
+                        xAxes: [{
+                            scaleLabel:{
+                            display: true,
+                            labelString: 'Numéro de productos vendidos',
+                            fontSize: 20,
+                            },
+                            ticks:{
+                                min : 0,
+                                stepSize : 1,
+                                autoSkip: true,
+                                maxTicksLimit: 10,
+                                minTicks: 6,
+                                fontSize:14,
+                            },
+                            stacked: true
+                            }],
+                        yAxes: [{
+                            ticks:{
+                                fontSize: 16,
+                            }
+                        }]
+                    }
+                }
+            });
+            break;
+        }
 }
 
 // Función base para las llamadas al servidor

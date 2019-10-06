@@ -40,7 +40,6 @@ app.post('/login', (req, res) =>{
     });
 })
 
-
 // Consultas a la base de datos
 app.post('/cargarCestas', (req, res)=>{
 
@@ -259,6 +258,8 @@ app.post('/mostrarPedido', (req, res) => {
     const cond = req.body.idPedido;
 
     let pedido = '';
+    let totalPedido = 0;
+
 
     con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img,x.idProducto, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.idPedido="+cond, function (err, result, fields) {
         if (err) throw err;
@@ -267,9 +268,66 @@ app.post('/mostrarPedido', (req, res) => {
             pedido += "<div class='col-2 my-4'>"+result[i].precio+"€</div>";
             pedido += "<div class='col-2 my-4'>"+result[i].cantidad+"</div>";
             pedido += "<div class='col-2 my-4'>"+result[i].totalLinea+"€</div></div>";
+            totalPedido += result[i].totalLinea;
         }
+        pedido += "<div class='col-12 py-4'><div id='totalPedidoModal'>TOTAL : <span id='impotePedido'>" +totalPedido+"</span>€</div></div>"
         res.send(pedido)
     });
 })
+
+app.post('/cargarMisProductos', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body.user;
+    // Se inicializa variable respuesta
+    table = '<table id="tabla1" class="display table-striped" style="width:100%"><thead><tr><th>Nombre del producto</th><th>Stock</th><th>Precio (€)</th></tr></thead><tbody>';
+
+    con.query("SELECT nombre, stock, precio FROM `coetus-emere`.tproductos where idUsuario="+cond, function (err, result, fields) {
+        if (err) throw err;
+        for(var i=0; i<result.length; i++){
+            table += '<tr><td>'+result[i].nombre+'</td><td>'+result[i].stock+'</td><td>'+result[i].precio+'</td></tr>'
+        }
+        table += '</tbody></table>'
+        res.send(table);
+    });
+})
+
+app.post('/nuevoProd', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+    // const img = req.file;
+    // console.log(img)
+    console.log(cond)
+
+    // con.query("SELECT nombre, stock, precio FROM `coetus-emere`.tproductos where idUsuario="+cond, function (err, result, fields) {
+    //     if (err) throw err;
+
+    // });
+})
+
+app.post('/cargarEstadisticas', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body.user;
+
+    // Array con los datos par ala gráfica
+    let label = [];
+    let datos = [];
+
+
+    con.query("SELECT p.nombre, sum(lp.cantidad) as sum FROM `coetus-emere`.tproductos p inner join tlineaspedido lp on lp.idProducto=p.idProducto where p.idUsuario="+cond+" group by p.nombre order by sum desc", function (err, result, fields) {
+        if (err) throw err;
+        // console.log(result)
+        for(var i=0; i<result.length; i++){
+            label.push(result[i].nombre);
+            datos.push(result[i].sum)
+        }
+        let output = {
+            label : label,
+            datos : datos,
+        }
+        res.send(output);
+    });
+})
+
+
 // Se configura el puerto del servidor 
 const server = app.listen(8080);

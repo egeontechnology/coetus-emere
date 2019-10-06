@@ -2,13 +2,52 @@
     min-height: 500px;
 }
 
+#imgPerfil{
+    width: 150px;
+    border-radius: 50%;
+}
+
+#profileContent{
+    margin-bottom: 50px;
+}
+
+#marcoImg{
+    text-align: center;
+}
+
+div.sticky{
+    position: sticky;
+    top: 40px;
+}
+
+#userOptions a{
+    color: #212529;
+    font-weight: 600;
+}
+
+#userOptions div{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+#userOptions div:hover{
+    background-color: #d7e6c5;
+}
+
+
+#userOptions{
+    margin-top: 50px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+
 /* Pedidos */
 #cabeceraPedidos{
     display: flex !important;
     background-color: rgba(100, 100, 100, 0.3);
     border-radius: 10px 10px 0 0;
     font-weight: 700;
-    /* color: #155132; */
 }
 
 .pedidos{
@@ -44,4 +83,38 @@
 
 #repetirPedido{
     float:right;
+}
+
+#totalPedidoModal{
+    float : right;
+    color : #212529;
+    font-weight: 700;
+    margin-right: 30px;
+    margin-left: auto;
+}
+
+/* Mis productos */
+#tablaMisProductos{
+    width: 100%;
+}
+
+#tabla1{
+    margin-top: 30px;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td{
+    background-color:#9cc46a5c !important;
+}
+
+.table-striped>tbody>tr>td:nth-child(2), .table-striped>tbody>tr>td:nth-child(3){
+    text-align: center;
+}
+
+.table-striped>thead>tr>th:nth-child(2), .table-striped>thead>tr>th:nth-child(3){
+    text-align: center;
+}
+
+#nuevoProdBtn{
+    margin-right: 0px;
+    margin-left: auto;
 }

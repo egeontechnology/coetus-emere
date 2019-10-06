@@ -15,11 +15,12 @@
     <link href="css/form-login.css" rel='stylesheet' type='text/css' /><!-- form-login css -->
     <link href="css/profile.css" rel='stylesheet' type='text/css' /><!-- profile css -->
     <link rel="stylesheet" href="css/cesta.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <!--Iconos-->
-    <!-- //CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>    <!-- //CSS -->
     <!-- JS -->
     <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
     <!-- //JS -->
     <title>Perfil | La huerta en casa</title>
 </head>
@@ -144,7 +145,7 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
               <div class="container p-3">
-                <h3 class="m-3">Pedido del día 01-02-1995</h3>
+                <h3 class="m-3">Pedido del día <span id="fechaPedido"></span></h3>
                 <div class="table">
                     <div id="cabeceraPedidos" class='p-3'>
                         <div class="col-6">Artículo</div>
@@ -164,6 +165,44 @@
         </div>
     </div>
     <!-- //Modal pedido -->
+    <!-- Modal Nuevo Producto -->
+    <!-- Modal -->
+        <div class="modal fade" id="nuevoProd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Datos del producto</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form id="nuevoProdForm" name="nuevoProdForm" method="post" action="#">
+                    <div class="form-group">
+                        <label for="nombreProd">Nombre</label>
+                        <input type="text" class="form-control" name="nombreProd" id="nombreProd">
+                        <label for="nombreProd">Precio</label>
+                        <input type="text" class="form-control" id="precioProd" name="precioProd">
+                        <label for="nombreProd">Stock</label>
+                        <input type="text" class="form-control" id="stockProd" name="stockProd">
+                        <label for="tipoProd">Tipo</label>
+                        <select class="form-control" id="tipoProd" name='tipoProd'>
+                            <option>Producto</option>
+                            <option>Cesta</option>
+                        </select><br>
+                        <label for="imgProd">Imagen del producto</label>
+                        <input type="file" class="form-control-file" id="imgProd" name="imgProd">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary" id="enviarNuevoProd">Añadir producto</button>
+            </div>
+          </div>
+        </div>
+        </div>
+    <!-- //Modal Nuevo Producto -->
     <!-- Navbar -->
     <section>
         <nav class="navbar navbar-expand-xl navbar-light">
@@ -212,26 +251,30 @@
         <div class="container" id="profileContent">
             <div class="row">
                 <div class="col-3">
-                    <div class="col-12">
-                        <img id='imgPerfil' src="images/te3.jpg" alt="" srcset="">
-                    </div>
-                    <div class="col-12" id="apart1Btn">
-                        <a href="#">Mi perfil</a>
-                    </div>
-                    <div class="col-12" id="apart2Btn">
-                        <a href="#">Apartado 2</a>
-                    </div>
-                    <div class="col-12">
-                        <a id="apart3Btn" href="#">Apartado 3</a>
-                    </div>
-                    <div class="col-12" id="apart4Btn">
-                        <a href="#">Apartado 4</a>
-                    </div>
-                    <div class="col-12" id="apart5Btn">
-                        <a href="#">Mis pedidos</a>
+                    <div class="sticky my-5">
+                        <div class="col-12" id="marcoImg">
+                            <img id='imgPerfil' src="images/te3.jpg" alt="" srcset="">
+                        </div>
+                        <div id="userOptions">
+                            <div class="col-12" id="apart1Btn">
+                                <a href="#">Mi perfil</a>
+                            </div>
+                            <div class="col-12" id="apart2Btn">
+                                <a href="#">Apartado 2</a>
+                            </div>
+                            <div class="col-12" id="apart4Btn">
+                                <a href="#">Mis productos</a>
+                            </div>
+                            <div class="col-12">
+                                <a id="apart3Btn" href="#">Estadísticas</a>
+                            </div>
+                            <div class="col-12" id="apart5Btn">
+                                <a href="#">Mis pedidos</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-9">
+                <div class="col-9 p-5" id="profileContent">
                     <div class="profileInfo" id="apart1">
                         <h1>Mi perfil</h1>
 
@@ -239,17 +282,32 @@
                     <div class="profileInfo" id="apart2">
                         <h1>Apartado 2</h1>
                     </div>
-                    <div class="profileInfo" id="apart3">
-                        <h1>Apartado 3</h1>
-                    </div>
                     <div class="profileInfo" id="apart4">
-                        <h1>Apartado 4</h1>
+                        <div class="row">
+                            <h1>Mis productos</h1>
+                        </div>
+                        <div class="row mt-5">
+                            <div id="nuevoProdBtn">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#nuevoProd">Añadir nuevo producto</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="tablaMisProductos" class="my-5">
+
+                            </div>
+                        </div>
                     </div>
+                    <div class="profileInfo" id="apart3">
+                            <div class="row">
+                                <h1>Estadísticas</h1>
+                            </div>
+                            <div class="mt-5"><canvas id="chart1"></canvas></div>
+                        </div>
                     <div class="profileInfo" id="apart5">
                         <div class="row">
                             <h1>Mis pedidos</h1>
                         </div>
-                        <div class="row">
+                        <div class="row mt-5">
                             <div class="container">
                                 <div class="table">
                                     <div id="cabeceraPedidos" class='p-3'>

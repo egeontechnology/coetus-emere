@@ -47,7 +47,7 @@ h3{
 }
 
 .cesta img{
-    height: auto;
+    height: 350px;;
     margin: auto;
     display: block;
     width: 100%;
@@ -120,4 +120,10 @@ h3{
 
 .form-control{
     text-align: center;
+}
+
+#footerTabla{
+    height: 20px;
+    background-color: rgba(168, 168, 168, 0.2);
+    border-radius: 0 0 10px 10px;
 }

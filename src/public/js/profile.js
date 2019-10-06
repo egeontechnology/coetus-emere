@@ -8,7 +8,16 @@ $('#imgPerfil').attr('src',sessionStorage.getItem('img'))
 
 // Pedidos
 let user = { user : sessionStorage.getItem('idUsuario')}
-send_post('cargarPedidos', user);
+if (sessionStorage.getItem('rol')==('Consumidor') || sessionStorage.getItem('rol')==('Ambos')){
+    send_post('cargarPedidos', user);
+}
+if(sessionStorage.getItem('rol')==('Productor') || sessionStorage.getItem('rol')==('Ambos')){
+    send_post('cargarMisProductos', user);
+    send_post('cargarEstadisticas', user);
+}
+
+// Estadísticas
+
 
 $(document).ready(()=>{
 
@@ -44,5 +53,11 @@ $(document).ready(()=>{
             }
             send_post('comprarProducto',datoLinea)
         }
+    })
+    $('#enviarNuevoProd').off('click').on('click', function(e){
+        e.preventDefault()
+        let img = $('#imgProd').prop('files')
+        let datos = $('#nuevoProdForm').serialize();
+        send_post('nuevoProd', datos)
     })
 })
