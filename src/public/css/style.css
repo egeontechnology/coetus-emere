@@ -79,7 +79,27 @@ footer p{
     margin: auto;
 }
 
+::placeholder{
+    text-align: center;
+}
+
+.dropdown-menu{
+    right: 0 !important;
+    left: auto !important;
+    width: 200px;
+}
+
+.loged{
+    display:none
+}
+
+#profileImg{
+    border-radius: 50%;
+}
+
 /* //Footer */
+
+
 
 /* @media */
 @media screen and (min-width:1200px){

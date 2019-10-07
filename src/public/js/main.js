@@ -4,8 +4,6 @@ function procesa_datos_recibidos(data, status, accion, datos){
         case 'cargarCategorias':
             $('#categorias').html(data);
             $('.producto').click(function(){
-                // let idGrupo = 'idGrupo='+sessionStorage.getItem('idGrupo');
-                // let idCategoria = 'idCategoria='+this.id;
                 let datosEnviados = {
                     idGrupo: sessionStorage.getItem('idGrupo'),
                     idCategoria : this.id
@@ -65,7 +63,9 @@ function procesa_datos_recibidos(data, status, accion, datos){
             break;
         case 'login':
             if(data=='ko'){
-                console.log('contraseña incorrecta');
+                $('#userName').addClass('error')
+                $('#userPass').addClass('error');
+                $('#passErr').html('Contraseña incorrecta')
             } else {
                 dataLogin = JSON.parse(data);
                 sessionStorage.setItem('login', true);
@@ -75,6 +75,8 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 sessionStorage.setItem('rol', dataLogin[0].rol);
                 sessionStorage.setItem('idGrupo', dataLogin[0].idGrupo);
                 sessionStorage.setItem('img', dataLogin[0].img);
+                sessionStorage.setItem('direccion', dataLogin[0].direccion);
+                sessionStorage.setItem('email', dataLogin[0].email);
                 window.location.href = "services.html";
             }
             break;
@@ -84,12 +86,122 @@ function procesa_datos_recibidos(data, status, accion, datos){
             $('#nArticulos').html(data.contItems);
             $('.delete').click(function(){
                 $(this).parent().parent().remove();
+                let datos = {
+                    idLinea :$(this).parent().parent().attr('id'),
+                }
+                send_post('eliminarLinea', datos);
             });
-            $('#vaciarcesta').click(function(){
+            $('#vaciarcesta').off('click').on('click', function(){
                 $('#articulosCesta').remove();
+                let datos = {
+                    idUsuario : sessionStorage.getItem('idUsuario'),
+                }
+                send_post('eliminarCarrito', datos);
+                send_post('cargarCarrito', datos)
             });
             break;
-    }
+        case 'cargarPedidos':
+            $('#pedidosTotales').html(data);
+            $('#pedidosTotales').children().mouseover(function(){
+                $(this).css('color','#b35a00')
+            }).mouseout(function(){
+                $(this).css('color','#707579')
+            }).off('click').on('click', function(){
+                let input = {
+                    idPedido : $(this).attr('id')
+                }
+                send_post('mostrarPedido', input)
+                $('#fechaPedido').html($(this).children().eq(1).html())
+            })
+            break;
+        case 'mostrarPedido':
+            $('#pedidoModal').html(data);
+            break;
+        case 'cargarMisProductos':
+            $('#tablaMisProductos').html(data);
+            $('#tabla1').DataTable({
+                language: {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando 0 al 0 de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                },
+                "order": [[ 1, "asc" ]],
+            });
+            break;
+        case 'cargarEstadisticas':
+            var ctx = document.getElementById('chart1').getContext('2d');
+            var chart = new Chart(ctx, {
+            // The type of chart we want to create
+                type: 'horizontalBar',
+
+                // The data for our dataset
+                data: {
+                    labels: data.label,
+                    datasets: [{
+                        // label: none,
+                        backgroundColor: '#f57c0075',
+                        // borderColor: '#f57c00',
+                        data: data.datos
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                    legend: {
+                        display: false,
+                    },
+                    title: {
+                        display: true,
+                        text: "Productos vendidos",
+                        fontSize: 26,
+                    },
+                    scales: {
+                        xAxes: [{
+                            scaleLabel:{
+                            display: true,
+                            labelString: 'Número de productos vendidos',
+                            fontSize: 20,
+                            },
+                            ticks:{
+                                min : 0,
+                                max: 10,
+                                stepSize : 1,
+                                autoSkip: true,
+                                maxTicksLimit: 10,
+                                minTicks: 6,
+                                fontSize:14,
+                            },
+                            stacked: true
+                            }],
+                        yAxes: [{
+                            ticks:{
+                                fontSize: 16,
+                            }
+                        }]
+                    }
+                }
+            });
+            break;
+        }
 }
 
 // Función base para las llamadas al servidor
@@ -114,4 +226,22 @@ $(document).ready(function(){
         datosLogin = 'user='+$('#userName').val()+'&pass='+CryptoJS.SHA3($('#userPass').val(),{ outputLength: 512 });
         send_post('login', datosLogin);
     })
+    $('#miPerfilBtn').off('click').on('click', function(){
+        window.location.href = "profile.html";
+    })
+    $('#logout').off('click').on('click', function(){
+        sessionStorage.clear();
+        window.location.href = "index.html";
+    })
+    if(sessionStorage.getItem('login')=='true'){
+        $('.loged').css('display','inline-block')
+        $('#loginIcon').attr({
+            'data-toggle': 'dropdown',
+            'data-target': '',
+            'type':'button',
+        })
+        $('loginIcon').parent().attr('class','btn-group')
+        $('#profileName').html(sessionStorage.getItem('nombre'))
+        $('#profileImg').attr('src',sessionStorage.getItem('img'))
+    }
 });

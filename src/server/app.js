@@ -29,7 +29,7 @@ con.connect((err) => {
 app.post('/login', (req, res) =>{
     // Acceso al valor del objeto
     const cond = req.body
-    con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
+    con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, email, direccion FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
         if (err) throw err;
         if(result.length != 0) {
             resultado = JSON.stringify(result)
@@ -40,12 +40,11 @@ app.post('/login', (req, res) =>{
     });
 })
 
-
 // Consultas a la base de datos
 app.post('/cargarCestas', (req, res)=>{
 
     const cond = req.body.idGrupo
-		
+	
     // Se inicia variable cestas
     let cestas = "";
 
@@ -60,7 +59,7 @@ app.post('/cargarCestas', (req, res)=>{
             cestas += '<h4>'+result[i].nombre+'</h4>';
             cestas += '<p class="mt-2">'+result[i].descripcion+'</p>';
             cestas += '</div></a></div>';
-        }	
+        }
         res.send(cestas);
     });
 });
@@ -72,7 +71,7 @@ app.post('/cargarCategorias', (req, res) =>{
     // Se inicia variable cestas
     let categoria = "";
 		
-    con.query("select c.nombre, c.idPadre, c.idCategoria from `coetus-emere`.tcategorias c	inner join (select p.idCategoria from tproductos p inner join (SELECT u.idUsuario FROM `coetus-emere`.tusuarios u where u.rol!='consumidor' and u.idGrupo="+cond+") x on p.idUsuario=x.idUsuario) y on c.idCategoria=y.idCategoria group by c.idCategoria;"
+    con.query("select c.nombre, c.idPadre, c.idCategoria, c.imagen from `coetus-emere`.tcategorias c	inner join (select p.idCategoria from tproductos p inner join (SELECT u.idUsuario FROM `coetus-emere`.tusuarios u where u.rol!='consumidor' and u.idGrupo="+cond+") x on p.idUsuario=x.idUsuario) y on c.idCategoria=y.idCategoria group by c.idCategoria;"
     , function (err, result, fields) {
         if (err) throw err;
 
@@ -81,7 +80,7 @@ app.post('/cargarCategorias', (req, res) =>{
         for(var i=0; i<result.length; i++){
             categoria += '<div class="col-2 producto mt-1" id="'+result[i].idCategoria+'"><a href="" data-toggle="modal" data-target="#modalCategoria">';
             categoria += '<div id="marco">'
-            categoria += '<img src="'+result[i].img+'">'
+            categoria += '<img src="'+result[i].imagen+'">'
             categoria += '</div>';
             categoria += '<div id="texto">'+result[i].nombre+'</div></a></div>';
         }
@@ -181,7 +180,7 @@ app.post('/cargarCarrito', (req, res) => {
     let contItems = 0;
     let totalPedido = 0;
 
-    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.estado = 'pendiente' and p.idUsuario="+cond.user+";", function (err, result, fields) {
+    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.estado = 'pendiente' and p.idUsuario="+cond.idUsuario+";", function (err, result, fields) {
         if (err) throw err;
 
         for(var i=0; i<result.length; i++) {
@@ -205,6 +204,123 @@ app.post('/cargarCarrito', (req, res) => {
         res.send(rta);
     })
 })
+
+app.post('/eliminarLinea', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    // Query de MySQL
+    con.query("DELETE FROM `coetus-emere`.`tlineaspedido` WHERE (`idLinea` = '"+cond.idLinea+"');", function (err, result, fields) {
+        if (err) throw err;
+    })
+});
+
+app.post('/eliminarCarrito', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    // Query de MySQL
+    con.query("delete lp FROM `coetus-emere`.`tlineaspedido` lp inner join tpedidos p on lp.idPedido=p.idPedido WHERE (`idUsuario` = "+cond.idUsuario+" AND `estado`='pendiente')", function (err, result, fields) {
+        if (err) throw err;
+    })
+});
+
+app.post('/cargarPedidos', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body.user;
+
+    // Se inicializar variable de salida
+    let pedidos = '';
+    let contPedido = 0;
+
+    // Query de MySQL
+    con.query("SELECT p.idPedido, p.fecha, p.estado, count(p.idPedido) as numeroItem FROM `coetus-emere`.tpedidos p inner join tlineaspedido lp on p.idPedido=lp.idPedido where p.idUsuario ="+cond+" group by idPedido", function (err, result, fields) {
+        if (err) throw err;
+        for(var i=0; i<result.length; i++){
+            pedidos += "<div class='entradaPedido py-3' id='"+result[i].idPedido+"' data-toggle='modal' data-target='.pedidoModal'>";
+            pedidos += '<div class="col-6 pl-4">Pedido de '+result[i].numeroItem+' artículos</div>';
+            pedidos += '<div class="col-3">'+result[i].fecha+'</div>';
+            pedidos += '<div class="col-3 estadoPedido">'+result[i].estado+'</div></div>';
+        }
+        res.send(pedidos)
+    })
+});
+
+app.post('/mostrarPedido', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body.idPedido;
+
+    let pedido = '';
+    let totalPedido = 0;
+
+
+    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img,x.idProducto, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.idPedido="+cond, function (err, result, fields) {
+        if (err) throw err;
+        for(var i=0; i<result.length; i++) {
+            pedido += "<div class='pedidoReg'><div class='col-6 my-4' id="+result[i].idProducto+">"+result[i].nombre+"</div>";
+            pedido += "<div class='col-2 my-4'>"+result[i].precio+"€</div>";
+            pedido += "<div class='col-2 my-4'>"+result[i].cantidad+"</div>";
+            pedido += "<div class='col-2 my-4'>"+result[i].totalLinea+"€</div></div>";
+            totalPedido += result[i].totalLinea;
+        }
+        pedido += "<div class='col-12 py-4'><div id='totalPedidoModal'>TOTAL : <span id='impotePedido'>" +totalPedido+"</span>€</div></div>"
+        res.send(pedido)
+    });
+})
+
+app.post('/cargarMisProductos', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body.user;
+    // Se inicializa variable respuesta
+    table = '<table id="tabla1" class="display table-striped" style="width:100%"><thead><tr><th>Nombre del producto</th><th>Stock</th><th>Precio (€)</th></tr></thead><tbody>';
+
+    con.query("SELECT nombre, stock, precio FROM `coetus-emere`.tproductos where idUsuario="+cond, function (err, result, fields) {
+        if (err) throw err;
+        for(var i=0; i<result.length; i++){
+            table += '<tr><td>'+result[i].nombre+'</td><td>'+result[i].stock+'</td><td>'+result[i].precio+'</td></tr>'
+        }
+        table += '</tbody></table>'
+        res.send(table);
+    });
+})
+
+app.post('/nuevoProd', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+    // const img = req.file;
+    // console.log(img)
+    console.log(cond)
+
+    // con.query("SELECT nombre, stock, precio FROM `coetus-emere`.tproductos where idUsuario="+cond, function (err, result, fields) {
+    //     if (err) throw err;
+
+    // });
+})
+
+app.post('/cargarEstadisticas', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body.user;
+
+    // Array con los datos par ala gráfica
+    let label = [];
+    let datos = [];
+
+
+    con.query("SELECT p.nombre, sum(lp.cantidad) as sum FROM `coetus-emere`.tproductos p inner join tlineaspedido lp on lp.idProducto=p.idProducto where p.idUsuario="+cond+" group by p.nombre order by sum desc", function (err, result, fields) {
+        if (err) throw err;
+        // console.log(result)
+        for(var i=0; i<result.length; i++){
+            label.push(result[i].nombre);
+            datos.push(result[i].sum)
+        }
+        let output = {
+            label : label,
+            datos : datos,
+        }
+        res.send(output);
+    });
+})
+
 
 // Se configura el puerto del servidor 
 const server = app.listen(8080);

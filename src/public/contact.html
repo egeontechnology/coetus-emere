@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -54,13 +54,14 @@
                                 <div class="modal-body mb-1">
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-envelope prefix"></i>
-                                        <input type="email" class="form-control form-control-sm validate" id="userName">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput10">Email</label>
+                                        <input type="email" class="form-control form-control-sm validate" id="userName" placeholder="Email">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput10"></label>
                                     </div>
                                     <div class="md-form form-sm mb-4">
                                         <i class="fas fa-lock prefix"></i>
-                                        <input type="password" class="form-control form-control-sm validate" id="userPass">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput11">Contraseña</label>
+                                        <input type="password" class="form-control form-control-sm validate" id="userPass" placeholder="Contraseña">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput11"></label>
+                                        <span id='passErr'> </span><br>
                                     </div>
                                     <div class="text-center mt-2">
                                         <button class="btn btn-primary" id="botonLogin"> Acceder <i class="fas fa-sign-in ml-1"></i></button>
@@ -149,31 +150,33 @@
                 </button>
                 <a class="navbar-brand" href="index.html" id="homeNavbar"><img src="images/carrot.png" alt="" class="mr-3"><span id="homeText">La huerta en casa</span></a>
                 <div class="" id="iconosNavbar" class="align-right">
-                    <a href="cesta.html"><img id="icono" src="images/cesta.png" alt="" width="40px"></a>
-                    <a data-toggle="modal" data-target="#modalLRForm" href="#"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a>
+                    <a href="cesta.html" class="loged"><img id="icono" src="images/cesta.png" alt="" width="40px"></a>
+                    <a id='loginIcon' data-toggle="modal" data-target="#modalLRForm" href="#"><img id="icono" src="images/farmer.png" alt="" width="40px"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right text-muted">
+                        <p><img class='ml-4' id="profileImg" src=""></span><span class='ml-4' id="profileName"></span></p>
+                        <hr>
+                        <button class="dropdown-item" type="button" id="miPerfilBtn">Mi perfil</button>
+                        <button class="dropdown-item" type="button" id="logout" href='#'>Cerrar sesion</button>
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">Conoce el proyecto</a>
+                            <a class="nav-link active" href="about.html">Conoce el proyecto</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="services.html">Nuestra huerta</a>
+                        <li class="nav-item loged">
+                            <a class="nav-link" href="services.html">Nuestra huerta</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="blog.html">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="FAQS.html">FAQ's</a>
+                            <a class="nav-link" href="faqs.html">FAQ's</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contacto</a>
+                            <a class="nav-link active" href="contact.html">Contacto</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0" id="buscador">
-                        <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
                 </div>
             </nav>
         </section>

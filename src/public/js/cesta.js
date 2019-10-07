@@ -1,7 +1,7 @@
 let dato = {
-    user: sessionStorage.getItem('idUsuario'),
+    idUsuario: sessionStorage.getItem('idUsuario'),
 }
 send_post('cargarCarrito', dato)
+
 $(document).ready(function(){
-    
 })

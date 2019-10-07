@@ -17,6 +17,10 @@ p{
     font-weight: 600;
 }
 
+.dropdown-menu p{
+    margin: 0 !important;
+}
+
 #comillas{
     font-size: 20px;
     vertical-align: top;
