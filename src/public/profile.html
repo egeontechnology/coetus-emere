@@ -166,7 +166,6 @@
     </div>
     <!-- //Modal pedido -->
     <!-- Modal Nuevo Producto -->
-    <!-- Modal -->
         <div class="modal fade" id="nuevoProd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -238,46 +237,77 @@
                         <a class="nav-link" href="contact.html">Contacto</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" id="buscador">
-                    <input class="form-control mr-sm-2" type="search" placeholder="¿Qué buscas?" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
             </div>
         </nav>
     </section>
     <!-- //Navbar -->
     <!-- //Profile -->
     <section>
-        <div class="container" id="profileContent">
+        <div class="container mt-5" id="profileContent">
+            <div class="row" id="fotoPortada">
+                <h1 id="nombreApellidosUser"></h1>
+            </div>
             <div class="row">
-                <div class="col-3">
+                <div class="col-2 mr-5" id="menuPerfil">
                     <div class="sticky my-5">
                         <div class="col-12" id="marcoImg">
-                            <img id='imgPerfil' src="images/te3.jpg" alt="" srcset="">
+                            <img id='imgPerfil' src="" alt="" srcset="">
                         </div>
                         <div id="userOptions">
                             <div class="col-12" id="apart1Btn">
-                                <a href="#">Mi perfil</a>
+                                <a>Mi perfil</a>
                             </div>
                             <div class="col-12" id="apart2Btn">
-                                <a href="#">Apartado 2</a>
+                                <a>Apartado 2</a>
                             </div>
-                            <div class="col-12" id="apart4Btn">
-                                <a href="#">Mis productos</a>
+                            <div class="col-12 prod" id="apart4Btn">
+                                <a>Mis productos</a>
                             </div>
-                            <div class="col-12">
-                                <a id="apart3Btn" href="#">Estadísticas</a>
+                            <div class="col-12 prod">
+                                <a id="apart3Btn">Estadísticas</a>
                             </div>
-                            <div class="col-12" id="apart5Btn">
-                                <a href="#">Mis pedidos</a>
+                            <div class="col-12 cons" id="apart5Btn">
+                                <a>Mis pedidos</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-9 p-5" id="profileContent">
                     <div class="profileInfo" id="apart1">
-                        <h1>Mi perfil</h1>
-
+                        <h1>Mi perfil</h1><hr>
+                        <h3 class="my-5">Datos personales</h3>
+                        <div class="col-8">
+                            <form id="perfilForm">
+                                <div id="nombreUser">
+                                    <label class="col-4" for="nombre">Nombre:</label>
+                                    <p class="col-8 show"></p>
+                                    <input class="col-8 edit" type="text" name="nombre">
+                                </div>
+                                <div id="apellidosUser">
+                                    <label class="col-4" for="apellidos">Apellidos:</label>
+                                    <p class="col-8 show"></p>
+                                    <input class="col-8 edit" type="text" name="apellidos">
+                                </div>
+                                <div id="emailUser">
+                                    <label class="col-4" for="email">Email:</label>
+                                    <p class="col-8 show"></p>
+                                    <input class="col-8 edit" type="text" name="email">
+                                </div>
+                                <div id="direccionUser">
+                                    <label class="col-4" for="direccion">Dirección: </label>
+                                    <p class="col-8 show"></p>
+                                    <input class="col-8 edit" type="text" name="direccion">
+                                </div>
+                                <div id="cpUser">
+                                    <label class="col-4" for="direccion">Codigo Postal: </label>
+                                    <p class="col-8 show"></p>
+                                    <input class="col-8 edit" type="text" name="cp">
+                                </div>
+                            </form>
+                        </div>
+                        <button class="mx-2 btn btn-primary show" id="editarBtn">Editar</button>
+                        <button class="mx-2 btn btn-primary edit" id="cambiosBtn">Cambiar datos</button>
+                        <button class="mx-2 btn btn-outline-secondary edit" id="cancelarBtn">Cancelar</button>
                     </div>
                     <div class="profileInfo" id="apart2">
                         <h1>Apartado 2</h1>
@@ -285,7 +315,7 @@
                     <div class="profileInfo" id="apart4">
                         <div class="row">
                             <h1>Mis productos</h1>
-                        </div>
+                        </div><hr>
                         <div class="row mt-5">
                             <div id="nuevoProdBtn">
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#nuevoProd">Añadir nuevo producto</button>
@@ -300,13 +330,13 @@
                     <div class="profileInfo" id="apart3">
                             <div class="row">
                                 <h1>Estadísticas</h1>
-                            </div>
+                            </div><hr>
                             <div class="mt-5"><canvas id="chart1"></canvas></div>
                         </div>
                     <div class="profileInfo" id="apart5">
                         <div class="row">
                             <h1>Mis pedidos</h1>
-                        </div>
+                        </div><hr>
                         <div class="row mt-5">
                             <div class="container">
                                 <div class="table">

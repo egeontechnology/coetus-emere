@@ -76,6 +76,7 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 sessionStorage.setItem('idGrupo', dataLogin[0].idGrupo);
                 sessionStorage.setItem('img', dataLogin[0].img);
                 sessionStorage.setItem('direccion', dataLogin[0].direccion);
+                sessionStorage.setItem('email', dataLogin[0].email);
                 window.location.href = "services.html";
             }
             break;
@@ -177,11 +178,12 @@ function procesa_datos_recibidos(data, status, accion, datos){
                         xAxes: [{
                             scaleLabel:{
                             display: true,
-                            labelString: 'Numéro de productos vendidos',
+                            labelString: 'Número de productos vendidos',
                             fontSize: 20,
                             },
                             ticks:{
                                 min : 0,
+                                max: 10,
                                 stepSize : 1,
                                 autoSkip: true,
                                 maxTicksLimit: 10,

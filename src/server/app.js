@@ -234,18 +234,11 @@ app.post('/cargarPedidos', (req, res) => {
     let contPedido = 0;
 
     // Query de MySQL
-    con.query("SELECT p.idPedido, p.fecha, p.estado FROM `coetus-emere`.tpedidos p where p.idUsuario ="+cond+";", function (err, result, fields) {
+    con.query("SELECT p.idPedido, p.fecha, p.estado, count(p.idPedido) as numeroItem FROM `coetus-emere`.tpedidos p inner join tlineaspedido lp on p.idPedido=lp.idPedido where p.idUsuario ="+cond+" group by idPedido", function (err, result, fields) {
         if (err) throw err;
         for(var i=0; i<result.length; i++){
-            con.query("SELECT * FROM `coetus-emere`.tlineaspedido where idPedido ="+result[i].idPedido+";", function (err, result, fields) {
-                if (err) throw err;
-                contPedido = result.length;
-                // console.log(result.length)
-                return contPedido
-            });
-            console.log(contPedido)
             pedidos += "<div class='entradaPedido py-3' id='"+result[i].idPedido+"' data-toggle='modal' data-target='.pedidoModal'>";
-            pedidos += '<div class="col-6 pl-4">Pedido de '+contPedido+' artículos</div>';
+            pedidos += '<div class="col-6 pl-4">Pedido de '+result[i].numeroItem+' artículos</div>';
             pedidos += '<div class="col-3">'+result[i].fecha+'</div>';
             pedidos += '<div class="col-3 estadoPedido">'+result[i].estado+'</div></div>';
         }

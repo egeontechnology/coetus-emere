@@ -11,13 +11,35 @@
     margin-bottom: 50px;
 }
 
+#nombreApellidosUser{
+    color:white;
+    position: absolute;
+    bottom: 17px;
+    left: 217px;
+    font-weight: 600;
+}
+
 #marcoImg{
     text-align: center;
 }
 
 div.sticky{
-    position: sticky;
     top: 40px;
+}
+
+#fotoPortada{
+    background: url(./../images/banner01.jpg) no-repeat center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-blend-mode: darken;
+    position: relative;
+    height: 280px;
+    border-radius: 20px 20px 0 0;
+}
+
+#menuPerfil{
+    position: relative;
+    bottom: 200px;
 }
 
 #userOptions a{
@@ -37,10 +59,36 @@ div.sticky{
 
 #userOptions{
     margin-top: 50px;
-    padding-left: 35px;
-    padding-right: 35px;
+    font-size: 20px;
+    /* padding-left: 35px;
+    padding-right: 35px; */
 }
 
+#perfilForm div{
+    display: flex;
+    flex-direction: row;
+}
+
+#perfilForm input{
+    border: 0;
+    margin-bottom: 0.85rem;
+}
+
+#perfilForm input::placeholder{
+    text-align: left;
+}
+
+#perfilForm label{
+    font-weight: 600;
+}
+
+#apart1 button{
+    float: right;
+}
+
+.edit{
+    display: none;
+}
 
 /* Pedidos */
 #cabeceraPedidos{
