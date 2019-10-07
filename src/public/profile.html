@@ -79,7 +79,7 @@
                             <!--Panel 8-->
                             <div class="tab-pane fade" id="panel8" role="tabpanel">
                                 <!--Body-->
-                                <div class="modal-body">
+                                <div class="modal-body" id="registroForm">
                                     <div class="radio">
                                         <label class="radio-inline"><input type="radio" name="optradio" checked> Consumidor</label>
                                         <label class="radio-inline"><input type="radio" name="optradio"> Productor</label>
@@ -115,12 +115,8 @@
                                         <label class="white-text form-check-label" for="checkbox624">Acepto los<a href="#" class="green-text font-weight-bold">
                                                 Términos y Condiciones</a></label>
                                     </div><br>
-                                    <!--<div class="md-form form-sm p-1">
-                                        <input class="form-check-input" type="checkbox" id="checkbox624">
-                                        <label for="checkbox624" class="white-text form-check-label">Acepto los<a href="#" class="green-text font-weight-bold">Términos y Condiciones</a></label>
-                                    </div>-->
                                     <div class="text-center form-sm mt-2">
-                                        <button class="btn btn-info">Registrarme<i class="fas fa-sign-in ml-1"></i></button>
+                                        <button class="btn btn-info" id="registrarBtn">Registrarme<i class="fas fa-sign-in ml-1"></i></button>
                                     </div>
                                 </div>
                                 <!--Footer-->
@@ -303,11 +299,47 @@
                                     <p class="col-8 show"></p>
                                     <input class="col-8 edit" type="text" name="cp">
                                 </div>
+                                <div id="grupoUser">
+                                    <label class="col-4 mt-1" for="direccion">Grupo: </label>
+                                    <p class="col-8 show"></p>
+                                    <select name="grupo" id="grupoSelect" class="form-control edit">
+                                        <option value="1">Madrid</option>
+                                        <option value="2">Barcelona</option>
+                                    </select>
+                                </div>
                             </form>
                         </div>
-                        <button class="mx-2 btn btn-primary show" id="editarBtn">Editar</button>
-                        <button class="mx-2 btn btn-primary edit" id="cambiosBtn">Cambiar datos</button>
-                        <button class="mx-2 btn btn-outline-secondary edit" id="cancelarBtn">Cancelar</button>
+                        <div class="my-5 col-12">
+                            <button class="mx-2 btn btn-primary show" id="editarBtn">Editar</button>
+                            <button class="mx-2 btn btn-primary edit" id="cambiosBtn">Cambiar datos</button>
+                            <button class="mx-2 btn btn-outline-secondary edit" id="cancelarBtn">Cancelar</button>
+                        </div>
+                        <div class="row">
+                            <h3 class="mt-5">Cambiar constraseña</h3>
+                            <div class="col-12">
+                                <form id="cambiarPass">
+                                    <div class="form-group mt-4">
+                                        <div>
+                                            <label class="col-4" for="pass">Constraseña nueva:</label>
+                                            <input class="col-4 form-control" type="password" name="nombre" id="pass1">
+                                        </div>
+                                        <div class="my-4">
+                                            <label class="col-4" for="apellidos">Repetir contraseña:</label>
+                                            <input class="col-4 form-control" type="password" id="pass2">
+                                        </div>
+                                        <p><br></p>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-12 my-2">
+                                <button class="btn btn-primary" id="cambioPassBtn">Cambiar contraseña</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3 class="mt-5">Cambio de imagen de perfil</h3>
+                            <div class="col-12">
+                            </div>
+                        </div>
                     </div>
                     <div class="profileInfo" id="apart2">
                         <h1>Apartado 2</h1>
@@ -316,8 +348,8 @@
                         <div class="row">
                             <h1>Mis productos</h1>
                         </div><hr>
-                        <div class="row mt-5">
-                            <div id="nuevoProdBtn">
+                        <div class="row">
+                            <div class="mt-5" id="nuevoProdBtn">
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#nuevoProd">Añadir nuevo producto</button>
                             </div>
                         </div>
@@ -351,7 +383,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

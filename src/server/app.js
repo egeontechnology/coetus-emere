@@ -40,6 +40,19 @@ app.post('/login', (req, res) =>{
     });
 })
 
+// Registrarse en la aplicación
+app.post('/registrar', (req, res) =>{
+    // Acceso al valor del objeto
+    const cond = req.body
+    con.query("INSERT INTO `coetus-emere`.`tusuarios` (`Nombre`, `Apellidos`, `Email`, `Rol`, `Password`, `img`) VALUES ('"+cond.nombre+"', '"+cond.apellidos+"', '"+cond.email+"', '"+cond.rol+"', '"+cond.pass+"', 'images/noimage.jpg');", function (err, result, fields) {
+        if (err) throw err;
+        con.query("select * from tusuarios where Email='"+cond.email+"';", function (err, result, fields) {
+            if (err) throw err;
+            res.send(JSON.stringify(result));
+        });
+    });
+})
+
 // Consultas a la base de datos
 app.post('/cargarCestas', (req, res)=>{
 
@@ -225,6 +238,36 @@ app.post('/eliminarCarrito', (req, res) => {
     })
 });
 
+app.post('/cambiarDatosPersonales', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    // Query de MySQL
+    con.query("UPDATE `coetus-emere`.`tusuarios` SET `Nombre` = '"+cond.nombre+"', `Apellidos` = '"+cond.apellidos+"', `Email` = '"+cond.email+"', `Direccion` = '"+cond.direccion+"', `Codigo postal` = '"+cond.cp+"', `idGrupo` = '"+cond.grupo+"'  WHERE (`idUsuario` = '"+cond.user+"');", function (err, result, fields) {
+        if (err) throw err;
+        con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, email, direccion FROM `coetus-emere`.tusuarios where idUsuario='"+cond.user+"';", function (err, result, fields) {
+            if (err) throw err;
+            if(result.length != 0) {
+                resultado = JSON.stringify(result)
+            } else {
+                resultado = 'ko'
+            }
+            res.send(resultado);
+        });
+    })
+});
+
+app.post('/cambiarPass', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    // Query de MySQL
+    con.query("UPDATE `coetus-emere`.`tusuarios` SET `Password` = '"+cond.pass+"' WHERE (`idUsuario` = '"+cond.user+"');", function (err, result, fields) {
+        if (err) throw err;
+        res.send('ok');
+    })
+});
+
 app.post('/cargarPedidos', (req, res) => {
     // Acceso al valor del objeto
     const cond = req.body.user;
@@ -308,7 +351,6 @@ app.post('/cargarEstadisticas', (req, res) => {
 
     con.query("SELECT p.nombre, sum(lp.cantidad) as sum FROM `coetus-emere`.tproductos p inner join tlineaspedido lp on lp.idProducto=p.idProducto where p.idUsuario="+cond+" group by p.nombre order by sum desc", function (err, result, fields) {
         if (err) throw err;
-        // console.log(result)
         for(var i=0; i<result.length; i++){
             label.push(result[i].nombre);
             datos.push(result[i].sum)

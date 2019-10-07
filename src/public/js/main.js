@@ -1,6 +1,23 @@
 // Procesa los datos de la llamada a AJAX
 function procesa_datos_recibidos(data, status, accion, datos){
     switch(accion){
+        case 'registrar':
+            if (data!=='ko'){
+                swal("¡Usuario creado!", "", "success");
+                $('.swal-button--confirm').off('click').on('click', function(){
+                    dataLogin = JSON.parse(data);
+                    console.log(dataLogin)
+                    sessionStorage.setItem('login', true);
+                    sessionStorage.setItem('idUsuario', dataLogin[0].idUsuario);
+                    sessionStorage.setItem('nombre', dataLogin[0].Nombre);
+                    sessionStorage.setItem('apellidos', dataLogin[0].Apellidos);
+                    sessionStorage.setItem('rol', dataLogin[0].Rol);
+                    sessionStorage.setItem('img', dataLogin[0].img);
+                    sessionStorage.setItem('email', dataLogin[0].Email);
+                    window.location.href = "profile.html";
+                })
+            }
+            break;
         case 'cargarCategorias':
             $('#categorias').html(data);
             $('.producto').click(function(){
@@ -99,6 +116,25 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 send_post('eliminarCarrito', datos);
                 send_post('cargarCarrito', datos)
             });
+            break;
+        case 'cambiarDatosPersonales':
+            if(data !== 'ko'){
+                swal("¡Datos cambiados con éxito!", "", "success");
+                dataLogin = JSON.parse(data);
+                sessionStorage.setItem('login', true);
+                sessionStorage.setItem('idUsuario', dataLogin[0].idUsuario);
+                sessionStorage.setItem('nombre', dataLogin[0].nombre);
+                sessionStorage.setItem('apellidos', dataLogin[0].apellidos);
+                sessionStorage.setItem('rol', dataLogin[0].rol);
+                sessionStorage.setItem('idGrupo', dataLogin[0].idGrupo);
+                sessionStorage.setItem('img', dataLogin[0].img);
+                sessionStorage.setItem('direccion', dataLogin[0].direccion);
+                sessionStorage.setItem('email', dataLogin[0].email);
+                $('#nombreApellidosUser').html(sessionStorage.getItem('nombre')+" "+sessionStorage.getItem('apellidos'))
+            }
+            break;
+        case 'cambiarPass':
+            if(data == 'ok') swal("¡Contraseña cambiada con éxito!", "", "success");
             break;
         case 'cargarPedidos':
             $('#pedidosTotales').html(data);
@@ -225,6 +261,12 @@ $(document).ready(function(){
     $('#botonLogin').click(()=>{
         datosLogin = 'user='+$('#userName').val()+'&pass='+CryptoJS.SHA3($('#userPass').val(),{ outputLength: 512 });
         send_post('login', datosLogin);
+    })
+    $('#registrarBtn').off('click').on('click',function(){
+        if($('#pass11').val()==$('#pass22').val()){
+            let datos = "nombre="+$('#nombreRegistro').val()+"&apellidos="+$('#apellidosRegistro').val()+"&email="+$('#emailRegistro').val()+"&rol="+$('#registroForm .radio input[checked]').attr('name')+"&pass="+CryptoJS.SHA3($('#pass11').val(),{ outputLength: 512 });
+            send_post('registrar',datos);
+        }
     })
     $('#miPerfilBtn').off('click').on('click', function(){
         window.location.href = "profile.html";

@@ -25,20 +25,30 @@ if(sessionStorage.getItem('rol')==('Consumidor')){
 }
 
 // Datos perfil
-$('#nombreUser p').html(sessionStorage.getItem('nombre'))
-$('#nombreUser input').attr('value', sessionStorage.getItem('nombre'))
+$('#nombreUser p').html(sessionStorage.getItem('nombre'));
+$('#nombreUser input').attr('value', sessionStorage.getItem('nombre'));
 
-$('#apellidosUser p').html(sessionStorage.getItem('apellidos'))
-$('#apellidosUser input').attr('value', sessionStorage.getItem('apellidos'))
+$('#apellidosUser p').html(sessionStorage.getItem('apellidos'));
+$('#apellidosUser input').attr('value', sessionStorage.getItem('apellidos'));
 
-$('#emailUser p').html(sessionStorage.getItem('email'))
-$('#emailUser input').attr('value', sessionStorage.getItem('email'))
+$('#emailUser p').html(sessionStorage.getItem('email'));
+$('#emailUser input').attr('value', sessionStorage.getItem('email'));
 
-$('#direccionUser p').html(sessionStorage.getItem('direccion'))
-$('#direccionUser input').attr('value', sessionStorage.getItem('direccion'))
+$('#direccionUser p').html(sessionStorage.getItem('direccion'));
+$('#direccionUser input').attr('value', sessionStorage.getItem('direccion'));
 
-$('#cpUser p').html(sessionStorage.getItem('cp'))
-$('#cpUser input').attr('value', sessionStorage.getItem('cp'))
+$('#cpUser p').html(sessionStorage.getItem('cp'));
+$('#cpUser input').attr('value', sessionStorage.getItem('cp'));
+
+if (sessionStorage.getItem('idGrupo')==1){
+    $('#grupoUser p').html('Madrid')
+}else if(sessionStorage.getItem('idGrupo')==2){
+    $('#grupoUser p').html('Barcelona')
+}else{
+    $('#grupoUser p').html('')
+}
+
+$('#grupoSelect option[value='+sessionStorage.getItem('idGrupo')+']').attr("selected",true);
 
 
 $(document).ready(()=>{
@@ -66,6 +76,7 @@ $(document).ready(()=>{
     })
 
     // Editar datos perfil
+    // Datos personales
     $('#editarBtn').off('click').on('click', function(){
         $('.edit').css('display','inline-block')
         $('.show').css('display','none')
@@ -74,6 +85,24 @@ $(document).ready(()=>{
         $('.show').css('display','inline-block')
         $('.edit').css('display','none')
     })
+    $('#cambiosBtn').off('click').on('click', function(){
+        let datos = "user="+sessionStorage.getItem('idUsuario')+"&"+$('#perfilForm').serialize();
+        send_post('cambiarDatosPersonales', datos)
+        // console.log($('#perfilForm').serialize())
+    })
+    // Contraseña
+    $('#cambioPassBtn').off('click').on('click', function(){
+        if ($('#pass1').val()!=$('#pass2').val()){
+            $('#cambiarPass input').css('border','1px solid red');
+            $('#cambiarPass p').html('La contraseña no es correcta').css('color','red')
+        }else{
+            $('#cambiarPass input').css('border','1px solid #ced4da');
+            $('#cambiarPass p').html('<br>');
+            let datos = 'user='+sessionStorage.getItem('idUsuario')+'&pass='+CryptoJS.SHA3($('#pass1').val(),{ outputLength: 512 });
+            send_post('cambiarPass',datos);
+        }
+    })
+
 
 
     // Pedidos

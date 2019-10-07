@@ -23,8 +23,14 @@
     text-align: center;
 }
 
-div.sticky{
-    top: 40px;
+#cambiarPass div div{
+    display: flex;
+    flex-direction: row;
+}
+
+#cambioPassBtn{
+    margin-left: auto;
+    margin-right: 0;
 }
 
 #fotoPortada{
