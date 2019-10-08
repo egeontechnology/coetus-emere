@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
 
 <!-- JS -->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
 <script src="js/main.js"></script>
 <!-- //JS -->
 </head>
@@ -95,29 +96,30 @@
                                     </div>
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-user prefix"></i>
-                                        <input type="email" class="form-control form-control-sm validate" id="nombreRegistro">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Nombre</label>
+                                        <input type="email" class="form-control form-control-sm validate" id="nombreRegistro" placeholder="Nombre">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12"></label>
                                     </div>
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-user prefix"></i>
-                                        <input type="email" class="form-control form-control-sm validate" id="apellidosRegistro">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Apellidos</label>
+                                        <input type="email" class="form-control form-control-sm validate" id="apellidosRegistro" placeholder="Apellidos">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12"></label>
                                     </div>
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-envelope prefix"></i>
-                                        <input type="email" class="form-control form-control-sm validate" id="emailRegistro">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Email</label>
+                                        <input type="email" class="form-control form-control-sm validate" id="emailRegistro" placeholder="Email">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12"></label>
                                     </div>
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-lock prefix"></i>
-                                        <input type="password" class="form-control form-control-sm validate" id="pass11">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput13">Contraseña</label>
+                                        <input type="password" class="form-control form-control-sm validate" id="pass11" placeholder="Contraseña">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput13"></label>
                                     </div>
                                     <div class="md-form form-sm mb-4">
                                         <i class="fas fa-lock prefix"></i>
-                                        <input type="password" class="form-control form-control-sm validate" id="pass22">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput14">Repetir contraseña</label>
+                                        <input type="password" class="form-control form-control-sm validate" id="pass22" placeholder="Repetir contraseña">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput14"></label>
                                     </div>
+                                    <p id="errRegis">Campos incompletos/incorrectos</p>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="checkbox624" required>
                                         <label class="white-text form-check-label" for="checkbox624">Acepto los<a href="#" class="green-text font-weight-bold">
@@ -200,15 +202,14 @@
 	  </ul>
 	  
 	  <!-- Contenido del slider -->
-	<div class="carousel-inner">
+	<div class="carousel-inner" id="carr">
 
 	    <div class="carousel-item active">
 	      <img src="images/banner00.jpg" alt="Grupos de consumo" width="1100" height="500">
 
-	    <div class="carousel-caption   tituloBanner">	    	
+	    <div class="carousel-caption tituloBanner">	    	
 	        <h2 class="display-1">Grupos de consumo</h2>	        
 	        <p class="display-4">La unión hace la fuerza</p>
-	    	
 	      </div>  
 	    </div>
 

@@ -20,6 +20,7 @@
     <!--Iconos-->
     <!-- //CSS -->
     <!-- JS -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
     <script src="js/main.js"></script>
     <!-- //JS -->
     <title>Contacto | La huerta en casa</title>
@@ -80,39 +81,40 @@
                             <!--Panel 8-->
                             <div class="tab-pane fade" id="panel8" role="tabpanel">
                                 <!--Body-->
-                                <div class="modal-body">
+                                <div class="modal-body" id="registroForm">
                                     <div class="radio">
-                                        <label class="radio-inline"><input type="radio" name="optradio" checked> Consumidor</label>
-                                        <label class="radio-inline"><input type="radio" name="optradio"> Productor</label>
-                                        <label class="radio-inline"><input type="radio" name="optradio"> Ambos</label>
+                                        <label class="radio-inline"><input type="radio" name="Consumidor" checked> Consumidor</label>
+                                        <label class="radio-inline"><input type="radio" name="Productor"> Productor</label>
+                                        <label class="radio-inline"><input type="radio" name="Ambos"> Ambos</label>
                                     </div>
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-user prefix"></i>
-                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Nombre</label>
+                                        <input type="email" class="form-control form-control-sm validate" id="nombreRegistro" placeholder="Nombre">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12"></label>
                                     </div>
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-user prefix"></i>
-                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Apellidos</label>
+                                        <input type="email" class="form-control form-control-sm validate" id="apellidosRegistro" placeholder="Apellidos">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12"></label>
                                     </div>
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-envelope prefix"></i>
-                                        <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput12">Email</label>
+                                        <input type="email" class="form-control form-control-sm validate" id="emailRegistro" placeholder="Email">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput12"></label>
                                     </div>
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-lock prefix"></i>
-                                        <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput13">Contraseña</label>
+                                        <input type="password" class="form-control form-control-sm validate" id="pass11" placeholder="Contraseña">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput13"></label>
                                     </div>
                                     <div class="md-form form-sm mb-4">
                                         <i class="fas fa-lock prefix"></i>
-                                        <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput14">Repetir contraseña</label>
+                                        <input type="password" class="form-control form-control-sm validate" id="pass22" placeholder="Repetir contraseña">
+                                        <label data-error="wrong" data-success="right" for="modalLRInput14"></label>
                                     </div>
+                                    <p id="errRegis">Campos incompletos/incorrectos</p>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="checkbox624">
+                                        <input type="checkbox" class="form-check-input" id="checkbox624" required>
                                         <label class="white-text form-check-label" for="checkbox624">Acepto los<a href="#" class="green-text font-weight-bold">
                                                 Términos y Condiciones</a></label>
                                     </div><br>
@@ -121,7 +123,7 @@
                                         <label for="checkbox624" class="white-text form-check-label">Acepto los<a href="#" class="green-text font-weight-bold">Términos y Condiciones</a></label>
                                     </div>-->
                                     <div class="text-center form-sm mt-2">
-                                        <button class="btn btn-info">Registrarme<i class="fas fa-sign-in ml-1"></i></button>
+                                        <button class="btn btn-info" id="registrarBtn">Registrarme<i class="fas fa-sign-in ml-1"></i></button>
                                     </div>
                                 </div>
                                 <!--Footer-->

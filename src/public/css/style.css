@@ -5,6 +5,15 @@ nav{
     background-color: #9c9f0038;
 }
 
+#homeText{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 500;
+    font-size: 35px;
+    color: #FF9801;
+}
+
+
+
 nav img{
     width: 40px;
 }
@@ -47,8 +56,9 @@ footer{
 }
 
 footer h2{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 500; 
     font-size: 40px;
-    font-weight: 600;
     color: white;
     letter-spacing: 1px;
     margin: auto;
@@ -95,6 +105,11 @@ footer p{
 
 #profileImg{
     border-radius: 50%;
+}
+
+#errRegis{
+    display: none;
+    color: red;
 }
 
 /* //Footer */

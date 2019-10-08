@@ -34,8 +34,8 @@
 }
 
 #fotoPortada{
-    background: url(./../images/banner01.jpg) no-repeat center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: url(./../images/banner002.jpg) no-repeat center;
+    background-color: rgba(0, 0, 0, 0.2);
     background-size: cover;
     background-blend-mode: darken;
     position: relative;

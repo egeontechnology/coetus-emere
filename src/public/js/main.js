@@ -9,11 +9,11 @@ function procesa_datos_recibidos(data, status, accion, datos){
                     console.log(dataLogin)
                     sessionStorage.setItem('login', true);
                     sessionStorage.setItem('idUsuario', dataLogin[0].idUsuario);
-                    sessionStorage.setItem('nombre', dataLogin[0].Nombre);
-                    sessionStorage.setItem('apellidos', dataLogin[0].Apellidos);
-                    sessionStorage.setItem('rol', dataLogin[0].Rol);
+                    sessionStorage.setItem('nombre', dataLogin[0].nombre);
+                    sessionStorage.setItem('apellidos', dataLogin[0].apellidos);
+                    sessionStorage.setItem('rol', dataLogin[0].rol);
                     sessionStorage.setItem('img', dataLogin[0].img);
-                    sessionStorage.setItem('email', dataLogin[0].Email);
+                    sessionStorage.setItem('email', dataLogin[0].email);
                     window.location.href = "profile.html";
                 })
             }
@@ -263,9 +263,15 @@ $(document).ready(function(){
         send_post('login', datosLogin);
     })
     $('#registrarBtn').off('click').on('click',function(){
-        if($('#pass11').val()==$('#pass22').val()){
+        if($('#pass11').val()==$('#pass22').val() && $('#checkbox624').is(':checked')){
             let datos = "nombre="+$('#nombreRegistro').val()+"&apellidos="+$('#apellidosRegistro').val()+"&email="+$('#emailRegistro').val()+"&rol="+$('#registroForm .radio input[checked]').attr('name')+"&pass="+CryptoJS.SHA3($('#pass11').val(),{ outputLength: 512 });
+            console.log(datos)
             send_post('registrar',datos);
+        }else{
+            $('#pass11').css('border','1px solid red');
+            $('#pass22').css('border','1px solid red');
+            $('#checkbox624').css('border','1px solid red');
+            $('#errRegis').css('display', 'inline-block')
         }
     })
     $('#miPerfilBtn').off('click').on('click', function(){

@@ -29,7 +29,7 @@ con.connect((err) => {
 app.post('/login', (req, res) =>{
     // Acceso al valor del objeto
     const cond = req.body
-    con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, email, direccion FROM `coetus-emere`.tusuarios where Email='"+cond.user+"' AND Password='"+cond.pass+"';", function (err, result, fields) {
+    con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, email, codigoPostal, direccion FROM `coetus-emere`.tusuarios where email='"+cond.user+"' AND password='"+cond.pass+"';", function (err, result, fields) {
         if (err) throw err;
         if(result.length != 0) {
             resultado = JSON.stringify(result)
@@ -44,9 +44,10 @@ app.post('/login', (req, res) =>{
 app.post('/registrar', (req, res) =>{
     // Acceso al valor del objeto
     const cond = req.body
-    con.query("INSERT INTO `coetus-emere`.`tusuarios` (`Nombre`, `Apellidos`, `Email`, `Rol`, `Password`, `img`) VALUES ('"+cond.nombre+"', '"+cond.apellidos+"', '"+cond.email+"', '"+cond.rol+"', '"+cond.pass+"', 'images/noimage.jpg');", function (err, result, fields) {
+    console.log(cond)
+    con.query("INSERT INTO `coetus-emere`.`tusuarios` (`nombre`, `apellidos`, `email`, `rol`, `password`, `img`) VALUES ('"+cond.nombre+"', '"+cond.apellidos+"', '"+cond.email+"', '"+cond.rol+"', '"+cond.pass+"', 'images/noimage.jpg');", function (err, result, fields) {
         if (err) throw err;
-        con.query("select * from tusuarios where Email='"+cond.email+"';", function (err, result, fields) {
+        con.query("select * from tusuarios where email='"+cond.email+"';", function (err, result, fields) {
             if (err) throw err;
             res.send(JSON.stringify(result));
         });
@@ -193,18 +194,18 @@ app.post('/cargarCarrito', (req, res) => {
     let contItems = 0;
     let totalPedido = 0;
 
-    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.estado = 'pendiente' and p.idUsuario="+cond.idUsuario+";", function (err, result, fields) {
+    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img, lp.idLinea, x.img, lp.cantidad*x.precio as total FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.estado = 'pendiente' and p.idUsuario="+cond.idUsuario+";", function (err, result, fields) {
         if (err) throw err;
 
         for(var i=0; i<result.length; i++) {
             contItems++
-            totalPedido += result[i].totalLinea
+            totalPedido += result[i].total
             carrito += '<div class="articulo my-4 row" id='+result[i].idLinea+'>';
             carrito += '<div class="col-1" id="fotoArticulo"><img src="'+result[i].img+'" alt=""></div>';
-            carrito += '<div class="col-5"><p>'+result[i].nombre+'</p><span class="infoPequeño">Precio: '+result[i].precio+'€ Unidades:'+result[i].cantidad+' <strong>Total:'+result[i].totalLinea+'€</strong></span></div>';
+            carrito += '<div class="col-5"><p>'+result[i].nombre+'</p><span class="infoPequeño">Precio: '+result[i].precio+'€ Unidades:'+result[i].cantidad+' <strong>Total:'+result[i].total+'€</strong></span></div>';
             carrito += '<div class="col-2 coste infoGrande">'+result[i].precio+' €</div>';
-            carrito += '<div class="col-2 coste infoGrande">'+result[i].cantidad+'</div>';
-            carrito += '<div class="col-1 coste infoGrande"><strong>'+result[i].totalLinea+' €</strong></div>';
+            carrito += '<div class="col-1 coste infoGrande">'+result[i].cantidad+'</div>';
+            carrito += '<div class="col-2 coste infoGrande"><strong>'+result[i].total+' €</strong></div>';
             carrito += '<div class="col-1"><img src="images/close.png" alt="" class="delete"></div></div>'
         }
 
@@ -243,7 +244,7 @@ app.post('/cambiarDatosPersonales', (req, res) => {
     const cond = req.body;
 
     // Query de MySQL
-    con.query("UPDATE `coetus-emere`.`tusuarios` SET `Nombre` = '"+cond.nombre+"', `Apellidos` = '"+cond.apellidos+"', `Email` = '"+cond.email+"', `Direccion` = '"+cond.direccion+"', `Codigo postal` = '"+cond.cp+"', `idGrupo` = '"+cond.grupo+"'  WHERE (`idUsuario` = '"+cond.user+"');", function (err, result, fields) {
+    con.query("UPDATE `coetus-emere`.`tusuarios` SET `nombre` = '"+cond.nombre+"', `apellidos` = '"+cond.apellidos+"', `email` = '"+cond.email+"', `direccion` = '"+cond.direccion+"', `codigoPostal` = '"+cond.cp+"', `idGrupo` = '"+cond.grupo+"'  WHERE (`idUsuario` = '"+cond.user+"');", function (err, result, fields) {
         if (err) throw err;
         con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, email, direccion FROM `coetus-emere`.tusuarios where idUsuario='"+cond.user+"';", function (err, result, fields) {
             if (err) throw err;
@@ -262,7 +263,7 @@ app.post('/cambiarPass', (req, res) => {
     const cond = req.body;
 
     // Query de MySQL
-    con.query("UPDATE `coetus-emere`.`tusuarios` SET `Password` = '"+cond.pass+"' WHERE (`idUsuario` = '"+cond.user+"');", function (err, result, fields) {
+    con.query("UPDATE `coetus-emere`.`tusuarios` SET `password` = '"+cond.pass+"' WHERE (`idUsuario` = '"+cond.user+"');", function (err, result, fields) {
         if (err) throw err;
         res.send('ok');
     })
@@ -297,14 +298,14 @@ app.post('/mostrarPedido', (req, res) => {
     let totalPedido = 0;
 
 
-    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img,x.idProducto, lp.idLinea, lp.totalLinea FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.idPedido="+cond, function (err, result, fields) {
+    con.query("SELECT p.idPedido, lp.cantidad, x.nombre, x.precio, x.img,x.idProducto, lp.idLinea, x.img, lp.cantidad*x.precio as total FROM `coetus-emere`.tlineaspedido lp inner join tpedidos p  on p.idPedido=lp.idPedido inner join (select * from tproductos) x on x.idProducto = lp.idProducto where p.idPedido="+cond, function (err, result, fields) {
         if (err) throw err;
         for(var i=0; i<result.length; i++) {
             pedido += "<div class='pedidoReg'><div class='col-6 my-4' id="+result[i].idProducto+">"+result[i].nombre+"</div>";
             pedido += "<div class='col-2 my-4'>"+result[i].precio+"€</div>";
             pedido += "<div class='col-2 my-4'>"+result[i].cantidad+"</div>";
-            pedido += "<div class='col-2 my-4'>"+result[i].totalLinea+"€</div></div>";
-            totalPedido += result[i].totalLinea;
+            pedido += "<div class='col-2 my-4'>"+result[i].total+"€</div></div>";
+            totalPedido += result[i].total;
         }
         pedido += "<div class='col-12 py-4'><div id='totalPedidoModal'>TOTAL : <span id='impotePedido'>" +totalPedido+"</span>€</div></div>"
         res.send(pedido)

@@ -47,10 +47,10 @@ h3{
 }
 
 .cesta img{
-    height: 350px;;
+    height: 200px;;
     margin: auto;
     display: block;
-    width: 100%;
+    /* width: 100%; */
     box-shadow: 26px 33px 29px -14px rgba(0,0,0,0.4);
 }
 .cesta{
