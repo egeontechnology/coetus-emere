@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CDN -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <!--Sweet alert-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha3.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <!--Sweet alert-->
     <!-- //CDN -->
     <!-- CSS -->
     <link href="css/style.css" rel='stylesheet' type='text/css' /><!-- style css -->
+    <link href="css/services.css" rel='stylesheet' type='text/css' /><!-- services css -->
     <link href="css/form-login.css" rel='stylesheet' type='text/css' /><!-- login css -->
-    <link href="css/about.css" rel='stylesheet' type='text/css' /><!-- services css -->
+    <link href="css/cesta.css" rel='stylesheet' type='text/css' /><!-- cesta css -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"><!--Iconos-->
     <!-- //CSS -->
     <!-- JS -->
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
     <script src="js/main.js"></script>
+    <!-- <script src="js/services.js"></script> -->
     <!-- //JS -->
-    <title>Conoce el proyecto | La huerta en casa</title>
+    <title>Nuestra huerta | La huerta en casa</title>
 </head>
 <body>
     <!-- Modal login -->
@@ -139,6 +141,83 @@
         </div>
     </section>
     <!-- //Modal login -->
+    <!-- Modal cesta -->
+    <section>
+        <div class="modal fade bd-example-modal-lg" id="modalCesta" tabindex="-1" role="dialog" aria-labelledby="modalCestaTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="tituloCestaModal"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body container">
+                    <div class="row">
+                        <div class="col-7" id="fotoCestaModal"><img src=""></div>
+                        <div class="col-5" id="contenidoCestaModal">
+                            <ul id="productosCestasModal">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    <button type="button" id="" class="btn btn-primary btnComprar" data-dismiss="modal">Comprar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- //Modal cesta-->
+    <!-- Modal categoria -->
+    <section>
+        <div class="modal fade bd-example-modal-lg" id="modalCategoria" tabindex="-1" role="dialog" aria-labelledby="modalCategoriaTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="tituloCategoriaModal"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body container">
+                    <div class="row">
+                        <div class="col-12" id="contenidoCategoriaModal">
+                            <div id="tabla">
+                                <div class="w-100 row" id="cabecerasCesta">
+                                    <div class="col-1">Articulo</div>
+                                    <div class="col-4"></div>
+                                    <div class="col-2 infoGrande">Precio</div>
+                                    <div class="col-3 infoGrande">Unidades</div>
+                                    <div class="col-2 infoGrande"><strong>Total</strong></div>
+                                </div>
+                                <div class="w-100 cuadro" id="articulosCesta">
+                                    <div class="articulo my-4 row">
+                                        <div class="col-1" id="fotoArticulo"><img src="./images/cereal.png" alt=""></div>
+                                        <div class="col-4"><p>Pan de masa madre</p><span class="infoPequeño">Precio: 1.50€ Unidades:2 <strong>Total:3€</strong></span></div>
+                                        <div class="col-2 coste infoGrande">1.50 €</div>
+                                        <div class="input-group mb-3 align-middle col-3" id="contadorcesta">
+                                            <button class="btn btn-outline-secondary btnmenos">-</button>
+                                            <input class="form-control" type="numeric" value="1">
+                                            <button class="btn btn-outline-secondary btnmas">+</button>
+                                        </div>
+                                        <div class="col-2 coste infoGrande"><strong>3 €</strong></div>
+                                    </div>
+                                </div>
+                                <div id="footerTabla"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    <button type="button" id="comprarProducto" class="btn btn-primary" data-dismiss="modal">Comprar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- //Modal categoria-->
     <header>
         <!-- Navbar -->
         <section>
@@ -180,153 +259,26 @@
         </section>
         <!-- //Navbar -->
     </header>
-    <!-- Sobre nosotros -->
-    <section>
-        <div class="container mt-5 mb-5" id="sobreNosotros">
-            <div class="row">
-                <h3>Sobre nosotros</h3>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <p>Donec consequat sapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac metus at, semper varius orci. Nulla accumsan ac elit in congue. Class aptent taciti sociosqu ad litora torquent per conubia aptent taciti sociosqu ad lorem ipsum dolor.</p>
-                    <p class="pt-3 mt-3 border-top"> <span class="fa fa-quote-left mr-2" id="comillas"></span>Nullam consequat sapien ut leot cursus rhoncus. Nullam dui mi, vulputate ac metus at, semper varius orci. Nulla sed accumsan ac elit in congue. Class aptent taciti sociosqu ad litora torquent per taciti sociosqu ad litora torquent.<span class="fa fa-quote-right m-2" id="comillas"></span></p>
+    <div id="contenidoServices">
+        <div class="container" style="height: 70vh">
+            <div class="row" style="margin-top:150px">
+                <div class="col-6" style="display: flex">
+                    <img style="height: 500px" src="images/alertauser.png" alt="" srcset="">
                 </div>
-                <div class="col-6">
-                    <p>Donec consequat sapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac metus at, semper varius orci. Nulla accumsan ac elit in congue. Class aptent taciti sociosqu ad litora torquent per conubia aptent taciti sociosqu ad lorem ipsum dolor.</p>
-                    <p class="pt-3 mt-3 border-top"> <span class="fa fa-quote-left mr-2" id="comillas"></span> Nullam consequat sapien ut leot cursus rhoncus. Nullam dui mi, vulputate ac metus at, semper varius orci. Nulla sed accumsan ac elit in congue. Class aptent taciti sociosqu ad litora torquent per taciti sociosqu ad litora torquent.<span class="fa fa-quote-right m-2" id="comillas"></span></p>
+                <div class="col-5 ml-5" id="warn" style="color: #595c5e">
+                    <div class="row"></div>
+                    <h3>¡Grupo no asignado!</h3>
+                    <br>
+                    <br>
+                    <h4 class="text-center">Necesitas apuntarte a un grupo para poder ver los productos disponibles</h4>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- //Sobre nosotros -->
-    <!-- Datos -->
-    <section>
-        <div class="w-100" id="fondo">
-            <div class="container">
-                <div class="row" id="contenidoFondo">
-                    <div class="col-lg-3 col-6 my-5">
-                        <div class="icono"><span class="far fa-smile"></span></div>
-                        <div class="cifra" id="clientes">5100</div>
-                        <div class="dato">clientes satisfechos</div>
-                    </div>
-                    <div class="col-lg-3 col-6  my-5">
-                        <div><span class="fab fa-pagelines"></span></div>
-                        <div class="cifra" id="gruposConsumo">2271</div>
-                        <div class="dato">grupos de consumo</div>
-                    </div>
-                    <div class="col-lg-3 col-6 my-5">
-                        <div><span class="fas fa-users"></span></div>
-                        <div class="cifra" id="granjeros">1120</div>
-                        <div class="dato">granjeros</div>
-                    </div>
-                    <div class="col-lg-3 col-6 my-5">
-                        <div><span class="fas fa-leaf"></span></div>
-                        <div class="cifra" id="productos">2690</div>
-                        <div class="dato">productos</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //Datos -->
-    <!-- Nuestro equipo -->
-    <section>
-        <div class="container" id="equipo">
-            <div class="row">
-                <h3>Nuestro equipo</h3>
-            </div>
-            <div class="row text-center mt-5">
-                <div class="col-lg-3 col-sm-6 fichaEquipo">
-                    <img class="fotoEquipo img-fluid" src="./images/team1.jpg" alt="">
-                    <div class="textoEquipo pt-3">Lola mento</div>
-                    <div class="rrssEquipo">
-                        <span class="fab fa-facebook"></span>
-                        <span class="fab fa-twitter"></span>
-                        <span class="fab fa-google-plus"></span>
-                        <span class="fa fa-envelope-open"></span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 fichaEquipo">
-                    <img class="fotoEquipo img-fluid" src="./images/team2.jpg" alt="">
-                    <div class="textoEquipo pt-3">dolores fuertes</div>
-                    <div class="rrssEquipo">
-                        <span class="fab fa-facebook"></span>
-                        <span class="fab fa-twitter"></span>
-                        <span class="fab fa-google-plus"></span>
-                        <span class="fa fa-envelope-open"></span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 fichaEquipo">
-                    <img class="fotoEquipo img-fluid" src="./images/team3.jpg" alt="">
-                    <div class="textoEquipo">antonio margareti</div>
-                    <div class="rrssEquipo">
-                        <span class="fab fa-facebook"></span>
-                        <span class="fab fa-twitter"></span>
-                        <span class="fab fa-google-plus"></span>
-                        <span class="fa fa-envelope-open"></span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 fichaEquipo">
-                    <img class="fotoEquipo img-fluid" src="./images/team4.jpg" alt="">
-                    <div class="textoEquipo">filiberto santillana</div>
-                    <div class="rrssEquipo">
-                        <span class="fab fa-facebook"></span>
-                        <span class="fab fa-twitter"></span>
-                        <span class="fab fa-google-plus"></span>
-                        <span class="fa fa-envelope-open"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //Nuestro equipo -->
-    <!-- Opiniones de los usuarios -->
-    <section>
-        <div class="w-100" id="fondo2">
-            <div class="container">
-                <div class="row">
-                    <h3 class="mt-5">Opiniones de usuarios</h3>
-                </div>
-                <div class="row flex">
-                    <div class="col-lg-4">
-                        <div class="fichaOpinion mx-5">
-                            <h4 class="my-3">Best Harvesting Company</h4>
-                            <p> <span class="fa fa-quote-left mr-2" id="comillas"></span>Vulputate ac met semper varius Nullam consequat sapien sed leot cursus rhoncus. Nullam dui mi.<span class="fa fa-quote-right m-2" id="comillas"></span></p>
-                            <div class="autorOpinion row mx-4">
-                                <img src="./images/te2.jpg" alt="" class="img-fluid">
-                                <h5>Mary Jane</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="fichaOpinion  mx-5">
-                            <h4 class="my-3">Best Harvesting Company</h4>
-                            <p> <span class="fa fa-quote-left mr-2" id="comillas"></span>Vulputate ac met semper varius Nullam consequat sapien sed leot cursus rhoncus. Nullam dui mi.<span class="fa fa-quote-right m-2" id="comillas"></span></p>
-                            <div class="autorOpinion row mx-4">
-                                <img src="./images/te1.jpg" alt="" class="img-fluid">
-                                <h5>Olivia Ruth</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="fichaOpinion  mx-5">
-                            <h4 class="my-3">Best Harvesting Company</h4>
-                            <p> <span class="fa fa-quote-left mr-2" id="comillas"></span>Vulputate ac met semper varius Nullam consequat sapien sed leot cursus rhoncus. Nullam dui mi.<span class="fa fa-quote-right m-2" id="comillas"></span></p>
-                            <div class="autorOpinion row mx-4">
-                                <img src="./images/te3.jpg" alt="" class="img-fluid">
-                                <h5>Black Joe</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //Opiniones de los usuarios -->
+    </div>
     <footer>
         <div class="text-center py-5 container" id="pie">
             <div class="row mt-4">
-                <h2><img src="images/carrot.png" alt="" class="mr-3">La huerta en casa</h2>
+                <h2><img style="size:400px" src="images/carrot.png" alt="" class="mr-3">La huerta en casa</h2>
             </div>
             <div class="row mt-5" id="contactoFooter">
                     <p><span class="fa fa-map-marker mr-2"></span>C/ Lavapiés 42, Madrid (28012)</p>

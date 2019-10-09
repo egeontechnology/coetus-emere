@@ -1,7 +1,11 @@
+if(!sessionStorage.getItem('idGrupo')) window.location.href = 'nogroup.html'
+
+
 // Se cargan las cestas. Pendiente que la condición sea el grupo al que pertence
 let idGrupo = 'idGrupo='+sessionStorage.getItem('idGrupo');
 send_post('cargarCategorias', idGrupo);
 send_post('cargarCestas', idGrupo);
+
 
 $(document).ready(function(){
     $('#comprarProducto').off('click').on('click', function(){

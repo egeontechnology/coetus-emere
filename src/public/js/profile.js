@@ -4,8 +4,7 @@ $('.profileInfo').hide();
 $('#apart1').show();
 
 // Datos de pefil
-$('#imgPerfil').attr('src',sessionStorage.getItem('img'))
-$('#nombreApellidosUser').html(sessionStorage.getItem('nombre')+" "+sessionStorage.getItem('apellidos'))
+
 
 // Pedidos
 let user = { user : sessionStorage.getItem('idUsuario')}
@@ -25,20 +24,25 @@ if(sessionStorage.getItem('rol')==('Consumidor')){
 }
 
 // Datos perfil
-$('#nombreUser p').html(sessionStorage.getItem('nombre'));
-$('#nombreUser input').attr('value', sessionStorage.getItem('nombre'));
-
-$('#apellidosUser p').html(sessionStorage.getItem('apellidos'));
-$('#apellidosUser input').attr('value', sessionStorage.getItem('apellidos'));
-
-$('#emailUser p').html(sessionStorage.getItem('email'));
-$('#emailUser input').attr('value', sessionStorage.getItem('email'));
-
-$('#direccionUser p').html(sessionStorage.getItem('direccion'));
-$('#direccionUser input').attr('value', sessionStorage.getItem('direccion'));
-
-$('#cpUser p').html(sessionStorage.getItem('cp'));
-$('#cpUser input').attr('value', sessionStorage.getItem('cp'));
+function cargarDatos (){
+    $('#imgPerfil').attr('src',sessionStorage.getItem('img'))
+    $('#nombreApellidosUser').html(sessionStorage.getItem('nombre')+" "+sessionStorage.getItem('apellidos'))
+    
+    $('#nombreUser p').html(sessionStorage.getItem('nombre'));
+    $('#nombreUser input').attr('value', sessionStorage.getItem('nombre'));
+    
+    $('#apellidosUser p').html(sessionStorage.getItem('apellidos'));
+    $('#apellidosUser input').attr('value', sessionStorage.getItem('apellidos'));
+    
+    $('#emailUser p').html(sessionStorage.getItem('email'));
+    $('#emailUser input').attr('value', sessionStorage.getItem('email'));
+    
+    $('#direccionUser p').html(sessionStorage.getItem('direccion'));
+    $('#direccionUser input').attr('value', sessionStorage.getItem('direccion'));
+    
+    $('#cpUser p').html(sessionStorage.getItem('cp'));
+    $('#cpUser input').attr('value', sessionStorage.getItem('cp'));
+}
 
 if (sessionStorage.getItem('idGrupo')==1){
     $('#grupoUser p').html('Madrid')
@@ -50,6 +54,7 @@ if (sessionStorage.getItem('idGrupo')==1){
 
 $('#grupoSelect option[value='+sessionStorage.getItem('idGrupo')+']').attr("selected",true);
 
+cargarDatos()
 
 $(document).ready(()=>{
 
@@ -88,13 +93,12 @@ $(document).ready(()=>{
     $('#cambiosBtn').off('click').on('click', function(){
         let datos = "user="+sessionStorage.getItem('idUsuario')+"&"+$('#perfilForm').serialize();
         send_post('cambiarDatosPersonales', datos)
-        // console.log($('#perfilForm').serialize())
     })
     // Contraseña
     $('#cambioPassBtn').off('click').on('click', function(){
         if ($('#pass1').val()!=$('#pass2').val()){
             $('#cambiarPass input').css('border','1px solid red');
-            $('#cambiarPass p').html('La contraseña no es correcta').css('color','red')
+            $('#cambiarPass p').html('Las contraseñas no coinciden').css('color','red')
         }else{
             $('#cambiarPass input').css('border','1px solid #ced4da');
             $('#cambiarPass p').html('<br>');
@@ -102,8 +106,6 @@ $(document).ready(()=>{
             send_post('cambiarPass',datos);
         }
     })
-
-
 
     // Pedidos
     $('#repetirPedido').off('click').on('click',function(){
@@ -116,14 +118,49 @@ $(document).ready(()=>{
                 cantidad : producto.eq(2).html(),
             }
             send_post('comprarProducto',datoLinea)
+            send_post('cargarPedidos', user)
         }
     })
 
     // Añadir prod nuevo
     $('#enviarNuevoProd').off('click').on('click', function(e){
-        e.preventDefault()
-        let img = $('#imgProd').prop('files')
-        let datos = $('#nuevoProdForm').serialize();
+        let datos = $('#nuevoProdForm').serialize()+"&user="+sessionStorage.getItem('idUsuario');
         send_post('nuevoProd', datos)
     })
+
+    // Subir foto
+    $('#fotoSubiendo').change(function(){
+        $.ajax({
+            type: "POST",
+            url: 'upload', 
+            data: new FormData($('#uploadForm')[0]),
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: 
+                function(data, status){
+                    $('#fotoSubida').val(data);
+                    $('#fotoCorrecta').css('display', 'inline-block')
+                },
+            error: 
+                function(err) {
+                    console.log( "error " + err.status + ' ' + err.statusText)
+                },
+            xhr: function () {
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) {
+                    // For handling the progress of the upload
+                    myXhr.upload.addEventListener('progress', function (e) {
+                    if (e.lengthComputable) {
+                        $('progress').attr({
+                        value: e.loaded,
+                        max: e.total,
+                        });
+                    }
+                    }, false);
+                }
+                return myXhr;
+                }
+            });
+        });	
 })

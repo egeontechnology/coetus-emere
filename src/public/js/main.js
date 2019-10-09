@@ -6,7 +6,6 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 swal("¡Usuario creado!", "", "success");
                 $('.swal-button--confirm').off('click').on('click', function(){
                     dataLogin = JSON.parse(data);
-                    console.log(dataLogin)
                     sessionStorage.setItem('login', true);
                     sessionStorage.setItem('idUsuario', dataLogin[0].idUsuario);
                     sessionStorage.setItem('nombre', dataLogin[0].nombre);
@@ -53,7 +52,6 @@ function procesa_datos_recibidos(data, status, accion, datos){
             };
             break;
         case 'cargarProductosCestas':
-            console.log(data);
             $('#productosCestasModal').html(data);
             break;
         case 'cargarProductosCategorias':
@@ -94,6 +92,7 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 sessionStorage.setItem('img', dataLogin[0].img);
                 sessionStorage.setItem('direccion', dataLogin[0].direccion);
                 sessionStorage.setItem('email', dataLogin[0].email);
+                sessionStorage.setItem('cp', dataLogin[0].codigoPostal);
                 window.location.href = "services.html";
             }
             break;
@@ -130,7 +129,13 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 sessionStorage.setItem('img', dataLogin[0].img);
                 sessionStorage.setItem('direccion', dataLogin[0].direccion);
                 sessionStorage.setItem('email', dataLogin[0].email);
+                sessionStorage.setItem('cp', dataLogin[0].codigoPostal);
+                sessionStorage.setItem('img', dataLogin[0].img);
                 $('#nombreApellidosUser').html(sessionStorage.getItem('nombre')+" "+sessionStorage.getItem('apellidos'))
+                $('.show').css('display','inline-block')
+                $('.edit').css('display','none')
+                $('#fotoCorrecta').css('display', 'none')
+                cargarDatos()
             }
             break;
         case 'cambiarPass':
@@ -151,7 +156,8 @@ function procesa_datos_recibidos(data, status, accion, datos){
             })
             break;
         case 'mostrarPedido':
-            $('#pedidoModal').html(data);
+            $('#pedidoModal').html(data.pedido);
+            
             break;
         case 'cargarMisProductos':
             $('#tablaMisProductos').html(data);
@@ -182,13 +188,39 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 },
                 "order": [[ 1, "asc" ]],
             });
+            // Borrar prod
+            $('.borrarProducto').off('click').on('click', function(){
+                let data = {
+                    idProd: $(this).parent().parent().attr('id'),
+                }
+                swal({
+                    title: "¿Estás seguro que quieres eliminar el producto?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                $('.swal-button--confirm').off('click').on('click',function(){
+                    send_post('eliminarProducto', data)
+                })
+            })
+            break;
+        case 'eliminarProducto':
+            if (data=='ok'){
+                let input = { user : sessionStorage.getItem('idUsuario')}
+                send_post('cargarMisProductos', input)
+            }
+            break;
+        case 'nuevoProd':
+            if (data=='ok'){
+                swal("¡Producto subido correctamente!", "", "success");
+                send_post('cargarMisProductos', user);
+            }
             break;
         case 'cargarEstadisticas':
             var ctx = document.getElementById('chart1').getContext('2d');
             var chart = new Chart(ctx, {
             // The type of chart we want to create
                 type: 'horizontalBar',
-
                 // The data for our dataset
                 data: {
                     labels: data.label,
@@ -199,7 +231,6 @@ function procesa_datos_recibidos(data, status, accion, datos){
                         data: data.datos
                     }]
                 },
-
                 // Configuration options go here
                 options: {
                     legend: {
@@ -265,7 +296,6 @@ $(document).ready(function(){
     $('#registrarBtn').off('click').on('click',function(){
         if($('#pass11').val()==$('#pass22').val() && $('#checkbox624').is(':checked')){
             let datos = "nombre="+$('#nombreRegistro').val()+"&apellidos="+$('#apellidosRegistro').val()+"&email="+$('#emailRegistro').val()+"&rol="+$('#registroForm .radio input[checked]').attr('name')+"&pass="+CryptoJS.SHA3($('#pass11').val(),{ outputLength: 512 });
-            console.log(datos)
             send_post('registrar',datos);
         }else{
             $('#pass11').css('border','1px solid red');

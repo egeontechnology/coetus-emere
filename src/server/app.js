@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql');
+const fileUpload = require('express-fileupload');
 
 
 // Se crea ruta de archivos estáticos
@@ -8,7 +9,8 @@ app.use("/", express.static("./../public"));
 
 // Se añade funcionalidad para interpretar JSON
 app.use(express.json()) 
-app.use(express.urlencoded({ extended: true })) 
+app.use(express.urlencoded({ extended: true }))
+app.use(fileUpload());
 
 
 //Conecta con la base de datos
@@ -44,7 +46,6 @@ app.post('/login', (req, res) =>{
 app.post('/registrar', (req, res) =>{
     // Acceso al valor del objeto
     const cond = req.body
-    console.log(cond)
     con.query("INSERT INTO `coetus-emere`.`tusuarios` (`nombre`, `apellidos`, `email`, `rol`, `password`, `img`) VALUES ('"+cond.nombre+"', '"+cond.apellidos+"', '"+cond.email+"', '"+cond.rol+"', '"+cond.pass+"', 'images/noimage.jpg');", function (err, result, fields) {
         if (err) throw err;
         con.query("select * from tusuarios where email='"+cond.email+"';", function (err, result, fields) {
@@ -167,7 +168,7 @@ app.post('/comprarProducto', (req,res)=>{
         // En caso de que no tenga un pedido pendiente
         }else{
             // Se crea un nuevo pedido
-            con.query("INSERT INTO `coetus-emere`.`tpedidos` (`idUsuario`, `estado`) VALUES ('"+cond.idUsuario+"', 'pendiente');", function (err, result, fields) {
+            con.query("INSERT INTO `coetus-emere`.`tpedidos` (`idUsuario`, `estado`, `fecha`) VALUES ('"+cond.idUsuario+"', 'pendiente', '11-10-2019');", function (err, result, fields) {
                 if (err) throw err;
             });
             // Se busca el id del nuevo pedido
@@ -206,8 +207,9 @@ app.post('/cargarCarrito', (req, res) => {
             carrito += '<div class="col-2 coste infoGrande">'+result[i].precio+' €</div>';
             carrito += '<div class="col-1 coste infoGrande">'+result[i].cantidad+'</div>';
             carrito += '<div class="col-2 coste infoGrande"><strong>'+result[i].total+' €</strong></div>';
-            carrito += '<div class="col-1"><img src="images/close.png" alt="" class="delete"></div></div>'
+            carrito += '<div class="col-1"><i class="fas fa-times delete"></i></div></div>'
         }
+        totalPedido = Math.round(totalPedido*100)/100
 
         let rta = {
             carrito : carrito, 
@@ -244,9 +246,9 @@ app.post('/cambiarDatosPersonales', (req, res) => {
     const cond = req.body;
 
     // Query de MySQL
-    con.query("UPDATE `coetus-emere`.`tusuarios` SET `nombre` = '"+cond.nombre+"', `apellidos` = '"+cond.apellidos+"', `email` = '"+cond.email+"', `direccion` = '"+cond.direccion+"', `codigoPostal` = '"+cond.cp+"', `idGrupo` = '"+cond.grupo+"'  WHERE (`idUsuario` = '"+cond.user+"');", function (err, result, fields) {
+    con.query("UPDATE `coetus-emere`.`tusuarios` SET `nombre` = '"+cond.nombre+"', `apellidos` = '"+cond.apellidos+"', `email` = '"+cond.email+"', `direccion` = '"+cond.direccion+"', `codigoPostal` = '"+cond.cp+"', `img`='"+cond.fotoSubida+"', `idGrupo` = '"+cond.grupo+"'  WHERE (`idUsuario` = '"+cond.user+"');", function (err, result, fields) {
         if (err) throw err;
-        con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, email, direccion FROM `coetus-emere`.tusuarios where idUsuario='"+cond.user+"';", function (err, result, fields) {
+        con.query("SELECT idUsuario, nombre, apellidos, rol, idGrupo, img, email, direccion, codigoPostal FROM `coetus-emere`.tusuarios where idUsuario='"+cond.user+"';", function (err, result, fields) {
             if (err) throw err;
             if(result.length != 0) {
                 resultado = JSON.stringify(result)
@@ -295,6 +297,7 @@ app.post('/mostrarPedido', (req, res) => {
     const cond = req.body.idPedido;
 
     let pedido = '';
+    let totalP = '';
     let totalPedido = 0;
 
 
@@ -307,8 +310,13 @@ app.post('/mostrarPedido', (req, res) => {
             pedido += "<div class='col-2 my-4'>"+result[i].total+"€</div></div>";
             totalPedido += result[i].total;
         }
-        pedido += "<div class='col-12 py-4'><div id='totalPedidoModal'>TOTAL : <span id='impotePedido'>" +totalPedido+"</span>€</div></div>"
-        res.send(pedido)
+        totalPedido = Math.round(totalPedido*100)/100
+        totalP = "<div class='col-12 py-4'><div id='totalPedidoModal'>TOTAL : <span id='impotePedido'>" +totalPedido+"</span>€</div></div>"
+        let output = {
+            pedido : pedido,
+            totalP : totalP
+        }
+        res.send(output)
     });
 })
 
@@ -316,12 +324,12 @@ app.post('/cargarMisProductos', (req, res) => {
     // Acceso al valor del objeto
     const cond = req.body.user;
     // Se inicializa variable respuesta
-    table = '<table id="tabla1" class="display table-striped" style="width:100%"><thead><tr><th>Nombre del producto</th><th>Stock</th><th>Precio (€)</th></tr></thead><tbody>';
+    table = '<table id="tabla1" class="display table-striped" style="width:100%"><thead><tr><th>Nombre del producto</th><th>Stock</th><th>Precio (€)</th><th></th></tr></thead><tbody>';
 
-    con.query("SELECT nombre, stock, precio FROM `coetus-emere`.tproductos where idUsuario="+cond, function (err, result, fields) {
+    con.query("SELECT idProducto, nombre, stock, precio FROM `coetus-emere`.tproductos where idUsuario="+cond, function (err, result, fields) {
         if (err) throw err;
         for(var i=0; i<result.length; i++){
-            table += '<tr><td>'+result[i].nombre+'</td><td>'+result[i].stock+'</td><td>'+result[i].precio+'</td></tr>'
+            table += '<tr id='+result[i].idProducto+'><td>'+result[i].nombre+'</td><td>'+result[i].stock+'</td><td>'+result[i].precio+'</td><td><i class="fas fa-times borrarProducto"></i></td></tr>'
         }
         table += '</tbody></table>'
         res.send(table);
@@ -331,15 +339,24 @@ app.post('/cargarMisProductos', (req, res) => {
 app.post('/nuevoProd', (req, res) => {
     // Acceso al valor del objeto
     const cond = req.body;
-    // const img = req.file;
-    // console.log(img)
-    console.log(cond)
 
-    // con.query("SELECT nombre, stock, precio FROM `coetus-emere`.tproductos where idUsuario="+cond, function (err, result, fields) {
-    //     if (err) throw err;
 
-    // });
+    con.query("INSERT INTO `coetus-emere`.`tproductos` (`nombre`, `img`, `precio`, `stock`, `Tipo`,`idUsuario`) VALUES ('"+cond.nombreProd+"', '"+cond.fotoSubida+"', '"+cond.precioProd+"', '"+cond.stockProd+"', '"+cond.tipoProd+"', '"+cond.user+"');", function (err, result, fields) {
+        if (err) throw err;
+        res.send('ok')
+    });
 })
+
+app.post('/eliminarProducto', (req, res) => {
+    // Acceso al valor del objeto
+    const cond = req.body;
+
+    // // Query de MySQL
+    con.query("DELETE FROM `coetus-emere`.`tproductos` WHERE (`idProducto` = '"+cond.idProd+"');", function (err, result, fields) {
+        if (err) throw err;
+        res.send('ok')
+    })
+});
 
 app.post('/cargarEstadisticas', (req, res) => {
     // Acceso al valor del objeto
@@ -363,6 +380,16 @@ app.post('/cargarEstadisticas', (req, res) => {
         res.send(output);
     });
 })
+
+app.post('/upload', function(req, res) {
+    let foto = req.files.foto;
+    let temp = 'images/'
+    let rutaCliente = temp.concat(foto.name)
+    temp = './../public/'
+    let path = temp.concat(rutaCliente);
+    foto.mv(path)
+    res.send(rutaCliente)
+});
 
 
 // Se configura el puerto del servidor 
