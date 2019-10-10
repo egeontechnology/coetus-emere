@@ -242,4 +242,15 @@
 	}
 }
 
+@media(max-width: 1200px){
+	#txtPlato{
+		margin-left: 30px;
+		margin-top: 0px;
+		margin-left: 30px;
+	}
+	#comeSaludable{
+		width: 80%;
+	}
+}
+
 /* ---------------------RESPONSIVE---------------*/
