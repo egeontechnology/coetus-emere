@@ -103,7 +103,7 @@ function procesa_datos_recibidos(data, status, accion, datos){
             send_post('cargarCarrito', dato)
             break;
         case 'eliminar':
-            
+
             break;
         case 'cargarCarrito':
             $('#articulosCesta').html(data.carrito);
@@ -202,6 +202,7 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 let data = {
                     idProd: $(this).parent().parent().attr('id'),
                 }
+                console.log('aaaa')
                 swal({
                     title: "¿Estás seguro que quieres eliminar el producto?",
                     icon: "warning",

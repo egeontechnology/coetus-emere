@@ -42,15 +42,18 @@ function cargarDatos (){
     
     $('#cpUser p').html(sessionStorage.getItem('cp'));
     $('#cpUser input').attr('value', sessionStorage.getItem('cp'));
+
+    if (sessionStorage.getItem('idGrupo')==1){
+        $('#grupoUser p').html('Madrid')
+    }else if(sessionStorage.getItem('idGrupo')==2){
+        $('#grupoUser p').html('Barcelona')
+    }else{
+        $('#grupoUser p').html('')
+    }
+
+    $('#fotoUser input').val(sessionStorage.getItem('img'))
 }
 
-if (sessionStorage.getItem('idGrupo')==1){
-    $('#grupoUser p').html('Madrid')
-}else if(sessionStorage.getItem('idGrupo')==2){
-    $('#grupoUser p').html('Barcelona')
-}else{
-    $('#grupoUser p').html('')
-}
 
 $('#grupoSelect option[value='+sessionStorage.getItem('idGrupo')+']').attr("selected",true);
 
