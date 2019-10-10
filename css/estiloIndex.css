@@ -149,12 +149,18 @@
 	font-size: 25px;
 }
 #txtPlato{
-	margin-top: -900px;
+	margin-top: -700px;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 .textoCirculo{	
 	z-index: 3;
 }
+.space{
+	margin-left: 40px;
+}
 .circulo {
+	float: left;
      width: 20px;
      height: 20px;
      -moz-border-radius: 50%;
