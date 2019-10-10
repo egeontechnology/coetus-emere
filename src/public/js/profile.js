@@ -130,6 +130,7 @@ $(document).ready(()=>{
 
     // Subir foto
     $('#fotoSubiendo').change(function(){
+        console.log('llega')
         $.ajax({
             type: "POST",
             url: 'upload', 
@@ -162,5 +163,42 @@ $(document).ready(()=>{
                 return myXhr;
                 }
             });
-        });	
+    });	
+
+    $('#fotoSubiendo2').change(function(){
+        $.ajax({
+            type: "POST",
+            url: 'upload2', 
+            data: new FormData($('#uploadForm2')[0]),
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: 
+                function(data, status){
+                    $('#fotoSubida2').val(data);
+                    $('#fotoCorrecta2').css('display', 'inline-block')
+                },
+            error: 
+                function(err) {
+                    console.log( "error " + err.status + ' ' + err.statusText)
+                },
+            xhr: function () {
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) {
+                    // For handling the progress of the upload
+                    myXhr.upload.addEventListener('progress', function (e) {
+                    if (e.lengthComputable) {
+                        $('progress').attr({
+                        value: e.loaded,
+                        max: e.total,
+                        });
+                    }
+                    }, false);
+                }
+                return myXhr;
+                }
+            });
+    })
+
+    
 })

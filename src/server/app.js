@@ -26,7 +26,6 @@ con.connect((err) => {
 	console.log('¡Conectado a la base de datos!');
 });
 
-
 // Login en la aplicación
 app.post('/login', (req, res) =>{
     // Acceso al valor del objeto
@@ -228,6 +227,7 @@ app.post('/eliminarLinea', (req, res) => {
     // Query de MySQL
     con.query("DELETE FROM `coetus-emere`.`tlineaspedido` WHERE (`idLinea` = '"+cond.idLinea+"');", function (err, result, fields) {
         if (err) throw err;
+        res.send('ok')
     })
 });
 
@@ -238,6 +238,7 @@ app.post('/eliminarCarrito', (req, res) => {
     // Query de MySQL
     con.query("delete lp FROM `coetus-emere`.`tlineaspedido` lp inner join tpedidos p on lp.idPedido=p.idPedido WHERE (`idUsuario` = "+cond.idUsuario+" AND `estado`='pendiente')", function (err, result, fields) {
         if (err) throw err;
+        res.send('ok')
     })
 });
 
@@ -382,6 +383,16 @@ app.post('/cargarEstadisticas', (req, res) => {
 })
 
 app.post('/upload', function(req, res) {
+    let foto = req.files.foto;
+    let temp = 'images/'
+    let rutaCliente = temp.concat(foto.name)
+    temp = './../public/'
+    let path = temp.concat(rutaCliente);
+    foto.mv(path)
+    res.send(rutaCliente)
+});
+
+app.post('/upload2', function(req, res) {
     let foto = req.files.foto;
     let temp = 'images/'
     let rutaCliente = temp.concat(foto.name)

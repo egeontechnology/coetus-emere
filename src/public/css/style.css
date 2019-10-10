@@ -20,6 +20,8 @@ nav img{
 
 #homeNavbar{
     font-weight: 600;
+    position: relative;
+    bottom: 4px;
 }
 
 #iconosNavbar{

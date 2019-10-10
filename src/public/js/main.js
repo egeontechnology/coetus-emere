@@ -96,6 +96,15 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 window.location.href = "services.html";
             }
             break;
+        case 'eliminarLinea':
+            let dato = {
+                idUsuario: sessionStorage.getItem('idUsuario'),
+            }
+            send_post('cargarCarrito', dato)
+            break;
+        case 'eliminar':
+            
+            break;
         case 'cargarCarrito':
             $('#articulosCesta').html(data.carrito);
             $('#totalPedido').html(data.totalPedido);
@@ -134,7 +143,7 @@ function procesa_datos_recibidos(data, status, accion, datos){
                 $('#nombreApellidosUser').html(sessionStorage.getItem('nombre')+" "+sessionStorage.getItem('apellidos'))
                 $('.show').css('display','inline-block')
                 $('.edit').css('display','none')
-                $('#fotoCorrecta').css('display', 'none')
+                $('#fotoCorrecta2').css('display', 'none')
                 cargarDatos()
             }
             break;

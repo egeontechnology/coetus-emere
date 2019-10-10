@@ -2,21 +2,21 @@
 
 .carousel-inner img {
     width: 100%;
-	height: 93vh;
-	object-fit: cover;
-  }
+    height: 93vh;
+    object-fit: cover;
+}
 
-.tituloBanner{
-	padding-bottom: 15%;
+.tituloBanner {
+    padding-bottom: 15%;
 }
 
 
 
 @media(min-width: 768px) and (max-width: 991.98px) {
-    .tituloBanner{
-    padding-bottom: 5%;
-    font-size: 30%;
-}
+    .tituloBanner {
+        padding-bottom: 5%;
+        font-size: 30%;
+    }
 }
 
 /* @media(min-width: 991.98px) {
@@ -31,162 +31,310 @@
 /*----------------------------Slider---------------------------*/
 
 
-.soberaniaAlimentaria{
-	padding-top: 100px;
-	padding-bottom: 100px;
-	padding-right: 50px;
-	padding-left: 50px;
-	text-align: center;
-}
-
-.soberaniaAlimentaria h2{
-	color: #000000;
-	font-weight: 800;
-	text-transform: uppercase;
-	font-size: 50px;
-	font-family: 'Lalezar', cursive;
-}
-
-
-.soberaniaAlimentaria h3{
-	padding-top: 20px;
-	color: #727272;
-	font-family: 'Thasadith', sans-serif;
-}
-
-#btnMas{
-	padding: 20px;
-	margin-top: 50px;
-	font-size: 30px;
-	font-family: 'Thasadith', sans-serif;
-}
-
-/*Franjas con info para consumidores y productores*/
-#comoConsumidor{
-	background-color: #009f4d;
-	height: 100px;
-	text-align: center;
-	text-transform: uppercase;
-	color: white;	
-}
-
-#comoConsumidor h2{
-	padding-top: 40px;
-	font-size:40px;
-	font-family: 'Lalezar', cursive;
-}
-
-#franjaCons{
-	background-color: #009f4d;
-	padding-top: 40px;
-	color: white;
+.soberaniaAlimentaria {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-right: 50px;
+    padding-left: 50px;
     text-align: center;
-    padding-bottom: 30px;
 }
 
-#franjaCons h4{
-	font-family: 'Thasadith', sans-serif;
+.soberaniaAlimentaria h2 {
+    color: #000000;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-family: 'Lalezar', cursive;
+}
+
+
+.soberaniaAlimentaria h3 {
+    padding-top: 20px;
+    color: #727272;
+    font-family: 'Thasadith', sans-serif;
+}
+
+#btnMas {
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 30px;
+    font-family: 'Thasadith', sans-serif;
+}
+
+
+/*-----------------Retos--------------------*/
+
+.retos {
+    text-align: center;
+    margin-top: 15px;
+    /* padding-right: 27px; */
+    font-size: 20px;
     font-weight: bold;
 }
 
-
-/*---------------------------------------------------------------------*/
-#comoProductor{
-	height: 100px;
-	text-align: center;
-	text-transform: uppercase;
-	color: #009f4d;
+.circle {
+    height: 175px;
+    width: 100%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-size: 100% auto;
+    border: solid 3px #009f4d;
 }
 
-#comoProductor h2{
-	padding-top: 40px;
-	font-size:40px;
-	font-family: 'Lalezar', cursive;
+#divColCirc div{
+    margin-left: 15px;
+    margin-right: 15px;
+} 
+
+.colcircles {
+    /* margin-left: 55px; */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-#franjaProd{
-	color: #009f4d;
-	padding-top: 40px;
-	text-align: center;
-    padding-bottom: 30px;    
+/*----------------Plato. Beneficios del consumo ecológico---------------*/
+
+#alimentosEco {
+    margin-top: 80px;
 }
 
-#franjaProd h4{
-	font-family: 'Thasadith', sans-serif;
-    font-weight: bold;
+.txtDerecha {
+    text-align: right;
+    margin-top:-110px;
 }
+
+
+
+#alimentosEco p {
+    font-size: 18px;
+    text-align: justify;
+}
+
+#alimentosEco h4 {
+    font-size: 25px;
+}
+
+#txtPlato {
+    margin-top: -700px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.textoCirculo {
+    z-index: 3;
+}
+
+.space {
+    margin-left: 40px;
+}
+
+.point {
+    float: left;
+    width: 20px;
+    height: 20px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #5cb85c;
+
+}
+
+#comeSaludable {
+    width: 40%;
+    display: block;
+    margin: auto;
+    width: 30;
+    margin-bottom: 220px;
+}
+
+/*----------------/Plato. Beneficios del consumo ecológico---------------*/
+/*-----------------grupos--------------------*/
+
+.icon-box {
+    width: 50%;
+    margin-top: 9px;
+}
+
+.box-title {
+    margin-top:4px;
+}
+
+.flip-box {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    margin-bottom: 30px;
+    /* margin-left: 80px; */
+}
+
+.flip-box-inner {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-box-front {
+    color: white;
+    background-color: green;
+}
+
+.flip-box-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+    font-size:8px;
+}
+
 
 /*-----------------Franja Unete--------------------*/
-#franjaUnete{
+
+.title-index {
+    font-family: 'Varela Round', sans-serif;
+    text-align: center;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    font-size: 55px;
+}
+
+.text-unete {
+    text-align: justify;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 18px;
+
+}
+
+.picture-unete {
+    width: 60%;
+    position: relative;
+    left: 90px;
+}
+
+#franjaUnete button{
+    font-size: 28px;
+}
+
+.h2-unete {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    font-size: 35px;
+}
+
+#franjaUnete {
     background-size: 1600px;
-    height: 300px;
-    background-image: url(file:///C:/Users/Psyndrome/Desktop/Espacio/EOI/Lahuertaencasa/coetus-emere/images/franja_lechuga.jpg); 
+    height: 250px;
+    text-align: center;
 }
 
-.boton{
-	padding: 20px;
-	margin-top: 50px;
-	font-size: 30px;
-	font-family: 'Thasadith', sans-serif;
-	margin-top:10%;
+.boton {
+    padding: 20px;
+    margin-top: 100px;
+    font-size: 30px;
+    font-family: 'Thasadith', sans-serif;
+    border-radius: 8px;
+    border: 2px solid #191818;
+    color: #fff;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-right: 15px;
 }
 
-/*----------------Franja Unete--------------------*/
+#bton-unirme {
+    background-color: #009f4d;
+}
 
+#bton-consulta {
+    background-color: #c6c276;
+}
+
+a#bton-consulta {
+    color: #FEFEFE;
+}
+
+#bton-consulta:hover {
+    border: 2px solid #1f201f !important;
+    background-color: #138496;
+    color: #fff;
+}
+
+#bton-unirme:hover {
+    border: 2px solid #1f201f !important;
+    background-color: #138496;
+    color: #fff;
+}
 
 
 /*----------------Suscríbete----------------------*/
-#franjaSuscripcion{
-	background-color: rgba(165, 167, 184, 0.2);
-}
-#suscribete{
-	padding-top: 30px;
-	padding-bottom: 30px;
-	padding-left: 15px;
-	padding-right: 15px;
-	font-size: 25px; 
-	font-weight: 600;
-	text-align: center;
-	color: #646464;
+#franjaSuscripcion {
+    background-color: rgba(165, 167, 184, 0.2);
 }
 
-#suscribete p{
-	font-family: 'Thasadith', sans-serif;
+#suscribete {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #646464;
 }
 
-#suscribete h4{
-	padding-top: 20px;
-	font-size: 40px !important;
-	font-weight: 700 !important; 
-	text-transform: uppercase;
+#suscribete p {
+    font-family: 'Thasadith', sans-serif;
 }
 
-.colorNews{
-	color: #009f4d;
+#suscribete h4 {
+    padding-top: 20px;
+    font-size: 40px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.colorNews {
+    color: #009f4d;
 }
 
 
 
 /*falta hacer responsive el formulario para que se mantenga en una sola línea*/
-#formEmail form{	
-	justify-content: center; 
+#formEmail form {
+    justify-content: center;
 }
 
 
-#suscripcion_email{
-	padding: 10px;
-	font-size: 30px;
-	font-family: 'Thasadith', sans-serif;
-	font-weight: 600;
-	width: 40vw;
+#suscripcion_email {
+    padding: 10px;
+    font-size: 30px;
+    font-family: 'Thasadith', sans-serif;
+    font-weight: 600;
+    width: 40vw;
 }
 
-#btnSuscribir{
-	padding: 10px;
-	font-size: 30px;
-	font-family: 'Thasadith', sans-serif;
-	font-weight: 600;
-	
+#btnSuscribir {
+    padding: 10px;
+    font-size: 30px;
+    font-family: 'Thasadith', sans-serif;
+    font-weight: 600;
+
 }
 
 /*-----------------------Suscríbete----------------------*/
@@ -194,22 +342,25 @@
 
 
 /* ---------------------RESPONSIVE---------------*/
-@media(max-width: 425px){
-	.boton{
-		padding: 20px;
-		margin-top: 50px;
-		font-size: 20px;
-	}
-	#suscripcion_email{
-		font-size: 15px;
-	}
-	#btnSuscribir{
-		font-size: 15px;
-		margin-top: -15px;	
-	}
-	.espacio{
-		margin-top: 20px;
-	}
+@media(max-width: 425px) {
+    .boton {
+        padding: 20px;
+        margin-top: 50px;
+        font-size: 20px;
+    }
+
+    #suscripcion_email {
+        font-size: 15px;
+    }
+
+    #btnSuscribir {
+        font-size: 15px;
+        margin-top: -15px;
+    }
+
+    .espacio {
+        margin-top: 20px;
+    }
 }
 
 /* ---------------------RESPONSIVE---------------*/
