@@ -1,0 +1,1 @@
+INSERT INTO `coetus-emere`.tsuscripcion(email) VALUES ('canallita@gmail.com');
