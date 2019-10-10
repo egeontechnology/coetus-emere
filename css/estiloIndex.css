@@ -139,6 +139,9 @@
 	text-transform: uppercase;
 	font-family: 'Lalezar', cursive;
 }
+.txtDerecha{
+	text-align: right;
+}
 #alimentosEco p{
 	font-size: 18px;
 }
